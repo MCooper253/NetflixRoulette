@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
-import Button from '../Components/Button.js';
+import Body from './Body.js';
+import Header from "./Header.js";
 
 const App = () => {
 
     return (
-        <Button />
+        <>
+        <Header />
+        </>
     );
 };
 

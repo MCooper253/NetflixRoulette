@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 
-const Button = () => {
-    const [state, setState] = useState("CLICK ME");
+const Button = (props) => {
 
-    return <button onClick={() => {
-        state === "CLICK ME" ? setState("CLICKED") : setState("CLICK ME")}
-    }>{state}</button>;
+    return <button onClick={props.onClick}>{props.caption}</button>;
+};
+
+Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    caption: PropTypes.string.isRequired
 };
 
 export default Button;
