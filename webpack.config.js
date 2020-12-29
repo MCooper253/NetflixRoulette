@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const dotenv = require('dotenv');
+dotenv.config();
 
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -8,7 +10,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   });
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     entry: {
         index: './src/index.js'
     },
@@ -20,6 +22,9 @@ module.exports = {
                 use: ["babel-loader"]
             }
         ]
+    },
+    devServer: {
+        open: true
     },
     plugins: [
         htmlPlugin

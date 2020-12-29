@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 
+console.dir(process.env.NODE_ENV)
+
 function App() {
     const [state, setState] = useState("CLICK ME");
 

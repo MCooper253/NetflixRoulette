@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "Will run future test scripts.",
-    "start": "webpack serve"
+    "start": "webpack serve -open 'Google Chrome'"
   },
   "author": "Morgan Cooper",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
