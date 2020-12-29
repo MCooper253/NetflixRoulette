@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../Components/Button.js';
+import Button from '../../Components/Button.js';
 
 const SeacrhBar = () => {
 
