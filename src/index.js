@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 
-console.dir(process.env.NODE_ENV)
-
-function App() {
-    const [state, setState] = useState("CLICK ME");
-
-    return <button onClick={() => {
-        state === "CLICK ME" ? setState("CLICKED") : setState("CLICK ME")}
-    }>{state}</button>;
-}
+import App from "./app/Containers/App.js"
 
 render(<App />, document.getElementById("root"));
