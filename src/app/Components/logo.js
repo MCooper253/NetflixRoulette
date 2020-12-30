@@ -2,7 +2,7 @@ import React from "react";
 
 const Logo = (props) => {
 
-    return <h3><span>netflix</span>roulette</h3>;
+    return <p><b>netflix</b>roulette</p>;
 };
 
 export default Logo;
