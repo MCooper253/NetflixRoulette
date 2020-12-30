@@ -1,0 +1,36 @@
+@import '_vairables';
+
+header {
+    margin: 0 4rem 0 4rem;
+    nav {
+        span {
+            font-weight: bolder !important;
+        }
+        button {
+            float: right;
+            display: block;
+            border: 0px;
+            padding: 10px;
+        }
+    }
+}
+
+.searchWrapper {
+    h1 {
+        margin-bottom: 4rem;
+    }
+    padding: 2rem 4rem 2rem 4rem;
+    .form {
+        display: flex;
+        input {
+            flex-grow: 1;
+            padding: 1rem;
+        }
+        button {
+            background-color: $pink;
+            color: white;
+            width: 10rem;
+            margin-left: 1rem;
+        }
+    }
+}

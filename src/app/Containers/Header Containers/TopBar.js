@@ -6,10 +6,10 @@ import Button from '../../Components/Button.js';
 const TopBar = () => {
 
     return (
-        <div>
+        <nav>
+        <Button caption='+ ADD MOVIE' onClick={e=>e.preventDefault()} />
         <Logo />
-        <Button caption='+ Movie' onClick={e=>e.preventDefault()} />
-        </div>
+        </nav>
     )
 };
 

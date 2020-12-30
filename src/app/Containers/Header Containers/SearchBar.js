@@ -5,10 +5,10 @@ import Button from '../../Components/Button.js';
 const SeacrhBar = () => {
 
     return (
-        <form>
+        <div className='form'>
             <input type="text" name="Search Criteria" />
             <Button caption="Search" onClick={onSearch} />
-        </form>
+        </div>
     )
 };
 
