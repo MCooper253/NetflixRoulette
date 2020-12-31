@@ -1,0 +1,54 @@
+@import '_vairables';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+main {
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: $white;
+    background-color: $darkGrey;
+    padding: 0rem 5rem;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0.9rem;
+
+        li[name='all'], li[name='documentary'], li[name='horror'], li[name='comedy'], li[name='crime'] {
+            float: left;
+        }
+        li[name='sort'], li[name='select'] {
+            float: right;
+        }
+
+        li {
+            border-bottom: solid $grey;
+            border-width: 0.2rem;
+            padding: 1rem 0rem;
+            margin: 0 1rem;
+        }
+
+        li[name='all'] {
+            margin-left: 0;
+        }
+
+        li[name='select'] {
+            margin-right: 0;
+        }
+    }
+
+    img {
+        height: 30rem
+    }
+
+    .filmList {
+        padding-top: 5rem
+    }
+
+    .navBarWrapper {
+        border-bottom: solid $grey;
+        border-width: 0.2rem;
+        height: 3.1rem
+    }
+}

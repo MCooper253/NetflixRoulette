@@ -6,7 +6,7 @@ const SeacrhBar = () => {
 
     return (
         <div className='form'>
-            <input type="text" name="Search Criteria" />
+            <input type="text" name="Search Criteria" placeholder="What do you want to watch?"/>
             <Button caption="Search" onClick={onSearch} />
         </div>
     )
