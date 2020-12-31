@@ -5,8 +5,8 @@ import FilmList from './Body Containers/FilmList.js'
 const Body = () => {
     return(
         <main>
-        <NavBar />
-        <FilmList />
+            <NavBar />
+            <FilmList />
         </main>
     )
 };

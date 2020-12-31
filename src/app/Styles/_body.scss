@@ -4,7 +4,7 @@
 main {
 
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
+    font-weight: 400;
     color: $white;
     background-color: $darkGrey;
     padding: 0rem 5rem;
@@ -15,9 +15,18 @@ main {
         padding: 0;
         font-size: 0.9rem;
 
-        li[name='all'], li[name='documentary'], li[name='horror'], li[name='comedy'], li[name='crime'] {
+        li {
             float: left;
         }
+
+        li:hover {
+            border-color: $pink;
+        }
+
+        li[name='sort'], li[name='select'] {
+            border-color: $grey
+        }
+
         li[name='sort'], li[name='select'] {
             float: right;
         }
@@ -33,22 +42,49 @@ main {
             margin-left: 0;
         }
 
+        li[name='sort'] {
+            color:  #9b9b9b;
+        }
+
         li[name='select'] {
             margin-right: 0;
         }
     }
 
     img {
-        height: 30rem
+        height: 26rem
     }
 
     .filmList {
-        padding-top: 5rem
+        margin-top: 3rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .filmCard {
+        flex: 0 1 24%;
     }
 
     .navBarWrapper {
         border-bottom: solid $grey;
         border-width: 0.2rem;
         height: 3.1rem
+    }
+
+    .filmInfo {
+        position: relative;
+        color: #cecece;
+        button {
+            position: absolute;
+            color: #cecece;
+            top: 0px;
+            right: 0px;
+            background-color: rgb(0,10,0,0);
+            border: solid $grey
+        }
+        p {
+            margin-bottom: 3rem;
+        }
     }
 }
