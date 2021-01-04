@@ -61,13 +61,16 @@ const FilmList = () => {
         <section className='filmList'>
             {filmDatabase.map((input)=>{
                 return (
+                    //returns the film cards with film info and image.
                     <article key={input.id} className='filmCard' id={input.id}>
-                        <Button 
-                            onClick={(e) => {e.preventDefault()}}
-                            caption='edit'
-                            className='edit-button'
-                        />
-                        <img src={input.pictureURL} />
+                        <div className='image-container'>
+                            <Button 
+                                onClick={(e) => {e.preventDefault()}}
+                                caption=''
+                                className='edit-button'
+                            />
+                            <img src={input.pictureURL} />
+                        </div>
                         <FilmInfo
                             description={input.descriptionShort}
                             name={input.name}
