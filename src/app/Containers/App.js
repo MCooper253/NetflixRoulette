@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Body from './Body.js';
-import Header from "./Header.js";
+import Header from './Header.js';
+import Footer from './Footer.js'
 
 const App = () => {
 
@@ -9,6 +10,7 @@ const App = () => {
         <>
         <Header />
         <Body />
+        <Footer />
         </>
     );
 };

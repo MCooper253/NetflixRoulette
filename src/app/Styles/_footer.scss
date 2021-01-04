@@ -1,0 +1,14 @@
+@import 'vairables';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+footer {
+    font-family: 'Montserrat', sans-serif;
+    color: $pink;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: $grey;
+
+    p {
+        margin: 0;
+    }
+}
