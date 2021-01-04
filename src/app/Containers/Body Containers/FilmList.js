@@ -4,6 +4,7 @@ import PulpFictionImg from '../../Images/Pulp Fiction.png';
 import PointBreakImg from '../../Images/Point Break.png';
 
 import FilmInfo from '../../Components/FilmInfo.js';
+import Button from '../../Components/Button.js';
 
 
 //artifical database as no API calls are to be made at this ponit.
@@ -60,13 +61,18 @@ const FilmList = () => {
         <section className='filmList'>
             {filmDatabase.map((input)=>{
                 return (
-                    <article key={input.id} className='filmCard'>
-                    <img src={input.pictureURL} />
-                    <FilmInfo
-                        description={input.descriptionShort}
-                        name={input.name}
-                        year={input.year}
-                    />
+                    <article key={input.id} className='filmCard' id={input.id}>
+                        <Button 
+                            onClick={(e) => {e.preventDefault()}}
+                            caption='edit'
+                            className='edit-button'
+                        />
+                        <img src={input.pictureURL} />
+                        <FilmInfo
+                            description={input.descriptionShort}
+                            name={input.name}
+                            year={input.year}
+                        />
                     </article>
                 )
             })}
