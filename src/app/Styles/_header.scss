@@ -11,9 +11,6 @@ header {
     font-family: 'Montserrat', sans-serif;
 
     nav {
-        span {
-            font-weight: bold;
-        }
         button {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -28,10 +25,10 @@ header {
         p {
             color: $pink;
             font-size: 1.2rem;
-            font-weight: bold;
+            //font-weight: bold;
         }
         b {
-            font-weight: bolder;
+            font-weight: bold;
         }
     }
 }
