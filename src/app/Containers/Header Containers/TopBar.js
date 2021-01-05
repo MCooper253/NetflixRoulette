@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '../../Components/Logo.js';
 import Button from '../../Components/Button.js';
 
-
+//The Top 'nav' style bar at the top of the header.
 const TopBar = () => {
 
     return (

@@ -1,5 +1,7 @@
 import React from "react";
 
+//Importing saved images will not work dynamically when users start adding their own movies with movie urls.
+//These can be concideraed stock or fallback images.
 import PulpFictionImg from '../Images/Pulp Fiction.png'
 import PointBreakImg from '../Images/Point Break.png'
 
@@ -7,6 +9,7 @@ import NavBar from '../Components/NavBar.js'
 import FilmList from './Body Containers/FilmList.js'
 import MovieCounter from '../Components/MoiveCounter.js'
 
+// Body holds the film list as state to pass down to children (MovieCounter and FilmList both need data from this state).
 class Body extends React.Component {
     constructor (props) {
         super(props);

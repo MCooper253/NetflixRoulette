@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar.js';
 
+//Container for the Search components.
 const Search = () => {
 
     return (

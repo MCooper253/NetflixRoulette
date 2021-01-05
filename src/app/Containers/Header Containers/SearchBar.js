@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from '../../Components/Button.js';
 
+//Container for the ssearch input and search button.
 const SeacrhBar = () => {
 
     return (
@@ -12,6 +13,7 @@ const SeacrhBar = () => {
     )
 };
 
+//func hoisted above the class when script is compiled.
 const onSearch = (e) => {e.preventDefault()}
 
 export default SeacrhBar;

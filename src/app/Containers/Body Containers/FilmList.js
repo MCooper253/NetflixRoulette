@@ -3,8 +3,10 @@ import React from 'react'
 import FilmInfo from '../../Components/FilmInfo.js';
 import Button from '../../Components/Button.js';
 
-const FilmList = (props) => {
 
+//This is a conatiner that maps over film list (accepted as props) and returns all the film cards.
+//In the future the 'film card image' could do with being exported as a different component to tidy this up. 
+const FilmList = (props) => {
 
     return (
         <section className='filmList'>

@@ -1,5 +1,6 @@
 import React from 'react'
 
+//Nav Bar currently takes no props from Body, it is a sateless and propless component (currently).
 const NavBar = () => {
     return(
         <section className='navBarWrapper'>

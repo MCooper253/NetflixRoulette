@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+//Movie counter is a direct child of the Body container and takes a prop from it.
 const MovieCounter = (props) => {
 
     return(
