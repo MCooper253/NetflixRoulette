@@ -13,4 +13,8 @@ const TopBar = () => {
     )
 };
 
+const renderPopup = () => {
+    
+}
+
 export default TopBar;
