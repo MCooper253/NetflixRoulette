@@ -2,6 +2,7 @@ import React from 'react'
 
 import FilmInfo from '../../Components/FilmInfo.js';
 import Button from '../../Components/Button.js';
+import FilmCard from './FilmCard.js'
 
 
 //This is a conatiner that maps over film list (accepted as props) and returns all the film cards.
@@ -13,17 +14,11 @@ const FilmList = (props) => {
             {props.films.map((input)=>{
                 return (
                     //returns the film cards with film info and image.
-                    <article key={input.id} className='filmCard' id={input.id}>
-                        <div className='image-container'>
-                            <Button 
-                                onClick={(e) => {e.preventDefault()}}
-                                caption=''
-                                className='edit-button'
-                            />
-                            <img src={input.pictureURL} />
-                        </div>
-                        <FilmInfo
-                            description={input.descriptionShort}
+                    <article key={input.id} className='filmCard' id={props.id}>
+                        <FilmCard
+                            id={input.id}
+                            pictureURL={input.pictureURL}
+                            descriptionShort={input.descriptionShort}
                             name={input.name}
                             year={input.year}
                         />
