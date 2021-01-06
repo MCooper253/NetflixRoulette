@@ -9,7 +9,7 @@ const Button = (props) => {
     if (!props.className){
         return (
             <button onClick={props.onClick}>
-                {props.caption}
+                {props.caption ? props.caption : null}
             </button>
         )
     } else {
@@ -23,7 +23,7 @@ const Button = (props) => {
 
 Button.propTypes = {
     onClick: PropTypes.func.isRequired,
-    caption: PropTypes.string.isRequired,
+    caption: PropTypes.string,
     className: PropTypes.string
 };
 
