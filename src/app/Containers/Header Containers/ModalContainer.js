@@ -4,14 +4,18 @@ import disableScroll from 'disable-scroll';
 import Button from '../../Components/Button.js';
 import Modal from '../../Components/Modal.js';
 import AddMovieForm from '../../Components/AddMovieForm.js'
+import CongratsMessage from '../../Components/CongratsMessage.js'
 
 class ModalContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { displayAddFilmModal: false, showConfirmModal: false }; // set false for productoin
+        this.state = { displayAddFilmModal: false, displayConfirmModal: false }; // set false for productoin
 
         this.showAddFilmModal = this.showAddFilmModal.bind(this);
         this.closeAddFilmModal = this.closeAddFilmModal.bind(this);
+        this.closeConfirmModal = this.closeConfirmModal.bind(this);
+        this.showConfirmModal = this.showConfirmModal.bind(this);
+        this.onAddMovieSubmit = this.onAddMovieSubmit.bind(this);
     }
 
     showAddFilmModal() {
@@ -22,6 +26,21 @@ class ModalContainer extends React.Component {
         this.setState({ displayAddFilmModal: false });
     }
 
+    showConfirmModal() {
+        console.log('showConfirm done');
+        this.setState({ displayConfirmModal: true });
+    }
+
+    closeConfirmModal() {
+        console.log('closeAddMovie done');
+        this.setState({ displayConfirmModal: false });
+    }
+
+    onAddMovieSubmit() {
+        this.closeAddFilmModal();
+        this.showConfirmModal();
+    }
+
     render() {
         return (
             <>
@@ -29,8 +48,18 @@ class ModalContainer extends React.Component {
             {this.state.displayAddFilmModal ? (<Modal
                 closeModal={this.closeAddFilmModal}
                 title='ADD MOVIE'
-                innerComp={<AddMovieForm />}
+                innerComp={<AddMovieForm
+                    onSubmit={this.onAddMovieSubmit}
+                />}
             />) : null}
+            {this.state.displayConfirmModal ? (
+                <Modal
+                    closeModal={this.closeConfirmModal}
+                    title='CONGRATULATIONS!'
+                    innerComp={
+                        <CongratsMessage />
+                    }
+                />) : null}
             </>
         )
     }

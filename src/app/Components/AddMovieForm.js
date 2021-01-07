@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const AddMovieForm = () => {
+const AddMovieForm = (props) => {
 
     return (
-        <form onSubmit={e=>{e.preventDefault()}}>
+        <form onSubmit={props.onSubmit}>
             <label>TITLE</label><br />
             <input type='text' placeholder='Film title here' /><br />
             <label>RELEASE DATE</label><br />
@@ -23,6 +24,10 @@ const AddMovieForm = () => {
             <input type='button' value='RESET' />
         </form>
     )
+}
+
+AddMovieForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired
 }
 
 export default AddMovieForm;
