@@ -8,26 +8,26 @@ import AddMovieForm from '../../Components/AddMovieForm.js'
 class ModalContainer extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { isShown: false };
+        this.state = { displayAddFilmModal: false, showConfirmModal: false }; // set false for productoin
 
-        this.showModal = this.showModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
+        this.showAddFilmModal = this.showAddFilmModal.bind(this);
+        this.closeAddFilmModal = this.closeAddFilmModal.bind(this);
     }
 
-    showModal() {
-        this.setState({ isShown: true });
+    showAddFilmModal() {
+        this.setState({ displayAddFilmModal: true });
     }
 
-    closeModal() {
-        this.setState({ isShown: false });
+    closeAddFilmModal() {
+        this.setState({ displayAddFilmModal: false });
     }
 
     render() {
         return (
             <>
-            <Button caption='+ ADD MOVIE' onClick={this.showModal} />
-            {this.state.isShown ? (<Modal
-                closeModal={this.closeModal}
+            <Button caption='+ ADD MOVIE' onClick={this.showAddFilmModal} />
+            {this.state.displayAddFilmModal ? (<Modal
+                closeModal={this.closeAddFilmModal}
                 title='ADD MOVIE'
                 innerComp={<AddMovieForm />}
             />) : null}

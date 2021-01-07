@@ -15,11 +15,11 @@ const Modal = (props) => {
             <Logo />
                 <FocusTrap>
                     <aside className='modal'>
-                        <h1>{props.title}</h1>
                         <Button
                             onClick={props.closeModal}
                             image={Close}
                         />
+                        <h1>{props.title}</h1>
                         {props.innerComp}
                     </aside>
                 </FocusTrap>

@@ -19,8 +19,8 @@ const AddMovieForm = () => {
             <input type='text' placeholder='Overview here' /><br />
             <label>RUNTIME</label><br />
             <input type='text' placeholder='Runtime here' /><br />
-            <input type='button' value='RESET' />
             <input type='submit' value='CONFIRM' /> 
+            <input type='button' value='RESET' />
         </form>
     )
 }
