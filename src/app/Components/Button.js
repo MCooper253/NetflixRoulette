@@ -3,28 +3,22 @@ import PropTypes from 'prop-types';
 
 const Button = (props) => {
 
-    //every button in this application gets a caption and funciton to call on the onClick event.
-    //class name is an optional prop
+    //every button in this application gets a funciton to call on the onClick event.
+    //class name and caption are optional props.
 
-    if (!props.className){
-        return (
-            <button onClick={props.onClick}>
-                {props.caption ? props.caption : null}
-            </button>
-        )
-    } else {
-        return(
-            <button onClick={props.onClick} className={props.className}>
-                {props.caption}
-            </button>
-        )
-    }
+    return (
+        <button onClick={props.onClick} className={props.className ? props.className : null}>
+            {props.image ? <span><img src={props.image} /></span> : null}
+            {props.caption ? props.caption : null}
+        </button>
+    )
 };
 
 Button.propTypes = {
     onClick: PropTypes.func.isRequired,
     caption: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    image: PropTypes.string
 };
 
 export default Button;

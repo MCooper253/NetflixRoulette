@@ -2,6 +2,11 @@ body {
     margin: 0;
 }
 
+#root {
+    position: relative;
+}
+
 @import 'header';
 @import 'body';
 @import 'footer';
+@import 'modal';

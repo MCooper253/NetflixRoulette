@@ -3,25 +3,36 @@ import ReactDOM from 'react-dom';
 import FocusTrap from '../../../node_modules/focus-trap-react/dist/focus-trap-react.js';
 import PropTypes from 'prop-types';
 
-import Button from '../Components/Button.js'
+import Button from '../Components/Button.js';
+import Close from '../Images/close.png';
+import Logo from '../Components/Logo.js';
+import Footer from '../Containers/Footer.js'
 
 const Modal = (props) => {
 
     return ReactDOM.createPortal(
-        <FocusTrap>
-            <>
-                <h1>Hello, I'm Your Modal.</h1>
-                <Button
-                    onClick={props.closeModal}
-                />
-            </>
-        </FocusTrap>,
+        <div id='modal-container'>
+            <Logo />
+                <FocusTrap>
+                    <aside className='modal'>
+                        <h1>{props.title}</h1>
+                        <Button
+                            onClick={props.closeModal}
+                            image={Close}
+                        />
+                        {props.innerComp}
+                    </aside>
+                </FocusTrap>
+            <Footer />
+        </div>,
         document.body
     );
 };
 
 Modal.propTypes = {
-    closeModal: PropTypes.func.isRequired
+    closeModal: PropTypes.func.isRequired,
+    innerComp: PropTypes.object,
+    title: PropTypes.string
 }
 
 export default Modal

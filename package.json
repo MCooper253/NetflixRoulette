@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "disable-scroll": "^0.6.0",
     "dotenv": "^8.2.0",
     "focus-trap-react": "^8.3.2",
     "prop-types": "^15.7.2",
