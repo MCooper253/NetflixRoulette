@@ -9,6 +9,10 @@
     backdrop-filter: blur(5px);
     width: 100%;
     font-family: 'Montserrat', sans-serif;
+    height: min-content;
+    min-height: 100vh;
+    min-height: 100vh;
+    overflow: scroll;
 
     p {
         color: $pink;
@@ -44,6 +48,7 @@
             margin: 2rem 3rem;
         }
 
+        //this style if for congrats modal -------------
         p {
             font-size: 1rem;
             color: $white;
@@ -51,6 +56,7 @@
             text-align: center;
             margin-bottom: 32px;
         }
+        //--------------------------------------------------
 
         button {
             float: right;
@@ -123,9 +129,15 @@
     }
 
     footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         p {
             margin: 0;
         }
     }
 }
 
+#modal-container::-webkit-scrollbar {
+    display: none;
+  }

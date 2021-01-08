@@ -12,9 +12,10 @@ const FilmList = (props) => {
     return (
         <section className='filmList'>
             {props.films.map((input)=>{
+                const idCount=input.id
                 return (
                     //returns the film cards with film info and image.
-                    <article key={input.id} className='filmCard' id={props.id}>
+                    <article key={input.id} id={idCount} className='filmCard'>
                         <FilmCard
                             id={input.id}
                             pictureURL={input.pictureURL}

@@ -13,16 +13,16 @@ const Modal = (props) => {
     return ReactDOM.createPortal(
         <div id='modal-container'>
             <Logo />
-                <FocusTrap>
-                    <aside className='modal'>
-                        <Button
-                            onClick={props.closeModal}
-                            image={Close}
-                        />
-                        <h1>{props.title}</h1>
-                        {props.innerComp}
-                    </aside>
-                </FocusTrap>
+            <FocusTrap>
+                <aside className='modal'>
+                    <Button
+                        onClick={props.closeModal}
+                        image={Close}
+                    />
+                    <h1>{props.title}</h1>
+                    {props.innerComp}
+                </aside>
+            </FocusTrap>
             <Footer />
         </div>,
         document.body

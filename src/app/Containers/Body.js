@@ -91,7 +91,7 @@ class Body extends React.Component {
 
     render() {
         return (
-            <main>
+            <main id='main'>
                 <NavBar />
                 <MovieCounter count={this.state.films.length} />
                 <FilmList films={this.state.films} />

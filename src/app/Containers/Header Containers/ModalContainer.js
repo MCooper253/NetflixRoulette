@@ -27,12 +27,10 @@ class ModalContainer extends React.Component {
     }
 
     showConfirmModal() {
-        console.log('showConfirm done');
         this.setState({ displayConfirmModal: true });
     }
 
     closeConfirmModal() {
-        console.log('closeAddMovie done');
         this.setState({ displayConfirmModal: false });
     }
 
