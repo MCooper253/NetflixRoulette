@@ -8,7 +8,7 @@ const Button = (props) => {
 
     return (
         <button onClick={props.onClick} className={props.className ? props.className : null}>
-            {props.image ? <span><img src={props.image} /></span> : null}
+            {props.image ? <img src={props.image} /> : null}
             {props.caption ? props.caption : null}
         </button>
     )

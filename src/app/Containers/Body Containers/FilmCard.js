@@ -10,11 +10,13 @@ class FilmCard extends React.Component {
         super(props)
         this.state = {
             editButtonShown: false,
-            editMenueShown: false
+            editMenueShown: false,
+            modalShown: false
         }
 
         this.toggleEditButton = this.toggleEditButton.bind(this);
         this.toggleEditMenue = this.toggleEditMenue.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
     toggleEditButton() {
@@ -23,6 +25,10 @@ class FilmCard extends React.Component {
 
     toggleEditMenue() {
         this.setState({ editMenueShown: !this.state.editMenueShown });
+    }
+
+    toggleModal() {
+        this.setState({ modalShown: !this.state.modalShown });
     }
 
     render() {
@@ -39,14 +45,14 @@ class FilmCard extends React.Component {
                         /> : null
                     }
 
-                    { this.state.editMenueShown ? <EditDelete /> : null}
+                    { this.state.editMenueShown ? <EditDelete toggleEditMenue={this.toggleEditMenue} /> : null}
 
                     <FilmImage
                         img={this.props.pictureURL}
                     />
 
                 </div>
-                
+
                 <FilmInfo
                     description={this.props.descriptionShort}
                     name={this.props.name}

@@ -131,7 +131,7 @@ main {
             margin-bottom: 2rem;
             margin-top: 0;
             font-size: 0.8rem;
-            font-weight: 200;
+            font-weight:lighter;
         }
     }
 
@@ -151,6 +151,44 @@ main {
         position: absolute;
         margin: 1rem;
         color: $white;
+    }
+
+    .edit-menue {
+        position: absolute;
+        background-color: $black;
+        margin: 1rem;
+        width: 10rem;
+        padding-bottom: 0.3rem;
+        border-radius: 0.3rem;
+        img {
+            height: 1rem;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            button {
+                font-family: 'Montserrat', sans-serif;
+                padding: 0.3rem 0;
+                margin: 0.2rem 0;
+                width: 100%;
+                color: $white;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+            button:hover {
+                background-color: $pink;
+            }
+            list-style-type: none;
+        }
+        button {
+            margin: 0.3rem 0 0 0.3rem;
+            float:left;
+            padding: 0;
+            background: none;
+            border: none;
+        }
     }
 
 }

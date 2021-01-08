@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ModalContainer from '../Header Containers/ModalContainer.js'
+import ModalContainer from './AddMovieModalContainer.js'
 import Logo from '../../Components/Logo.js';
 import Button from '../../Components/Button.js';
 

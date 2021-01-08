@@ -6,6 +6,10 @@ body {
     position: relative;
 }
 
+button:focus {
+    border: none;
+}
+
 @import 'header';
 @import 'body';
 @import 'footer';
