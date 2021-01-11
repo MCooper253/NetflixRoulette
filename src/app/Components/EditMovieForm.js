@@ -14,6 +14,7 @@ class EditMovieForm extends React.Component {
             actionSelected: false,
             horrorSelected: false,
             crimeSelected:  false,
+            documentarySelected: false,
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -31,11 +32,13 @@ class EditMovieForm extends React.Component {
         const genre = e.target.title;
         const checkboxBackground = document.querySelectorAll(`li[title="${genre}"] img`)[0]; //selects the chekbox image
 
-        //toggles the state
+        //toggles the genreSelected state
         this.setState({[`${genre}Selected`]: !this.state[`${genre}Selected`]})
 
         !this.state[`${genre}Selected`] ?
+            // THIS LINE ADDS TO THE SELECTED GENRES ARRAY
             this.setState({selectedGenres: this.state.selectedGenres.concat(genre)}):
+            // THIS LINE REMOVES FROM THE SELECTED VECTOR ARRAY
             this.setState({selectedGenres: this.state.selectedGenres.filter(input => input !== genre)});
 
         //The below statement is negated (oposed to how you think the logic should be) as it runs before the state is changed becasue .setState is async.
@@ -66,6 +69,15 @@ class EditMovieForm extends React.Component {
         this.updateDisplayedGenres(this.state.selectedGenres);
     }
 
+    componentDidMount() {
+        
+        // THIS ENSURES THAT THE UI IS DISPLAYING WHAT CATAGORIES THE FILM IS ALREADY IN.
+        this.state.actionSelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('action')}) : null
+        this.state.documentarySelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('documentary')}) : null
+        this.state.crimeSelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('crime')}) : null
+        this.state.horrorSelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('horror')}) : null
+    }
+
     render () {
         return (
             <form onSubmit={this.props.onSubmit}>
@@ -85,6 +97,7 @@ class EditMovieForm extends React.Component {
                         horrorState={this.state.horrorSelected}
                         crimeState={this.state.crimeSelected}
                         actionState={this.state.actionSelected}
+                        documentaryState={this.state.documentarySelected}
                     />}
                 </div>
                 <label>OVERVIEW</label><br />

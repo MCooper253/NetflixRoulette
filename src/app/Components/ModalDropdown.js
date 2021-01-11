@@ -32,6 +32,14 @@ const ModalDropdown = (props) => {
                     />
                     Horror
                 </li>
+                <li onClick={props.toggleGenreState} title='documentary'>
+                    <img
+                        title='documentary'
+                        src={Check}
+                        style={props.documentaryState ? {backgroundColor: 'rgb(246, 82, 97)'} : null}
+                    />
+                    Documentary
+                </li>
             </ul>
         </div>
     )
