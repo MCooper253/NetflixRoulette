@@ -1,9 +1,5 @@
-import React from "react";
-
-//Importing saved images will not work dynamically when users start adding their own movies with movie urls.
-//These can be concideraed stock or fallback images.
-import PulpFictionImg from '../Images/Pulp Fiction.png'
-import PointBreakImg from '../Images/Point Break.png'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import NavBar from '../Components/NavBar.js'
 import FilmList from './Body Containers/FilmList.js'
@@ -16,35 +12,6 @@ class Body extends React.Component {
         super(props);
         this.state = {
             genreToRender: 'crime',
-            films: [{
-                title: 'Pulp Fiction',
-                tagline: 'foot massage',
-                vote_average: '8.9',
-                vote_count: '3294',
-                release_date: '2004-12-29',
-                poster_path: PulpFictionImg,
-                overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                budget: '300000',
-                revenue: '10000000',
-                runtime: '123',
-                genres: ['crime'],
-                id: '01'
-            },
-            {
-                title: 'Point Break',
-                tagline: 'surf n dolla bills',
-                vote_average: '8.2',
-                vote_count: '3224',
-                release_date: '2000-12-29',
-                poster_path: PointBreakImg,
-                overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                budget: '200000',
-                revenue: '1000000',
-                runtime: '156',
-                genres: ['crime'],
-                id: '02'
-            },
-        ]
         }
 
         this.setDisplayGenre = this.setDisplayGenre.bind(this);
@@ -57,7 +24,7 @@ class Body extends React.Component {
     }
 
     numberOfGenre(genre) {
-        const filmList = this.state.films;
+        const filmList = this.props.films;
         const filteredFilms = filmList.filter(film => film.genres.includes(genre));
         return genre === 'all' ? filmList.length : filteredFilms.length;
     }
@@ -67,10 +34,14 @@ class Body extends React.Component {
             <main id='main'>
                 <NavBar setDisplayGenre={this.setDisplayGenre} selectedGenre={this.state.genreToRender} />
                 <MovieCounter counter={this.numberOfGenre} selectedGenre={this.state.genreToRender} />
-                <FilmList films={this.state.films} displayGenre={this.state.genreToRender} />
+                <FilmList films={this.props.films} displayGenre={this.state.genreToRender} toggleShowFilmBody={this.props.toggleShowFilmBody} />
             </main>
         )
     }
+}
+
+Body.propTypes = {
+    toggleShowFilmBody: PropTypes.func.isRequired,
 }
 
 export default Body;

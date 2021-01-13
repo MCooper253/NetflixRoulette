@@ -1,17 +1,28 @@
 import React from 'react';
 
 import TopBar from './Header Containers/TopBar.js';
-import Search from './Header Containers/Search.js'
+import Search from './Header Containers/Search.js';
+import Logo from '../Components/Logo.js';
 
 //High level header container.
-const Header = () => {
+class Header extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-    return (
-        <header>
-        <TopBar />
-        <Search />
-        </header>
-    );
+    render() {
+        return (
+            <header>
+                {this.props.showFilmBody ?
+                <Logo /> : (
+                    <>
+                    <TopBar />
+                    <Search />
+                    </>
+                )}
+            </header>
+        );
+    }
 };
 
 export default Header;

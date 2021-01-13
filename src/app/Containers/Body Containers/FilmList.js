@@ -16,7 +16,7 @@ const FilmList = (props) => {
                 if ( input.genres.includes(props.displayGenre) || props.displayGenre === 'all' ) {
                     return (
                         //returns the film cards with film info and image.
-                        <article key={input.id} id={idCount} className='filmCard'>
+                        <article key={input.id} id={idCount} className='filmCard' onClick={props.toggleShowFilmBody}>
                             <FilmCard
                                 id={input.id}
                                 pictureURL={input.poster_path}
@@ -26,6 +26,7 @@ const FilmList = (props) => {
                                 genres={input.genres}
                                 overview={input.overview}
                                 runtime={input.runtime}
+                                //toggleShowFilmBody={props.toggleShowFilmBody}
                             />
                         </article>
                     )
@@ -37,7 +38,8 @@ const FilmList = (props) => {
 
 FilmList.propTypes = {
     films: PropTypes.array.isRequired,
-    displayGenre: PropTypes.string.isRequired
+    displayGenre: PropTypes.string.isRequired,
+    toggleShowFilmBody: PropTypes.func.isRequired
 }
 
 export default FilmList;
