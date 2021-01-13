@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import FilmCard from './FilmCard.js'
@@ -18,10 +19,10 @@ const FilmList = (props) => {
                         <article key={input.id} id={idCount} className='filmCard'>
                             <FilmCard
                                 id={input.id}
-                                pictureURL={input.pictureURL}
-                                descriptionShort={input.descriptionShort}
-                                name={input.name}
-                                year={input.year}
+                                pictureURL={input.poster_path}
+                                descriptionShort={input.tagline}
+                                name={input.title}
+                                year={input.release_date}
                             />
                         </article>
                     )
@@ -29,6 +30,11 @@ const FilmList = (props) => {
             })}
         </section>
     )
+}
+
+FilmList.propTypes = {
+    films: PropTypes.array.isRequired,
+    displayGenre: PropTypes.string.isRequired
 }
 
 export default FilmList;

@@ -71,6 +71,11 @@ main {
                 margin: 0 1rem;
                 float: left;
             }
+
+            .active {
+                border-bottom: solid $pink;
+                border-width: 3.5px;
+            }
     
             li[name='all'] {
                 margin-left: 0;
@@ -184,6 +189,10 @@ main {
                 cursor: pointer;
             }
             list-style-type: none;
+
+            button:hover{
+                background-color: $pink;
+            }
         }
         button {
             margin: 0.3rem 0 0 0.3rem;
@@ -191,7 +200,6 @@ main {
             padding: 0;
             background: none;
             border: none;
-            cursor: pointer;
         }
     }
 

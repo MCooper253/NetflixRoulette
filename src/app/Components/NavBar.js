@@ -21,7 +21,7 @@ class NavBar extends React.Component {
         return(
             <section className='navBarWrapper'>
                 <ul>
-                    <li key='all' name='all' className='catagory' onClick={this.props.setDisplayGenre}>ALL</li>
+                    <li key='all' name='all' className='catagory active' onClick={this.props.setDisplayGenre}>ALL</li>
                     <li key='documentary' name='documentary' className='catagory' onClick={this.props.setDisplayGenre}>DOCUMENTARY</li>
                     <li key='comedy' name='comedy' className='catagory' onClick={this.props.setDisplayGenre}>COMEDY</li>
                     <li key='horror' name='horror' className='catagory' onClick={this.props.setDisplayGenre}>HORROR</li>
@@ -39,8 +39,8 @@ class NavBar extends React.Component {
 
     toggleNavStyle() {
 
-        // document.querySelectorAll('.navBarWrapper li').forEach(input => {input.style.borderColor = '#545454'})
-        // document.querySelector(`.navBarWrapper li[name = ${this.props.selectedGenre}]`).style.borderColor = '#F65261'
+        document.querySelectorAll('.navBarWrapper li').forEach(input => {input.classList.remove('active')})
+        document.querySelector(`.navBarWrapper li[name = ${this.props.selectedGenre}]`).classList.add('active')
         
     }
 

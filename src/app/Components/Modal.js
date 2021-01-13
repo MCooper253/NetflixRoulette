@@ -29,6 +29,10 @@ const Modal = (props) => {
     );
 };
 
+Modal.defaultProps = {
+    innerComp: <p>The is movie has been deleted successfully.</p>
+}
+
 Modal.propTypes = {
     closeModal: PropTypes.func.isRequired,
     innerComp: PropTypes.object,

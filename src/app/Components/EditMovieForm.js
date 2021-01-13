@@ -82,11 +82,11 @@ class EditMovieForm extends React.Component {
         return (
             <form onSubmit={this.props.onSubmit}>
                 <label>MOVIE ID</label><br />
-                <p>MOVIEID#43895492305432</p><br />
+                <p>{this.props.filmId}</p><br />
                 <label>TITLE</label><br />
-                <input type='text' placeholder='Title' /><br />
+                <input type='text' placeholder='Title' defaultValue={this.props.filmName}/><br />
                 <label>RELEASE DATE</label><br />
-                <input type='text' placeholder='Select date' /><br />
+                <input type='text' placeholder='Select date' defaultValue={this.props.filmYear}/><br />
                 <label>MOVIR URL</label><br />
                 <input type='text' placeholder='Movie URL here' /><br />
                 <label>GENRE</label><br />
@@ -112,7 +112,11 @@ class EditMovieForm extends React.Component {
 }
 
 EditMovieForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    filmId: PropTypes.string.isRequired,
+    filmName: PropTypes.string.isRequired,
+    filmYear: PropTypes.string.isRequired
+
 }
 
 export default EditMovieForm;

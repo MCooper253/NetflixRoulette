@@ -74,7 +74,15 @@ class FilmCard extends React.Component {
                     year={this.props.year}
                 />
 
-                {this.state.modalShown && <Modal title='EDIT MOVIE' closeModal={this.toggleModal} innerComp={<EditMovieForm onSubmit={e=>e.preventDefault()} />}/>}
+                {this.state.modalShown && <Modal 
+                    title='EDIT MOVIE' closeModal={this.toggleModal}
+                    innerComp={<EditMovieForm
+                        onSubmit={e=>e.preventDefault()}
+                        filmName={this.props.name}
+                        filmId={this.props.id}
+                        filmYear={this.props.year}
+                    />}
+                />}
                 {this.state.deleteModalShown && <Modal title='DELETE MOVIE' closeModal={this.toggleDeleteModal}/>}
             </>
         )
