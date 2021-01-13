@@ -10,10 +10,10 @@ class EditMovieForm extends React.Component {
 
         this.state = {
             selectOptionsShown: false,
-            selectedGenres: [],
-            actionSelected: false,
+            selectedGenres: this.props.filmGenres,
+            actionSelected: this.props.filmGenres.includes('action') ? true : false,
             horrorSelected: false,
-            crimeSelected:  false,
+            crimeSelected:  this.props.filmGenres.includes('crime') ? true : false,
             documentarySelected: false,
         }
 
@@ -71,11 +71,8 @@ class EditMovieForm extends React.Component {
 
     componentDidMount() {
         
-        // THIS ENSURES THAT THE UI IS DISPLAYING WHAT CATAGORIES THE FILM IS ALREADY IN.
-        this.state.actionSelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('action')}) : null
-        this.state.documentarySelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('documentary')}) : null
-        this.state.crimeSelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('crime')}) : null
-        this.state.horrorSelected ? this.setState({selectedGenres: this.state.selectedGenres.concat('horror')}) : null
+        this.updateDisplayedGenres(this.state.selectedGenres);
+
     }
 
     render () {
@@ -88,7 +85,7 @@ class EditMovieForm extends React.Component {
                 <label>RELEASE DATE</label><br />
                 <input type='text' placeholder='Select date' defaultValue={this.props.filmYear}/><br />
                 <label>MOVIR URL</label><br />
-                <input type='text' placeholder='Movie URL here' /><br />
+                <input type='text' placeholder='Movie URL here' defaultValue={this.props.filmPicturePath} /><br />
                 <label>GENRE</label><br />
                 <div className='custom-select'>
                     <Button onClick={this.toggleDropdown} className='genres-select-button' caption='Select genres' />
@@ -101,9 +98,9 @@ class EditMovieForm extends React.Component {
                     />}
                 </div>
                 <label>OVERVIEW</label><br />
-                <input type='text' placeholder='Overview here' /><br />
+                <input type='text' placeholder='Overview here' defaultValue={this.props.filmOverview}/><br />
                 <label>RUNTIME</label><br />
-                <input type='text' placeholder='Runtime here' /><br />
+                <input type='text' placeholder='Runtime here' defaultValue={this.props.filmRuntime}/><br />
                 <input type='submit' value='CONFIRM' /> 
                 <input type='button' value='RESET' />
             </form>
@@ -115,8 +112,11 @@ EditMovieForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
     filmId: PropTypes.string.isRequired,
     filmName: PropTypes.string.isRequired,
-    filmYear: PropTypes.string.isRequired
-
+    filmYear: PropTypes.string.isRequired,
+    filmGenres: PropTypes.array.isRequired,
+    filmPicturePath: PropTypes.string.isRequired,
+    filmOverview: PropTypes.string.isRequired,
+    filmRuntime: PropTypes.string.isRequired
 }
 
 export default EditMovieForm;

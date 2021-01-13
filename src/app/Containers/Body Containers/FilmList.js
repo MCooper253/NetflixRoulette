@@ -23,6 +23,9 @@ const FilmList = (props) => {
                                 descriptionShort={input.tagline}
                                 name={input.title}
                                 year={input.release_date}
+                                genres={input.genres}
+                                overview={input.overview}
+                                runtime={input.runtime}
                             />
                         </article>
                     )

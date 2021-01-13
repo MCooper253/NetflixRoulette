@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import FilmInfo from '../../Components/FilmInfo.js';
 import Button from '../../Components/Button.js';
@@ -81,6 +82,10 @@ class FilmCard extends React.Component {
                         filmName={this.props.name}
                         filmId={this.props.id}
                         filmYear={this.props.year}
+                        filmGenres={this.props.genres}
+                        filmPicturePath={this.props.pictureURL}
+                        filmOverview={this.props.overview}
+                        filmRuntime={this.props.runtime}
                     />}
                 />}
                 {this.state.deleteModalShown && <Modal title='DELETE MOVIE' closeModal={this.toggleDeleteModal}/>}
@@ -88,5 +93,15 @@ class FilmCard extends React.Component {
         )
     }
 };
+
+FilmCard.propTypes = {
+    genres: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    pictureURL: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    runtime: PropTypes.string.isRequired
+}
 
 export default FilmCard;
