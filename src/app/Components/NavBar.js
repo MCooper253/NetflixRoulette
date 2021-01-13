@@ -1,24 +1,54 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 //Nav Bar currently takes no props from Body, it is a sateless and propless component (currently).
-const NavBar = () => {
-    return(
-        <section className='navBarWrapper'>
-            <ul>
-                <li key='all' name='all' className='catagory'><a>ALL</a></li>
-                <li key='documentary' name='documentary' className='catagory'><a>DOCUMENTARY</a></li>
-                <li key='comedy' name='comedy' className='catagory'><a>COMEDY</a></li>
-                <li key='horror' name='horror' className='catagory'><a>HORROR</a></li>
-                <li key='crime' name='crime' className='catagory'><a>CRIME</a></li>
-                <li key='select' name='select'>
-                    <select>
-                        <option>RELEASE DATE</option>
-                    </select>
-                </li>
-                <li key='sort' name='sort'>SORT BY</li>
-            </ul>
-        </section>
-    )
+class NavBar extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.toggleNavStyle = this.toggleNavStyle.bind(this);
+    }
+
+    componentDidMount() {
+        this.toggleNavStyle();
+    }
+
+    componentDidUpdate() {
+        this.toggleNavStyle();
+    }
+
+    render() {
+        return(
+            <section className='navBarWrapper'>
+                <ul>
+                    <li key='all' name='all' className='catagory' onClick={this.props.setDisplayGenre}>ALL</li>
+                    <li key='documentary' name='documentary' className='catagory' onClick={this.props.setDisplayGenre}>DOCUMENTARY</li>
+                    <li key='comedy' name='comedy' className='catagory' onClick={this.props.setDisplayGenre}>COMEDY</li>
+                    <li key='horror' name='horror' className='catagory' onClick={this.props.setDisplayGenre}>HORROR</li>
+                    <li key='crime' name='crime' className='catagory' onClick={this.props.setDisplayGenre}>CRIME</li>
+                    <li key='select' name='select'>
+                        <select>
+                            <option>RELEASE DATE</option>
+                        </select>
+                    </li>
+                    <li key='sort' name='sort'>SORT BY</li>
+                </ul>
+            </section>
+        )
+    }
+
+    toggleNavStyle() {
+
+        // document.querySelectorAll('.navBarWrapper li').forEach(input => {input.style.borderColor = '#545454'})
+        // document.querySelector(`.navBarWrapper li[name = ${this.props.selectedGenre}]`).style.borderColor = '#F65261'
+        
+    }
+
 };
+
+NavBar.propTypes = {
+    setDisplayGenre: PropTypes.func.isRequired,
+    selectedGenre: PropTypes.string.isRequired
+}
 
 export default NavBar

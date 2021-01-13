@@ -8,6 +8,9 @@ footer {
     text-align: center;
     padding: 1rem 0;
     background-color: $grey;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 
     p {
         margin: 0;

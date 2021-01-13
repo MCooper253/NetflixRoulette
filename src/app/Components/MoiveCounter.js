@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 const MovieCounter = (props) => {
 
     return(
-        <p><span>{props.count.toString()}</span> movies found</p>
+        <p><span>{props.counter(props.selectedGenre)}</span> movies found</p>
     );
 };
 
 MovieCounter.propTypes = {
-    count: PropTypes.number.isRequired
+    counter: PropTypes.func.isRequired,
+    selectedGenre: PropTypes.string.isRequired
 };
 
 export default MovieCounter;
