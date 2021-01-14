@@ -6,7 +6,7 @@ import Modal from '../../Components/Modal.js';
 import AddMovieForm from '../../Components/AddMovieForm.js'
 import CongratsMessage from '../../Components/CongratsMessage.js'
 
-class ModalContainer extends React.Component {
+class AddMovieModalContainer extends React.Component {
     constructor(props) {
         super(props)
         this.state = { displayAddFilmModal: false, displayConfirmModal: false }; // set false for productoin
@@ -63,4 +63,4 @@ class ModalContainer extends React.Component {
     }
 };
 
-export default ModalContainer;
+export default AddMovieModalContainer;

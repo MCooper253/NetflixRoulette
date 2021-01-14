@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TopBar from './Header Containers/TopBar.js';
 import Search from './Header Containers/Search.js';
-import Logo from '../Components/Logo.js';
+import FilmBody from './Header Containers/FilmBody.js';
 
 //High level header container.
 class Header extends React.Component {
@@ -13,10 +14,10 @@ class Header extends React.Component {
     render() {
         return (
             <header>
+                <TopBar showFilmBody={this.props.showFilmBody} toggleShowhowFilmBody={this.props.toggleShowFilmBody} />
                 {this.props.showFilmBody ?
-                <Logo /> : (
+                <FilmBody film={this.props.film[0]} /> : (
                     <>
-                    <TopBar />
                     <Search />
                     </>
                 )}
@@ -24,5 +25,11 @@ class Header extends React.Component {
         );
     }
 };
+
+Header.propTypes = {
+    film: PropTypes.array.isRequired,
+    showFilmBody: PropTypes.bool.isRequired,
+    toggleShowFilmBody: PropTypes.func.isRequired
+}
 
 export default Header;

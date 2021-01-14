@@ -4,6 +4,7 @@ import Body from './Body.js';
 import Header from './Header.js';
 import Footer from './Footer.js'
 import ErrorBoundary from '../Error Components/ErrorBoundary.js'
+import HeaderBackgroundImage from '../Images/header-background.jpg'
 
 //Importing saved images will not work dynamically when users start adding their own movies with movie urls.
 //These can be concideraed stock or fallback images.
@@ -16,6 +17,7 @@ class App extends React.Component {
         super(props)
         this.state = {
             showFilmBody: false,
+            filmBodyToRender: null,
             films: [{
                 title: 'Pulp Fiction',
                 tagline: 'foot massage',
@@ -50,16 +52,32 @@ class App extends React.Component {
         this.toggleShowFilmBody = this.toggleShowFilmBody.bind(this);
     }
     
-    toggleShowFilmBody() {
-        console.log('this has run');
-        this.setState({ showFilmBody: !this.state.showFilmBody })
+    toggleShowFilmBody(e) {
+
+        if (e.target.classList[0] === 'filcard-image'){
+            this.setState({ showFilmBody: true });
+            this.setState({ filmBodyToRender: e.target.title });
+            document.querySelector('header').style.background = `linear-gradient( rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85) ), url("${HeaderBackgroundImage}")`
+        }
+        else {
+            this.setState({ showFilmBody: false });
+            this.setState({ filmBodyToRender: null });
+            document.querySelector('header').removeAttribute('style');
+        }
     }
 
     render() {
         return (
             <ErrorBoundary>
-                <Header showFilmBody={this.state.showFilmBody} />
-                <Body toggleShowFilmBody={this.toggleShowFilmBody} films={this.state.films}/>
+                <Header
+                    showFilmBody={this.state.showFilmBody}
+                    film={this.state.films.filter(film=>film.title == this.state.filmBodyToRender)}
+                    toggleShowFilmBody={this.toggleShowFilmBody}
+                />
+                <Body
+                    toggleShowFilmBody={this.toggleShowFilmBody}
+                    films={this.state.films}
+                />
                 <Footer />
             </ErrorBoundary>
         );

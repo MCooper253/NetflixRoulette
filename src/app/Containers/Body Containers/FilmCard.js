@@ -64,7 +64,9 @@ class FilmCard extends React.Component {
                     /> : null}
 
                     <FilmImage
+                        toggleShowFilmBody={this.props.toggleShowFilmBody}
                         img={this.props.pictureURL}
+                        filmTitle={this.props.name}
                     />
 
                 </div>
@@ -75,20 +77,20 @@ class FilmCard extends React.Component {
                     year={this.props.year}
                 />
 
-                {this.state.modalShown && <Modal 
-                    title='EDIT MOVIE' closeModal={this.toggleModal}
-                    innerComp={<EditMovieForm
-                        onSubmit={e=>e.preventDefault()}
-                        filmName={this.props.name}
-                        filmId={this.props.id}
-                        filmYear={this.props.year}
-                        filmGenres={this.props.genres}
-                        filmPicturePath={this.props.pictureURL}
-                        filmOverview={this.props.overview}
-                        filmRuntime={this.props.runtime}
-                    />}
+            {this.state.modalShown && <Modal 
+                title='EDIT MOVIE' closeModal={this.toggleModal}
+                innerComp={<EditMovieForm
+                    onSubmit={e=>e.preventDefault()}
+                    filmName={this.props.name}
+                    filmId={this.props.id}
+                    filmYear={this.props.year}
+                    filmGenres={this.props.genres}
+                    filmPicturePath={this.props.pictureURL}
+                    filmOverview={this.props.overview}
+                    filmRuntime={this.props.runtime}
                 />}
-                {this.state.deleteModalShown && <Modal title='DELETE MOVIE' closeModal={this.toggleDeleteModal}/>}
+            />}
+            {this.state.deleteModalShown && <Modal title='DELETE MOVIE' closeModal={this.toggleDeleteModal}/>}
             </>
         )
     }
@@ -102,7 +104,7 @@ FilmCard.propTypes = {
     pictureURL: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
     runtime: PropTypes.string.isRequired,
-    //toggleShowFilmBody: PropTypes.func.isRequired
+    toggleShowFilmBody: PropTypes.func.isRequired
 }
 
 export default FilmCard;
