@@ -27,8 +27,11 @@ class NavBar extends React.Component {
                     <li key='horror' name='horror' className='catagory' onClick={this.props.setDisplayGenre}>HORROR</li>
                     <li key='crime' name='crime' className='catagory' onClick={this.props.setDisplayGenre}>CRIME</li>
                     <li key='select' name='select'>
-                        <select>
+                        <select onChange={this.props.handleOnSelect}>
                             <option>RELEASE DATE</option>
+                            <option>BUDGET</option>
+                            <option>RUNTIME</option>
+                            <option>RATING</option>
                         </select>
                     </li>
                     <li key='sort' name='sort'>SORT BY</li>
@@ -48,7 +51,8 @@ class NavBar extends React.Component {
 
 NavBar.propTypes = {
     setDisplayGenre: PropTypes.func.isRequired,
-    selectedGenre: PropTypes.string.isRequired
+    selectedGenre: PropTypes.string.isRequired,
+    handleOnSelect: PropTypes.func.isRequired
 }
 
 export default NavBar

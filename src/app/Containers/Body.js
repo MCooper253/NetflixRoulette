@@ -11,11 +11,14 @@ class Body extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            genreToRender: 'crime',
+            genreToRender: 'all',
+            sortBy: null
         }
 
         this.setDisplayGenre = this.setDisplayGenre.bind(this);
         this.numberOfGenre = this.numberOfGenre.bind(this);
+        this.handleOnSelect = this.handleOnSelect.bind(this);
+        this.formatCatagory = this.formatCatagory.bind(this);
     }
 
     setDisplayGenre(e) {
@@ -29,12 +32,33 @@ class Body extends React.Component {
         return genre === 'all' ? filmList.length : filteredFilms.length;
     }
 
+    handleOnSelect(e) {
+        let sortCatagory = this.formatCatagory(e.target.value);
+
+        this.setState({ sortBy: sortCatagory })
+    }
+
+    formatCatagory(input) {
+        if (input === 'RATING') {return 'vote_average'}
+        const letterArray = input.toLowerCase().split('')
+        letterArray.forEach( (input, index, array) => input === ' ' ? array[index] = '_' : null )
+        return letterArray.join('');
+    }
+
+    componentDidMount() {
+        this.setState({ sortBy: this.formatCatagory(document.querySelector('.navBarWrapper select').value) });
+    }
+
+    // componentDidUpdate() {
+    //     this.setState({ sortBy: this.formatCatagory(document.querySelector('.navBarWrapper select').value) });
+    // }
+
     render() {
         return (
             <main id='main'>
-                <NavBar setDisplayGenre={this.setDisplayGenre} selectedGenre={this.state.genreToRender} />
+                <NavBar setDisplayGenre={this.setDisplayGenre} selectedGenre={this.state.genreToRender} handleOnSelect={this.handleOnSelect}/>
                 <MovieCounter counter={this.numberOfGenre} selectedGenre={this.state.genreToRender} />
-                <FilmList films={this.props.films} displayGenre={this.state.genreToRender} toggleShowFilmBody={this.props.toggleShowFilmBody} />
+                <FilmList films={this.props.films} displayGenre={this.state.genreToRender} toggleShowFilmBody={this.props.toggleShowFilmBody} sortCatagory={this.state.sortBy}/>
             </main>
         )
     }
