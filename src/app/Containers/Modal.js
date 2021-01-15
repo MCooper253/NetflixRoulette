@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import Button from '../Components/Button.js';
 import Close from '../Images/close.png';
-import Logo from './Logo.js';
+import Logo from '../Components/Logo.js';
 import Footer from '../Containers/Footer.js'
 
 const Modal = (props) => {
