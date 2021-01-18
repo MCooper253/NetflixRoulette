@@ -1,65 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from '../../Components/Button.js';
 import Modal from '../Modal.js';
 import AddMovieForm from '../../Components/AddMovieForm.js'
 import CongratsMessage from '../../Components/CongratsMessage.js'
 
-class AddMovieModalContainer extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { displayAddFilmModal: false, displayConfirmModal: false }; // set false for productoin
+const AddMovieModalContainer = () => {
 
-        this.showAddFilmModal = this.showAddFilmModal.bind(this);
-        this.closeAddFilmModal = this.closeAddFilmModal.bind(this);
-        this.closeConfirmModal = this.closeConfirmModal.bind(this);
-        this.showConfirmModal = this.showConfirmModal.bind(this);
-        this.onAddMovieSubmit = this.onAddMovieSubmit.bind(this);
+    const [displayAddFilmModal, setDisplayAddFilmModal] = useState(false);
+    const [displayConfirmModal, setDisplayConfirmModal] = useState(false);
+
+    const showAddFilmModal = () => {
+        setDisplayAddFilmModal(true);
     }
 
-    showAddFilmModal() {
-        this.setState({ displayAddFilmModal: true });
+    const closeAddFilmModal = () => {
+        setDisplayAddFilmModal(false);
     }
 
-    closeAddFilmModal() {
-        this.setState({ displayAddFilmModal: false });
+    const showConfirmModal = () => {
+        setDisplayConfirmModal(true);
     }
 
-    showConfirmModal() {
-        this.setState({ displayConfirmModal: true });
+    const closeConfirmModal = () => {
+        setDisplayConfirmModal(false);
     }
 
-    closeConfirmModal() {
-        this.setState({ displayConfirmModal: false });
+    const onAddMovieSubmit = () => {
+        closeAddFilmModal();
+        showConfirmModal();
     }
 
-    onAddMovieSubmit() {
-        this.closeAddFilmModal();
-        this.showConfirmModal();
-    }
-
-    render() {
-        return (
-            <>
-            <Button caption='+ ADD MOVIE' onClick={this.showAddFilmModal} />
-            {this.state.displayAddFilmModal ? (<Modal
-                closeModal={this.closeAddFilmModal}
-                title='ADD MOVIE'
-                innerComp={<AddMovieForm
-                    onSubmit={this.onAddMovieSubmit}
-                />}
+    return (
+        <>
+        <Button caption='+ ADD MOVIE' onClick={showAddFilmModal} />
+        {displayAddFilmModal ? (<Modal
+            closeModal={closeAddFilmModal}
+            title='ADD MOVIE'
+            innerComp={<AddMovieForm
+                onSubmit={onAddMovieSubmit}
+            />}
+        />) : null}
+        {displayConfirmModal ? (
+            <Modal
+                closeModal={closeConfirmModal}
+                title='CONGRATULATIONS!'
+                innerComp={
+                    <CongratsMessage />
+                }
             />) : null}
-            {this.state.displayConfirmModal ? (
-                <Modal
-                    closeModal={this.closeConfirmModal}
-                    title='CONGRATULATIONS!'
-                    innerComp={
-                        <CongratsMessage />
-                    }
-                />) : null}
-            </>
-        )
-    }
+        </>
+    )
 };
 
 export default AddMovieModalContainer;
