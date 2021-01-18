@@ -10,9 +10,9 @@ const Header = (props) => {
 
     return (
         <header>
-            <TopBar showFilmBody={this.props.showFilmBody} toggleShowhowFilmBody={this.props.toggleShowFilmBody} />
-            {this.props.showFilmBody ?
-            <FilmBody film={this.props.film[0]} /> : (
+            <TopBar showFilmBody={props.showFilmBody} toggleShowhowFilmBody={props.toggleShowFilmBody} />
+            {props.showFilmBody ?
+            <FilmBody film={props.film[0]} /> : (
                 <>
                 <Search />
                 </>
