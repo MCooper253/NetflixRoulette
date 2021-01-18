@@ -12,15 +12,24 @@ class EditMovieForm extends React.Component {
             selectOptionsShown: false,
             selectedGenres: this.props.filmGenres,
             actionSelected: this.props.filmGenres.includes('action') ? true : false,
-            horrorSelected: false,
+            horrorSelected: this.props.filmGenres.includes('horror') ? true : false,
             crimeSelected:  this.props.filmGenres.includes('crime') ? true : false,
-            documentarySelected: false,
+            documentarySelected: this.props.filmGenres.includes('documentary') ? true : false,
         }
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.toggleGenreState = this.toggleGenreState.bind(this);
         this.updateDisplayedGenres = this.updateDisplayedGenres.bind(this);
     }
+
+    /*
+    const[selectOptionShown, setSelectOptionShown] = useState(false);
+    const[selectedGenres, setSelectedGenres] = useState(props.filmGenres);
+    const[actionSelected, setActionSelected] = useState(props.filmGenres.includes('action') ? true : false);
+    const[horrorSelected, setHorrorSelected] = useState(this.props.filmGenres.includes('horror') ? true : false);
+    const[crimeSelected, setCrimeSelected] = useState(this.props.filmGenres.includes('crimer') ? true : false);
+    const[documentarySelected, setDocumentarySelected] = useState(this.props.filmGenres.includes('documentary') ? true : false);
+    */
 
     toggleDropdown () {
         this.setState({selectOptionsShown: !this.state.selectOptionsShown})
