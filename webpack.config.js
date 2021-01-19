@@ -10,7 +10,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   });
 
 module.exports = {
-    mode: process.env.NODE_ENV,
+    mode: process.env.NODE_ENV ? process.env.NODE_ENV : 'production',
     entry: {
         index: './src/index.js'
     },
