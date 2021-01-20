@@ -35,7 +35,7 @@ module.exports = {
         open: true
     },
     plugins: [
-        new HtmlWebPackPlugin()
+        htmlPlugin
     ],
     output: {
         filename: '[name].bundle.js',
