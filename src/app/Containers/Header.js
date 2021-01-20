@@ -25,6 +25,6 @@ Header.propTypes = {
     film: PropTypes.array.isRequired,
     showFilmBody: PropTypes.bool.isRequired,
     toggleShowFilmBody: PropTypes.func.isRequired
-}
+};
 
 export default Header;

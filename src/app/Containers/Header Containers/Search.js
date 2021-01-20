@@ -9,7 +9,7 @@ const Search = () => {
         <h1>FIND YOUR MOVIE</h1>
         <SearchBar />
         </div>
-    )
+    );
 };
 
 export default Search;

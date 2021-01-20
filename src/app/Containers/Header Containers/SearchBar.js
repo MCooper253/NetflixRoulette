@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from '../../Components/Button.js';
-import TextInput from '../../Components/TextInput.js'
+import TextInput from '../../Components/TextInput.js';
 
 //Container for the ssearch input and search button.
 const SeacrhBar = () => {
@@ -18,10 +18,10 @@ const SeacrhBar = () => {
                 onClick={onSearch}
             />
         </div>
-    )
+    );
 };
 
 //func hoisted above the class when script is compiled.
-const onSearch = (e) => {e.preventDefault()}
+const onSearch = (e) => {e.preventDefault();};
 
 export default SeacrhBar;

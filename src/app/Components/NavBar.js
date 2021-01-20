@@ -86,4 +86,4 @@ NavBar.propTypes = {
     handleOnSelect: PropTypes.func.isRequired
 }
 
-export default NavBar
+export default NavBar;

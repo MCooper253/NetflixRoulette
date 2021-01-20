@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "test": "Will run future test scripts.",
-    "start": "webpack serve -open 'Google Chrome'"
+    "start": "webpack serve -open 'Google Chrome",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "author": "Morgan Cooper",
   "license": "ISC",
@@ -17,8 +19,14 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
     "html-webpack-plugin": "^4.5.0",
     "jest": "^26.6.3",
+    "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",

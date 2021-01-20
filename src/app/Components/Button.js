@@ -11,7 +11,7 @@ const Button = (props) => {
             {props.image ? <img src={props.image} /> : null}
             {props.caption ? props.caption : null}
         </button>
-    )
+    );
 };
 
 Button.propTypes = {

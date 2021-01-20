@@ -10,8 +10,8 @@ const FilmInfo = (props) => {
             <button>{props.year}</button>
             <p>{props.description}</p>
         </div>
-    )
-}
+    );
+};
 
 FilmInfo.propTypes = {
     name: PropTypes.string.isRequired,

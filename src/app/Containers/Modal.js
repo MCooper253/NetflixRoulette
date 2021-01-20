@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Button from '../Components/Button.js';
 import Close from '../Images/close.png';
 import Logo from '../Components/Logo.js';
-import Footer from '../Containers/Footer.js'
+import Footer from '../Containers/Footer.js';
 
 const Modal = (props) => {
 
@@ -31,12 +31,12 @@ const Modal = (props) => {
 
 Modal.defaultProps = {
     innerComp: <p>The is movie has been deleted successfully.</p>
-}
+};
 
 Modal.propTypes = {
     closeModal: PropTypes.func.isRequired,
     innerComp: PropTypes.object,
     title: PropTypes.string
-}
+};
 
-export default Modal
+export default Modal;

@@ -68,14 +68,14 @@ const EditMovieForm = (props) => {
             genreList.forEach(element => {
                 let genre = element.split('');
                 genre[0] = genre[0].toUpperCase();
-                arrayToDisplay.push(genre.join(''))
-            })
+                arrayToDisplay.push(genre.join(''));
+            });
 
             document.getElementsByClassName('genres-select-button')[0].innerHTML = arrayToDisplay.join(', ');
         } else {
             document.getElementsByClassName('genres-select-button')[0].innerHTML = 'Select genres';
             document.getElementsByClassName('genres-select-button')[0].style.color = 'rgba(255, 255, 255, 0.3)';
-        };
+        }
     }
 
     useEffect(() => {
@@ -122,6 +122,6 @@ EditMovieForm.propTypes = {
     filmPicturePath: PropTypes.string.isRequired,
     filmOverview: PropTypes.string.isRequired,
     filmRuntime: PropTypes.string.isRequired
-}
+};
 
 export default EditMovieForm;

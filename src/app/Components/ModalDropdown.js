@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Check from '../Images/tick.svg'
+import Check from '../Images/tick.svg';
 
 const ModalDropdown = (props) => {
 
@@ -42,7 +42,7 @@ const ModalDropdown = (props) => {
                 </li>
             </ul>
         </div>
-    )
+    );
 };
 
 export default ModalDropdown;

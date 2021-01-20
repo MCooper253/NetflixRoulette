@@ -18,7 +18,7 @@ const EditDelete = (props) => {
                 </li>
             </ul>
         </div>
-    )
+    );
 };
 
 EditDelete.propTypes = {
@@ -26,6 +26,6 @@ EditDelete.propTypes = {
     toggleModal: PropTypes.func.isRequired,
     toggleEditButton: PropTypes.func.isRequired,
     toggleDeleteModal: PropTypes.func.isRequired
-} 
+}; 
 
 export default EditDelete;

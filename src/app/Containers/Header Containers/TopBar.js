@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ModalContainer from './AddMovieModalContainer.js'
+import ModalContainer from './AddMovieModalContainer.js';
 import Logo from '../../Components/Logo.js';
 import PropTypes from 'prop-types';
 import Search from '../../Images/search.png';
@@ -13,13 +13,13 @@ const TopBar = (props) => {
         {props.showFilmBody ? <img src={Search} onClick={props.toggleShowhowFilmBody} /> : <ModalContainer />}
         <Logo />
         </nav>
-    )
+    );
 };
 
 
 TopBar.propTypes = {
     showFilmBody: PropTypes.bool.isRequired,
     toggleShowhowFilmBody: PropTypes.func.isRequired
-}
+};
 
 export default TopBar;

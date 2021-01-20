@@ -108,6 +108,6 @@ FilmCard.propTypes = {
     overview: PropTypes.string.isRequired,
     runtime: PropTypes.string.isRequired,
     toggleShowFilmBody: PropTypes.func.isRequired
-}
+};
 
 export default FilmCard;

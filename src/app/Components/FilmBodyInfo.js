@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 //Logo is as simple as you may imagine. A re-usable compononet.
 const FilmBodyInfo = (props) => {
@@ -15,6 +16,10 @@ const FilmBodyInfo = (props) => {
 
         </article>
     );
+};
+
+FilmBodyInfo.propTypes = {
+    film: PropTypes.object.isRequired
 };
 
 export default FilmBodyInfo;
