@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import FilmInfo from "../../Components/FilmInfo.js";
 import Button from "../../Components/Button.js";
 import FilmImage from "../../Components/FilmImage.js";
-import EditDelete from "../../Components/EditDelete.js";
-import Modal from "../Modal.js";
-import EditMovieForm from "../../Components/EditMovieForm.js";
+import EditDelete from "./EditDelete.js";
+import Modal from "../Modal/Modal.js";
+import EditMovieForm from "../Modal/EditMovieForm.js";
 
 const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, overview, runtime, descriptionShort }) => {
     // constructor(props) {

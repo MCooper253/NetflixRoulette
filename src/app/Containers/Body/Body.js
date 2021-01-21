@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import NavBar from "../Components/NavBar.js";
-import FilmList from "./Body Containers/FilmList.js";
+import NavBar from "../../Components/NavBar.js";
+import FilmList from "./FilmList.js";
 
-import MovieCounter from "../Components/MoiveCounter.js";
+import MovieCounter from "../../Components/MoiveCounter.js";
 
 // Body holds the film list as state to pass down to children (MovieCounter and FilmList both need data from this state).
 // BODY AS HOLDS SLECETED GENRE TO PASS DOWN TO BODY COMPONONETS.

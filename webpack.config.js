@@ -5,14 +5,14 @@ dotenv.config();
 
 
 const htmlPlugin = new HtmlWebPackPlugin({
-    template: "./src/index.html",
+    template: "./src/core/index.html",
     filename: "./index.html"
   });
 
 module.exports = {
     mode: process.env.NODE_ENV ? process.env.NODE_ENV : 'production',
     entry: {
-        index: './src/index.js'
+        index: './src/core/index.js'
     },
     module: {
         rules: [

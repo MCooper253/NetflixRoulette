@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import Body from "./Body.js";
-import Header from "./Header.js";
-import Footer from "./Footer.js";
-import ErrorBoundary from "../Error Components/ErrorBoundary.js";
+import Body from "./Body/Body.js";
+import Header from "./Header/Header.js";
+import Footer from "./Footer/Footer.js";
+import ErrorBoundary from "./ErrorBoundary.js";
 import HeaderBackgroundImage from "../Images/header-background.jpg";
 
 //Importing saved images will not work dynamically when users start adding their own movies with movie urls.

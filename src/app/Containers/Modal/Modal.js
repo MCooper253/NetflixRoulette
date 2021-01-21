@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FocusTrap from "../../../node_modules/focus-trap-react/dist/focus-trap-react.js";
+import FocusTrap from "focus-trap-react/dist/focus-trap-react";
 import PropTypes from "prop-types";
 
-import Button from "../Components/Button.js";
-import Close from "../Images/close.png";
-import Logo from "../Components/Logo.js";
-import Footer from "../Containers/Footer.js";
+import Button from "../../Components/Button.js";
+import Close from "../../Images/close.png";
+import Logo from "../../Components/Logo.js";
+import Footer from "../Footer/Footer.js";
 
 const Modal = (props) => {
   return ReactDOM.createPortal(
