@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import Button from "../../Components/Button.js";
 import Modal from "../Modal/Modal.js";
+
+import Button from "../../Components/Button.js";
 import AddMovieForm from "../../Components/AddMovieForm.js";
 import CongratsMessage from "../../Components/CongratsMessage.js";
 

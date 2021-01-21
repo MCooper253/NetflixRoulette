@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import FilmInfo from "../../Components/FilmInfo.js";
-import Button from "../../Components/Button.js";
-import FilmImage from "../../Components/FilmImage.js";
 import EditDelete from "./EditDelete.js";
+
 import Modal from "../Modal/Modal.js";
 import EditMovieForm from "../Modal/EditMovieForm.js";
 

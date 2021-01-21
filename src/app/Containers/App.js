@@ -4,6 +4,7 @@ import Body from "./Body/Body.js";
 import Header from "./Header/Header.js";
 import Footer from "./Footer/Footer.js";
 import ErrorBoundary from "./ErrorBoundary.js";
+
 import HeaderBackgroundImage from "../Images/header-background.jpg";
 
 //Importing saved images will not work dynamically when users start adding their own movies with movie urls.

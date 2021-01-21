@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import ModalContainer from "./AddMovieModalContainer.js";
+
 import Logo from "../../Components/Logo.js";
-import PropTypes from "prop-types";
 import Search from "../../Images/search.png";
 
 //The Top 'nav' style bar at the top of the header.
