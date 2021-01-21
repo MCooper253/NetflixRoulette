@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Components/Button.js';
 
-import ModalDropdown from '../Components/ModalDropdown.js';
+import ModalDropdown from "../Components/ModalDropdown.js";
 
 const EditMovieForm = (props) => {
 
-    const[selectOptionsShown, setSelectOptionsShown] = useState(false);
-    const[selectedGenres, setSelectedGenres] = useState(props.filmGenres);
-    const[actionSelected, setActionSelected] = useState(props.filmGenres.includes('action') ? true : false);
-    const[horrorSelected, setHorrorSelected] = useState(props.filmGenres.includes('horror') ? true : false);
-    const[crimeSelected, setCrimeSelected] = useState(props.filmGenres.includes('crimer') ? true : false);
-    const[documentarySelected, setDocumentarySelected] = useState(props.filmGenres.includes('documentary') ? true : false);
-    
+    const [selectOptionsShown, setSelectOptionsShown] = useState(false);
+    const [selectedGenres, setSelectedGenres] = useState(props.filmGenres);
+    const [actionSelected, setActionSelected] = useState(props.filmGenres.includes('action') ? true : false);
+    const [horrorSelected, setHorrorSelected] = useState(props.filmGenres.includes('horror') ? true : false);
+    const [crimeSelected, setCrimeSelected] = useState(props.filmGenres.includes('crimer') ? true : false);
+    const [documentarySelected, setDocumentarySelected] = useState(props.filmGenres.includes('documentary') ? true : false);
+
     const toggleDropdown = () => {
         setSelectOptionsShown(!selectOptionsShown);
 
@@ -25,16 +25,16 @@ const EditMovieForm = (props) => {
         //toggles the genre in the input feild in the UI.
         switch (genre) {
             case 'action':
-                !actionSelected ? setSelectedGenres(selectedGenres.concat('action')) : setSelectedGenres(selectedGenres.filter(input => input!=='action'))
+                !actionSelected ? setSelectedGenres(selectedGenres.concat('action')) : setSelectedGenres(selectedGenres.filter(input => input !== 'action'));
                 break;
             case 'horror':
-                !horrorSelected ? setSelectedGenres(selectedGenres.concat('horror')) : setSelectedGenres(selectedGenres.filter(input => input!=='horror'))
+                !horrorSelected ? setSelectedGenres(selectedGenres.concat('horror')) : setSelectedGenres(selectedGenres.filter(input => input !== 'horror'))
                 break;
             case 'crime':
-                !crimeSelected ? setSelectedGenres(selectedGenres.concat('crime')) : setSelectedGenres(selectedGenres.filter(input => input!=='crime'))
+                !crimeSelected ? setSelectedGenres(selectedGenres.concat('crime')) : setSelectedGenres(selectedGenres.filter(input => input !== 'crime'))
                 break;
             case 'documentary':
-                !documentarySelected ? setSelectedGenres(selectedGenres.concat('documentary')) : setSelectedGenres(selectedGenres.filter(input => input!=='documentary'))
+                !documentarySelected ? setSelectedGenres(selectedGenres.concat('documentary')) : setSelectedGenres(selectedGenres.filter(input => input !== 'documentary'))
                 break;
             default:
                 null;
@@ -62,7 +62,7 @@ const EditMovieForm = (props) => {
     const updateDisplayedGenres = (genreList) => {
 
         // THIS FUNCTION TAKES THE ARRAY STORED IN STATE, FORMATS AND DISPLAYS IT IN THE APP.
-        if (genreList.length !== 0)  {
+        if (genreList.length !== 0) {
             let arrayToDisplay = [];
             document.getElementsByClassName('genres-select-button')[0].style.color = 'white';
             genreList.forEach(element => {
@@ -87,9 +87,9 @@ const EditMovieForm = (props) => {
             <label>MOVIE ID</label><br />
             <p>{props.filmId}</p><br />
             <label>TITLE</label><br />
-            <input type='text' placeholder='Title' defaultValue={props.filmName}/><br />
+            <input type='text' placeholder='Title' defaultValue={props.filmName} /><br />
             <label>RELEASE DATE</label><br />
-            <input type='text' placeholder='Select date' defaultValue={props.filmYear}/><br />
+            <input type='text' placeholder='Select date' defaultValue={props.filmYear} /><br />
             <label>MOVIR URL</label><br />
             <input type='text' placeholder='Movie URL here' defaultValue={props.filmPicturePath} /><br />
             <label>GENRE</label><br />
@@ -104,10 +104,10 @@ const EditMovieForm = (props) => {
                 />}
             </div>
             <label>OVERVIEW</label><br />
-            <input type='text' placeholder='Overview here' defaultValue={props.filmOverview}/><br />
+            <input type='text' placeholder='Overview here' defaultValue={props.filmOverview} /><br />
             <label>RUNTIME</label><br />
-            <input type='text' placeholder='Runtime here' defaultValue={props.filmRuntime}/><br />
-            <input type='submit' value='CONFIRM' /> 
+            <input type='text' placeholder='Runtime here' defaultValue={props.filmRuntime} /><br />
+            <input type='submit' value='CONFIRM' />
             <input type='button' value='RESET' />
         </form>
     )
@@ -121,7 +121,7 @@ EditMovieForm.propTypes = {
     filmGenres: PropTypes.array.isRequired,
     filmPicturePath: PropTypes.string.isRequired,
     filmOverview: PropTypes.string.isRequired,
-    filmRuntime: PropTypes.string.isRequired
+    filmRuntime: PropTypes.string.isRequired,
 };
 
 export default EditMovieForm;

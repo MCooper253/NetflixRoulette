@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import FilmInfo from '../../Components/FilmInfo.js';
-import Button from '../../Components/Button.js';
-import FilmImage from '../../Components/FilmImage.js';
-import EditDelete from '../../Components/EditDelete.js';
-import Modal from '../Modal.js';
-import EditMovieForm from '../../Components/EditMovieForm.js';
+import FilmInfo from "../../Components/FilmInfo.js";
+import Button from "../../Components/Button.js";
+import FilmImage from "../../Components/FilmImage.js";
+import EditDelete from "../../Components/EditDelete.js";
+import Modal from "../Modal.js";
+import EditMovieForm from "../../Components/EditMovieForm.js";
 
 const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, overview, runtime, descriptionShort }) => {
     // constructor(props) {
@@ -33,11 +33,15 @@ const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, over
         if (modalShown || deleteModalShown) {return null};
         setEditButtonShown(!editButtonShown);
     }
+    this.setState({ editButtonShown: !this.state.editButtonShown });
+  }
 
     const toggleEditMenue = () => {
         if (modalShown || deleteModalShown) {return null};
         setEditMenueShown(!editMenueShown);
     }
+    this.setState({ editMenueShown: !this.state.editMenueShown });
+  }
 
     const toggleModal = () => {
         setModalShown(!modalShown);
@@ -100,15 +104,15 @@ const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, over
 };
 
 FilmCard.propTypes = {
-    genres: PropTypes.array.isRequired,
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
-    pictureURL: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired,
-    runtime: PropTypes.string.isRequired,
-    toggleShowFilmBody: PropTypes.func.isRequired,
-    descriptionShort: PropTypes.string.isRequired
+  genres: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
+  pictureURL: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  runtime: PropTypes.string.isRequired,
+  toggleShowFilmBody: PropTypes.func.isRequired,
+  descriptionShort: PropTypes.string.isRequired,
 };
 
 export default FilmCard;

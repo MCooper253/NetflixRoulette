@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import Logo from '../Components/Logo.js';
+import Logo from "../Components/Logo.js";
 
 //Simple Footer container
 const Footer = () => {
-    return (
-        <footer>
-            <Logo />
-        </footer>
-    );
+  return (
+    <footer>
+      <Logo />
+    </footer>
+  );
 };
 
 export default Footer;

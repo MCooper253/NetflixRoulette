@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Components/Button.js';
 
-import ModalDropdown from '../Components/ModalDropdown.js';
+import ModalDropdown from "../Components/ModalDropdown.js";
 
 const AddMovieForm = (props) => {
     // constructor(props) {
@@ -119,7 +119,7 @@ const AddMovieForm = (props) => {
 }
 
 AddMovieForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default AddMovieForm;

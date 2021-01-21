@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import TopBar from './Header Containers/TopBar.js';
-import Search from './Header Containers/Search.js';
-import FilmBody from './Header Containers/FilmBody.js';
+import TopBar from "./Header Containers/TopBar.js";
+import Search from "./Header Containers/Search.js";
+import FilmBody from "./Header Containers/FilmBody.js";
 
 //High level header container.
 const Header = (props) => {
@@ -22,9 +22,9 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-    film: PropTypes.array.isRequired,
-    showFilmBody: PropTypes.bool.isRequired,
-    toggleShowFilmBody: PropTypes.func.isRequired
+  film: PropTypes.array.isRequired,
+  showFilmBody: PropTypes.bool.isRequired,
+  toggleShowFilmBody: PropTypes.func.isRequired,
 };
 
 export default Header;
