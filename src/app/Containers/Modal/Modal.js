@@ -1,13 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import FocusTrap from "focus-trap-react/dist/focus-trap-react";
-import PropTypes from "prop-types";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import FocusTrap from 'focus-trap-react/dist/focus-trap-react';
+import PropTypes from 'prop-types';
 
-import Footer from "../Footer/Footer.js";
+import Footer from '../Footer/Footer.js';
 
-import Button from "../../Components/Button.js";
-import Close from "../../Images/close.png";
-import Logo from "../../Components/Logo.js";
+import Button from '../../Components/Button.js';
+import Close from '../../Images/close.png';
+import Logo from '../../Components/Logo.js';
+
+import I18N from '../../../core/I18N.js'
 
 const Modal = (props) => {
   return ReactDOM.createPortal(
@@ -27,7 +29,7 @@ const Modal = (props) => {
 };
 
 Modal.defaultProps = {
-  innerComp: <p>The is movie has been deleted successfully.</p>,
+  innerComp: <p>{I18N.EN.DELETE_MESS}</p>,
 };
 
 Modal.propTypes = {

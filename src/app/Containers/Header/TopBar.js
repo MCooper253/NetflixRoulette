@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import ModalContainer from "./AddMovieModalContainer.js";
+import ModalContainer from './AddMovieModalContainer.js';
 
-import Logo from "../../Components/Logo.js";
-import Search from "../../Images/search.png";
+import Logo from '../../Components/Logo.js';
+import Search from '../../Images/search.png';
 
 //The Top 'nav' style bar at the top of the header.
 const TopBar = (props) => {

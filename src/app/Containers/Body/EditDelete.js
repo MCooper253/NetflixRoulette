@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Button from "../../Components/Button.js";
-import CloseImg from "../../Images/close.png";
+import Button from '../../Components/Button.js';
+import CloseImg from '../../Images/close.png';
 
 const EditDelete = (props) => {
   return (

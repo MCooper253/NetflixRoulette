@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react';
+
+import I18N from '../../core/I18N.js'
 
 const AddMovieForm = () => {
   return (
     <>
-      <p>This movie has been added to the database successfully.</p>
+      <p>{I18N.EN.CONGRATS_MESS}</p>
     </>
   );
 };

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Components/Button.js';
 
-import Button from "../../Components/Button.js";
-import ModalDropdown from "../../Components/ModalDropdown.js";
+import Button from '../../Components/Button.js';
+import ModalDropdown from '../../Components/ModalDropdown.js';
+
+import I18N from '../../../core/I18N.js';
 
 const EditMovieForm = (props) => {
 

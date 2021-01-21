@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Button from "../../Components/Button.js";
-import TextInput from "../../Components/TextInput.js";
+import Button from '../../Components/Button.js';
+import TextInput from '../../Components/TextInput.js';
+
+import I18N from '../../../core/I18N.js'
 
 //Container for the ssearch input and search button.
 const SeacrhBar = () => {
@@ -10,9 +12,9 @@ const SeacrhBar = () => {
       <TextInput
         type="text"
         name="search-criteria"
-        placeHolder="What do you want to watch?"
+        placeHolder={I18N.EN.WHAT_DO_YOU_WANT_TO_WATCH}
       />
-      <Button caption="Search" onClick={onSearch} />
+      <Button caption={I18N.EN.SEARCH} onClick={onSearch} />
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import FilmBodyImage from "../../Components/FilmBodyImage.js";
-import FilmBodyInfo from "../../Components/FilmBodyInfo.js";
+import FilmBodyImage from '../../Components/FilmBodyImage.js';
+import FilmBodyInfo from '../../Components/FilmBodyInfo.js';
 
 const FilmBody = (props) => {
   return (

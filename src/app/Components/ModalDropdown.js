@@ -1,41 +1,44 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Check from "../Images/tick.svg";
+import Check from '../Images/tick.svg';
+
+import I18N from '../../core/I18N.js';
+
 
 const ModalDropdown = (props) => {
   return (
     <div className="modal-dropdown">
       <ul>
-        <li onClick={props.toggleGenreState} title="action">
+        <li onClick={props.toggleGenreState} title="comedy">
           <img
-            title="action"
+            title="comedy"
             src={Check}
             style={
-              props.actionState ? { backgroundColor: "rgb(246, 82, 97)" } : null
+              props.comedyState ? { backgroundColor: 'rgb(246, 82, 97)' } : null
             }
           />
-          Action
+          {I18N.EN.COMEDY_LC}
         </li>
         <li onClick={props.toggleGenreState} title="crime">
           <img
             title="crime"
             src={Check}
             style={
-              props.crimeState ? { backgroundColor: "rgb(246, 82, 97)" } : null
+              props.crimeState ? { backgroundColor: 'rgb(246, 82, 97)' } : null
             }
           />
-          Crime
+          {I18N.EN.COMEDY_LC}
         </li>
         <li onClick={props.toggleGenreState} title="horror">
           <img
             title="horror"
             src={Check}
             style={
-              props.horrorState ? { backgroundColor: "rgb(246, 82, 97)" } : null
+              props.horrorState ? { backgroundColor: 'rgb(246, 82, 97)' } : null
             }
           />
-          Horror
+          {I18N.EN.HORROR_LC}
         </li>
         <li onClick={props.toggleGenreState} title="documentary">
           <img
@@ -43,11 +46,11 @@ const ModalDropdown = (props) => {
             src={Check}
             style={
               props.documentaryState
-                ? { backgroundColor: "rgb(246, 82, 97)" }
+                ? { backgroundColor: 'rgb(246, 82, 97)' }
                 : null
             }
           />
-          Documentary
+          {I18N.EN.DOCUMENTERY_LC}
         </li>
       </ul>
     </div>
@@ -56,7 +59,7 @@ const ModalDropdown = (props) => {
 
 ModalDropdown.propTypes = {
   toggleGenreState: PropTypes.func.isRequired,
-  actionState: PropTypes.bool.isRequired,
+  comedyState: PropTypes.bool.isRequired,
   crimeState: PropTypes.bool.isRequired,
   horrorState: PropTypes.bool.isRequired,
   documentaryState: PropTypes.bool.isRequired,

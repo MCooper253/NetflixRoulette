@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import TopBar from "./TopBar.js";
-import Search from "./Search.js";
-import FilmBody from "./FilmBody.js";
+import TopBar from './TopBar.js';
+import Search from './Search.js';
+import FilmBody from './FilmBody.js';
 
 //High level header container.
 const Header = (props) => {
