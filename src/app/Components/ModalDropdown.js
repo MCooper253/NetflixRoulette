@@ -45,4 +45,12 @@ const ModalDropdown = (props) => {
     );
 };
 
+ModalDropdown.propTypes = {
+    toggleGenreState: PropTypes.func.isRequired,
+    actionState: PropTypes.bool.isRequired,
+    crimeState: PropTypes.bool.isRequired,
+    horrorState: PropTypes.bool.isRequired,
+    documentaryState: PropTypes.bool.isRequired
+};
+
 export default ModalDropdown;

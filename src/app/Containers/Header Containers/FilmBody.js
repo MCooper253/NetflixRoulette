@@ -14,7 +14,7 @@ const FilmBody = (props) => {
     );
 };
 
-FilmBody.porpTypes = {
+FilmBody.propTypes = {
     film: PropTypes.object.isRequired
 };
 

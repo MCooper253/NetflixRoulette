@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import NavBar from '../Components/NavBar.js';
 import FilmList from './Body Containers/FilmList.js';
+
 import MovieCounter from '../Components/MoiveCounter.js';
 
 // Body holds the film list as state to pass down to children (MovieCounter and FilmList both need data from this state).
@@ -50,6 +51,7 @@ const Body = (props) => {
 
 Body.propTypes = {
     toggleShowFilmBody: PropTypes.func.isRequired,
+    films: PropTypes.array.isRequired
 };
 
 export default Body;

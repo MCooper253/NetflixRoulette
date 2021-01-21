@@ -12,7 +12,10 @@
     ],
     "rules":{
         "semi": 1,
-        "import/first": "error"
+        "import/first": 2,
+        "prettier/prettier": ["error", {
+            "endOfLine": "auto"
+        }]
     },
     "env": {
         "commonjs": true,
@@ -22,12 +25,14 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
     ],
 
     "plugins": [
         "react",
-        "import"
+        "import",
+        "prettier"
     ],
 
     "settings": {
