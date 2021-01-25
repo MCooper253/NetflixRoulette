@@ -16,6 +16,7 @@ header {
             float: right;
             display: block;
             height: 2rem;
+            cursor: pointer;
         }
         button {
             font-family: 'Montserrat', sans-serif;
@@ -27,7 +28,8 @@ header {
             padding: 0.8rem;
             background-color: rgba(121, 121, 121, 0.8);
             border-radius: 0.3rem;
-            color: $pink
+            color: $pink;
+            cursor: pointer;
         }
         p {
             color: $pink;
@@ -67,6 +69,7 @@ header {
                 border-radius: 0.3rem;
                 border: none;
                 font-size: 1.2rem;
+                cursor: pointer;
             }
         }
     }
