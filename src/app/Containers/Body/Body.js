@@ -6,16 +6,14 @@ import FilmList from './FilmList.js';
 import NavBar from '../../Components/NavBar.js';
 import MovieCounter from '../../Components/MoiveCounter.js';
 
-import PointBreakImg from '../../Images/Point Break.png'
-import PulpFictionImg from '../../Images/Pulp Fiction.png'
+import PointBreakImg from '../../Images/Point Break.png';
+import PulpFictionImg from '../../Images/Pulp Fiction.png';
 
 import { films } from '../../../core/data/Films.json';
 
 (function imagePathSetter() {
-
   films[0].poster_path = PulpFictionImg;
   films[1].poster_path = PointBreakImg;
-
 })();
 
 // Body holds the film list as state to pass down to children (MovieCounter and FilmList both need data from this state).
@@ -62,7 +60,7 @@ const Body = (props) => {
 }
 
 Body.propTypes = {
-  toggleShowFilmBody: PropTypes.func.isRequired
+  toggleShowFilmBody: PropTypes.func.isRequired,
 };
 
 export default Body;

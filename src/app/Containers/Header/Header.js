@@ -5,7 +5,7 @@ import TopBar from './TopBar.js';
 import Search from './Search.js';
 import FilmBody from './FilmBody.js';
 
-import { films } from '../../../core/data/Films.json'
+import { films } from '../../../core/data/Films.json';
 
 //High level header container.
 const Header = (props) => {
@@ -24,7 +24,7 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  film: PropTypes.any,
+  filmBodyToRender: PropTypes.any,
   showFilmBody: PropTypes.bool.isRequired,
   toggleShowFilmBody: PropTypes.func.isRequired,
 };

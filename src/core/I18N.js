@@ -1,11 +1,11 @@
 const I18N = {
-
   RU: {
     SEARCH: 'Поиск',
     FIND_YOUR_MOIVE: 'НАЙТИ СВОЙ ФИЛЬМ',
     WHAT_DO_YOU_WANT_TO_WATCH: 'Что ты хочешь посмотреть?',
     MOVIE_ID: 'Кино ID',
     ALL: 'ВСЕ',
+    ADD: 'ДОБАВЛЯТЬ',
     DOCUMENTARY: 'ДОКУМЕНТАЛЬНОЕ КИНО',
     DOCUMENTERY_LC: 'Документальное кино',
     COMEDY: 'КОМЕДИЯ',
@@ -40,6 +40,7 @@ const I18N = {
     WHAT_DO_YOU_WANT_TO_WATCH: 'What do you want to watch?',
     MOVIE_ID: 'Movie ID',
     ALL: 'ALL',
+    ADD: 'ADD',
     DOCUMENTARY: 'DOCUMENTARY',
     DOCUMENTERY_LC: 'Documentary',
     COMEDY: 'COMEDY',

@@ -5,7 +5,6 @@ import Check from '../Images/tick.svg';
 
 import I18N from '../../core/I18N.js';
 
-
 const ModalDropdown = (props) => {
   return (
     <div className="modal-dropdown">
@@ -18,7 +17,7 @@ const ModalDropdown = (props) => {
               props.comedyState ? { backgroundColor: 'rgb(246, 82, 97)' } : null
             }
           />
-          {I18N.EN.COMEDY_LC}
+          {I18N[process.env.LANG].COMEDY_LC}
         </li>
         <li onClick={props.toggleGenreState} title="crime">
           <img
@@ -28,7 +27,7 @@ const ModalDropdown = (props) => {
               props.crimeState ? { backgroundColor: 'rgb(246, 82, 97)' } : null
             }
           />
-          {I18N.EN.COMEDY_LC}
+          {I18N[process.env.LANG].COMEDY_LC}
         </li>
         <li onClick={props.toggleGenreState} title="horror">
           <img
@@ -38,7 +37,7 @@ const ModalDropdown = (props) => {
               props.horrorState ? { backgroundColor: 'rgb(246, 82, 97)' } : null
             }
           />
-          {I18N.EN.HORROR_LC}
+          {I18N[process.env.LANG].HORROR_LC}
         </li>
         <li onClick={props.toggleGenreState} title="documentary">
           <img
@@ -50,7 +49,7 @@ const ModalDropdown = (props) => {
                 : null
             }
           />
-          {I18N.EN.DOCUMENTERY_LC}
+          {I18N[process.env.LANG].DOCUMENTERY_LC}
         </li>
       </ul>
     </div>

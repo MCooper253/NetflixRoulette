@@ -8,7 +8,7 @@ import I18N from '../../../core/I18N.js';
 const Search = () => {
   return (
     <div className="searchWrapper">
-      <h1>{I18N['EN'].FIND_YOUR_MOIVE}</h1>
+      <h1>{I18N[process.env.LANG].FIND_YOUR_MOIVE}</h1>
       <SearchBar />
     </div>
   );

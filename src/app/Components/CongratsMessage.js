@@ -1,11 +1,11 @@
 import React from 'react';
 
-import I18N from '../../core/I18N.js'
+import I18N from '../../core/I18N.js';
 
 const AddMovieForm = () => {
   return (
     <>
-      <p>{I18N.EN.CONGRATS_MESS}</p>
+      <p>{I18N[process.env.LANG].CONGRATS_MESS}</p>
     </>
   );
 };

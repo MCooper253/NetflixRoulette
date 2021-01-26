@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import I18N from '../../core/I18N.js'
+import I18N from '../../core/I18N.js';
 
 //Logo is as simple as you may imagine. A re-usable compononet.
 const FilmBodyInfo = (props) => {
@@ -13,7 +13,10 @@ const FilmBodyInfo = (props) => {
       </h1>
       <p>{props.film.tagline}</p>
       <h2>
-        {props.film.release_date} <span>{props.film.runtime} {I18N.EN.MIN}</span>
+        {props.film.release_date}{' '}
+        <span>
+          {props.film.runtime} {I18N[process.env.LANG].MIN}
+        </span>
       </h2>
       <p>{props.film.overview}</p>
     </article>

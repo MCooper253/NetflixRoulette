@@ -9,7 +9,7 @@ import Button from '../../Components/Button.js';
 import Close from '../../Images/close.png';
 import Logo from '../../Components/Logo.js';
 
-import I18N from '../../../core/I18N.js'
+import I18N from '../../../core/I18N.js';
 
 const Modal = (props) => {
   return ReactDOM.createPortal(
@@ -29,7 +29,7 @@ const Modal = (props) => {
 };
 
 Modal.defaultProps = {
-  innerComp: <p>{I18N.EN.DELETE_MESS}</p>,
+  innerComp: <p>{I18N[process.env.LANG].DELETE_MESS}</p>,
 };
 
 Modal.propTypes = {
