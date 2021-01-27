@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//Generic ErrorBoundary
+// Generic ErrorBoundary
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);

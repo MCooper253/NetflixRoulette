@@ -38,8 +38,8 @@ const I18N = {
       MOVIE_URL: 'URL-адрес фильма здесь',
       GENRE: 'Выберите жанры',
       OVERVIEW: 'Обзор здесь',
-      RUNTIME: 'Время выполнения здесь'
-    }
+      RUNTIME: 'Время выполнения здесь',
+    },
   },
 
   EN: {
@@ -81,8 +81,8 @@ const I18N = {
       MOVIE_URL: 'Movie URL here',
       GENRE: 'Select genres',
       OVERVIEW: 'Overview here',
-      RUNTIME: 'Runtime here'
-    }
+      RUNTIME: 'Runtime here',
+    },
   },
 };
 

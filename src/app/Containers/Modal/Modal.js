@@ -11,8 +11,8 @@ import Logo from '../../Components/Logo.js';
 
 import I18N from '../../../core/I18N.js';
 
-const Modal = (props) => {
-  return ReactDOM.createPortal(
+const Modal = (props) =>
+  ReactDOM.createPortal(
     <div id="modal-container">
       <Logo />
       <FocusTrap>
@@ -26,7 +26,6 @@ const Modal = (props) => {
     </div>,
     document.body
   );
-};
 
 Modal.defaultProps = {
   innerComp: <p>{I18N[process.env.LANG].DELETE_MESS}</p>,
