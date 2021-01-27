@@ -8,12 +8,14 @@ import MovieCounter from '../../Components/MoiveCounter.js';
 
 import PointBreakImg from '../../Images/Point Break.png';
 import PulpFictionImg from '../../Images/Pulp Fiction.png';
+import IcarusImg from '../../Images/Icarus.jpg';
 
 import { films } from '../../../core/data/Films.json';
 
 (function imagePathSetter() {
   films[0].poster_path = PulpFictionImg;
   films[1].poster_path = PointBreakImg;
+  films[2].poster_path = IcarusImg;
 })();
 
 // Body holds the film list as state to pass down to children (MovieCounter and FilmList both need data from this state).

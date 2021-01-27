@@ -12,10 +12,10 @@ const FilmImage = (props) => {
   );
 };
 
-export default FilmImage;
-
 FilmImage.propTypes = {
   img: PropTypes.string.isRequired,
   toggleShowFilmBody: PropTypes.func.isRequired,
   filmTitle: PropTypes.string.isRequired,
 };
+
+export default FilmImage;
