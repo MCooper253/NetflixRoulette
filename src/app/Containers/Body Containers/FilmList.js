@@ -7,9 +7,25 @@ import FilmCard from './FilmCard.js'
 //In the future the 'film card image' could do with being exported as a different component to tidy this up. 
 const FilmList = (props) => {
 
+    //FUCNTION THAT SORTS THE FILMS ARRAY READY FOR RENDERING.
+    const sortFilms = (catagory) => {
+
+        const films = props.films;
+
+        if (catagory === 'release_date') {
+            //This messy line is converting the release date string into a number that can be sorted in the .sort() function.
+            films.sort(function(a, b) {return Number(b.release_date.split('')[0]+b.release_date.split('')[1]+b.release_date.split('')[2]+b.release_date.split('')[3]) - Number(a.release_date.split('')[0]+a.release_date.split('')[1]+a.release_date.split('')[2]+a.release_date.split('')[3])});
+        } else {
+            films.sort(function(a, b) {return b[catagory] - a[catagory]});
+        }
+
+        return films;
+    
+    };
+
     return (
         <section className='filmList'>
-            {props.films.map((input)=>{
+            {sortFilms(props.sortCatagory).map((input)=>{
                 const idCount=input.id
                 // RETURENS CONDITIONALLY ON STATE
                 if ( input.genres.includes(props.displayGenre) || props.displayGenre === 'all' ) {
@@ -38,7 +54,8 @@ const FilmList = (props) => {
 FilmList.propTypes = {
     films: PropTypes.array.isRequired,
     displayGenre: PropTypes.string.isRequired,
-    toggleShowFilmBody: PropTypes.func.isRequired
+    toggleShowFilmBody: PropTypes.func.isRequired,
+    sortCatagory: PropTypes.any
 }
 
 export default FilmList;

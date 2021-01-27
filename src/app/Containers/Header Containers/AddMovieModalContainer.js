@@ -1,8 +1,7 @@
 import React from 'react';
-import disableScroll from 'disable-scroll';
 
 import Button from '../../Components/Button.js';
-import Modal from '../../Components/Modal.js';
+import Modal from '../Modal.js';
 import AddMovieForm from '../../Components/AddMovieForm.js'
 import CongratsMessage from '../../Components/CongratsMessage.js'
 

@@ -5,7 +5,7 @@ import FilmInfo from '../../Components/FilmInfo.js';
 import Button from '../../Components/Button.js';
 import FilmImage from '../../Components/FilmImage.js';
 import EditDelete from '../../Components/EditDelete.js';
-import Modal from '../../Components/Modal.js';
+import Modal from '../Modal.js';
 import EditMovieForm from '../../Components/EditMovieForm.js';
 
 class FilmCard extends React.Component {
