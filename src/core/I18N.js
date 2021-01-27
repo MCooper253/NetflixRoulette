@@ -22,8 +22,8 @@ const I18N = {
     GENRE: 'ЖАНР',
     OVERVIEW: 'ОБЗОР',
     RUNTIME: 'ВРЕМЯ ВЫПОЛНЕНИЯ',
-    RESET: 'RESET',
-    CONFIRM: 'СБРОС',
+    RESET: 'СБРОС',
+    CONFIRM: 'ПОДТВЕРЖДАТЬ',
     MIN: 'минут',
     CONGRATS: 'ПОЗДРАВЛЯЮ!',
     CONGRATS_MESS: 'Этот фильм был успешно добавлен в базу данных.',
@@ -32,6 +32,14 @@ const I18N = {
     DELETE_MESS: 'Фильм is был успешно удален.',
     RU: 'РУС',
     EN: 'АНГЛ',
+    INPUT_PLACEHOLDERS: {
+      TITLE: 'Название фильма здесь',
+      RELEASE_DATE: 'Выберите Дату',
+      MOVIE_URL: 'URL-адрес фильма здесь',
+      GENRE: 'Выберите жанры',
+      OVERVIEW: 'Обзор здесь',
+      RUNTIME: 'Время выполнения здесь'
+    }
   },
 
   EN: {
@@ -67,6 +75,14 @@ const I18N = {
     DELETE_MESS: 'The is movie has been deleted successfully.',
     RU: 'RU',
     EN: 'EN',
+    INPUT_PLACEHOLDERS: {
+      TITLE: 'Film title here',
+      RELEASE_DATE: 'Select Date',
+      MOVIE_URL: 'Movie URL here',
+      GENRE: 'Select genres',
+      OVERVIEW: 'Overview here',
+      RUNTIME: 'Runtime here'
+    }
   },
 };
 

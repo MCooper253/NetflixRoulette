@@ -164,17 +164,19 @@
             background-color: $pink;
             border: solid $pink;
             border-width: thin;
-            width: 10rem;
+            width: fit-content;
+            min-width: 10rem;
             cursor: pointer;
         }
 
         input[type='button'] {
             float: right;
             margin-right: 2rem;
-            width: 10rem;
             border: solid $pink;
             border-width: thin;
             background: none;
+            min-width: 10rem;
+            width: fit-content;
             cursor: pointer;
         }
 
