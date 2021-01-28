@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SearchBar from './SearchBar.js';
+import SearchBar from './SearchBar.jsx';
 
-import I18N from '../../../core/I18N.js';
+import I18N from '../../../core/I18N';
 
 // Container for the Search components.
 const Search = () => (

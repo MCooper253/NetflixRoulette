@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../../Components/Button.js';
+import Button from '../../Components/Button.jsx';
 import CloseImg from '../../Images/close.png';
 
-const EditDelete = (props) => (
+const EditDelete = ({
+  toggleEditMenue,
+  toggleEditButton,
+  toggleDeleteModal,
+  toggleModal,
+}) => (
   <div className="edit-menue">
-    <Button image={CloseImg} onClick={props.toggleEditMenue} />
+    <Button image={CloseImg} onClick={toggleEditMenue} />
     <ul>
       <li key="01">
         <Button
           onClick={() => {
-            props.toggleModal();
-            props.toggleEditMenue();
-            props.toggleEditButton();
+            toggleModal();
+            toggleEditMenue();
+            toggleEditButton();
           }}
           caption="EDIT"
         />
@@ -21,9 +26,9 @@ const EditDelete = (props) => (
       <li key="02">
         <Button
           onClick={() => {
-            props.toggleEditMenue();
-            props.toggleDeleteModal();
-            props.toggleEditButton();
+            toggleEditMenue();
+            toggleDeleteModal();
+            toggleEditButton();
           }}
           caption="DELETE"
         />

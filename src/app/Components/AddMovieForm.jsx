@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Components/Button.js';
 
-import Button from '../Components/Button.js';
-import ModalDropdown from '../Components/ModalDropdown.js';
+import Button from './Button.jsx';
+import ModalDropdown from './ModalDropdown.jsx';
 
-import I18N from '../../core/I18N.js';
+import I18N from '../../core/I18N';
 
 const AddMovieForm = (props) => {
     // constructor(props) {

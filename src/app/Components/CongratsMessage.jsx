@@ -1,11 +1,7 @@
 import React from 'react';
 
-import I18N from '../../core/I18N.js';
+import I18N from '../../core/I18N';
 
-const AddMovieForm = () => (
-  <>
-    <p>{I18N[process.env.LANG].CONGRATS_MESS}</p>
-  </>
-);
+const CongratsMessage = () => <p>{I18N[process.env.LANG].CONGRATS_MESS}</p>;
 
-export default AddMovieForm;
+export default CongratsMessage;

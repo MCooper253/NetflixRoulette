@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // film info is the compononet at the bottom of each film card
-const FilmInfo = (props) => (
+const FilmInfo = ({ name, year, description }) => (
   <div className="filmInfo">
-    <h4>{props.name}</h4>
-    <button>{props.year}</button>
-    <p>{props.description}</p>
+    <h4>{name}</h4>
+    <button type="button">{year}</button>
+    <p>{description}</p>
   </div>
 );
 

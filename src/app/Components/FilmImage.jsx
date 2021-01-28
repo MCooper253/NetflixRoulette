@@ -1,11 +1,14 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FilmImage = (props) => (
+const FilmImage = ({ img, toggleShowFilmBody, filmTitle }) => (
+  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
   <img
-    src={props.img}
-    onClick={props.toggleShowFilmBody}
-    title={props.filmTitle}
+    alt="film_image"
+    src={img}
+    onClick={toggleShowFilmBody}
+    title={filmTitle}
     className="filcard-image"
   />
 );

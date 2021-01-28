@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Button from '../../Components/Button.js';
-import TextInput from '../../Components/TextInput.js';
+import Button from '../../Components/Button.jsx';
+import TextInput from '../../Components/TextInput.jsx';
 
-import I18N from '../../../core/I18N.js';
+import I18N from '../../../core/I18N';
 
 const onSearch = (e) => {
   e.preventDefault();

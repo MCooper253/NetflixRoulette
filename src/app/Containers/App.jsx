@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import Body from './Body/Body.js';
-import Header from './Header/Header.js';
-import Footer from './Footer/Footer.js';
-import ErrorBoundary from './ErrorBoundary.js';
+import Body from './Body/Body.jsx';
+import Header from './Header/Header.jsx';
+import Footer from './Footer/Footer.jsx';
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 import HeaderBackgroundImage from '../Images/header-background.jpg';
 

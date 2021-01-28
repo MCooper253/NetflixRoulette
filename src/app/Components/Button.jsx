@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = (props) => (
-  // every button in this application gets a funciton to call on the onClick event.
-  // class name and caption are optional props.
-
-  <button
-    onClick={props.onClick}
-    className={props.className ? props.className : null}
-  >
-    {props.image ? <img src={props.image} /> : null}
-    {props.caption ? props.caption : null}
+const Button = ({ className, image, caption, onClick, alt }) => (
+  <button type="button" onClick={onClick} className={className || null}>
+    {image ? <img src={image} alt={alt} /> : null}
+    {caption || null}
   </button>
 );
+
+Button.defaultProps = {
+  caption: null,
+  className: null,
+  image: null,
+};
+
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   caption: PropTypes.string,
   className: PropTypes.string,
   image: PropTypes.string,
+  alt: PropTypes.string.isRequired,
 };
 
 export default Button;

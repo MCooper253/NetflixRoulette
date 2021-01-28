@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import FilmList from './FilmList.js';
+import FilmList from './FilmList.jsx';
 
-import NavBar from '../../Components/NavBar.js';
-import MovieCounter from '../../Components/MoiveCounter.js';
+import NavBar from '../../Components/NavBar.jsx';
+import MovieCounter from '../../Components/MoiveCounter.jsx';
 
 import PointBreakImg from '../../Images/Point Break.png';
 import PulpFictionImg from '../../Images/Pulp Fiction.png';

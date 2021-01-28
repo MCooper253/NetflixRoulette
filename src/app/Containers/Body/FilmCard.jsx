@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import EditDelete from './EditDelete.js';
+import EditDelete from './EditDelete.jsx';
 
-import Modal from '../Modal/Modal.js';
-import EditMovieForm from '../Modal/EditMovieForm.js';
+import Modal from '../Modal/Modal.jsx';
+import EditMovieForm from '../Modal/EditMovieForm.jsx';
 
 const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, overview, runtime, descriptionShort }) => {
     // constructor(props) {
