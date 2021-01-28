@@ -20,7 +20,7 @@ const FilmBodyInfo = ({ film }) => (
 );
 
 FilmBodyInfo.propTypes = {
-  film: PropTypes.object.isRequired,
+  film: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default FilmBodyInfo;

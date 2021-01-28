@@ -33,7 +33,7 @@ Modal.defaultProps = {
 
 Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  innerComp: PropTypes.object,
+  innerComp: PropTypes.element,
   title: PropTypes.string,
 };
 

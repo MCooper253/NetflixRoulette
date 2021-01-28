@@ -4,10 +4,10 @@ const PointBreakImg = React.lazy(() => import('../Images/Point Break.png'))
 const PulpFictionImg = React.lazy(() => import('../Images/Pulp Fiction.png'))
 
 //Logo is as simple as you may imagine. A re-usable compononet.
-const FilmBodyImage = (props) => {
+const FilmBodyImage = ({ filmImage }) => {
 
     return (
-        <img src={props.filmImage} />
+        <img src={filmImage} />
     );
 };
 
