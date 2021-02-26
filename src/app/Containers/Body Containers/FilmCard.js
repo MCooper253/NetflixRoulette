@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import FilmInfo from '../../Components/FilmInfo.js';
@@ -8,92 +8,95 @@ import EditDelete from '../../Components/EditDelete.js';
 import Modal from '../Modal.js';
 import EditMovieForm from '../../Components/EditMovieForm.js';
 
-class FilmCard extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            editButtonShown: false,
-            editMenueShown: false,
-            modalShown: false,
-            deleteModalShown: false,
-        }
+const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, overview, runtime, descriptionShort }) => {
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         editButtonShown: false,
+    //         editMenueShown: false,
+    //         modalShown: false,
+    //         deleteModalShown: false,
+    //     }
 
-        this.toggleEditButton = this.toggleEditButton.bind(this);
-        this.toggleEditMenue = this.toggleEditMenue.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
-        this.toggleDeleteModal = this.toggleDeleteModal.bind(this);
+    //     this.toggleEditButton = this.toggleEditButton.bind(this);
+    //     this.toggleEditMenue = this.toggleEditMenue.bind(this);
+    //     this.toggleModal = this.toggleModal.bind(this);
+    //     this.toggleDeleteModal = this.toggleDeleteModal.bind(this);
+    // }
+
+    const [editButtonShown, setEditButtonShown] = useState(false);
+    const [editMenueShown, setEditMenueShown] = useState(false);
+    const [modalShown, setModalShown] = useState(false);
+    const [deleteModalShown, setDeleteModalShown] = useState(false);
+
+    const toggleEditButton = () => {
+        if (modalShown || deleteModalShown) {return null};
+        setEditButtonShown(!editButtonShown);
     }
 
-    toggleEditButton() {
-        if (this.state.modalShown || this.state.deleteModalShown) {return null};
-        this.setState({ editButtonShown: !this.state.editButtonShown });
+    const toggleEditMenue = () => {
+        if (modalShown || deleteModalShown) {return null};
+        setEditMenueShown(!editMenueShown);
     }
 
-    toggleEditMenue() {
-        if (this.state.modalShown || this.state.deleteModalShown) {return null};
-        this.setState({ editMenueShown: !this.state.editMenueShown });
-    }
-
-    toggleModal() {
-        this.setState({ modalShown: !this.state.modalShown });
+    const toggleModal = () => {
+        setModalShown(!modalShown);
     }
     
-    toggleDeleteModal() {
-        this.setState({ deleteModalShown: !this.state.deleteModalShown });
+    const toggleDeleteModal = () => {
+        setDeleteModalShown(!deleteModalShown);
     }
 
-    render() {
-        return (
-            <>
-                <div className='image-container' onMouseEnter={this.toggleEditButton} onMouseLeave={()=>{this.toggleEditButton(); this.state.editMenueShown && this.toggleEditMenue();}}>
+    return (
+        <>
+            <div className='image-container' onMouseEnter={toggleEditButton} onMouseLeave={()=>{toggleEditButton(); editMenueShown && toggleEditMenue();}}>
 
-                    { this.state.editButtonShown ?
-                        <Button 
-                            onClick={this.toggleEditMenue}
-                            caption=''
-                            className='edit-button'
-                            buttonId={`bt${this.props.id}`}
-                        /> : null
-                    }
+                { editButtonShown ?
+                    <Button 
+                        onClick={toggleEditMenue}
+                        caption=''
+                        className='edit-button'
+                        buttonId={`bt${id}`}
+                    /> : null
+                }
 
-                    { this.state.editMenueShown ? <EditDelete
-                        toggleEditMenue={this.toggleEditMenue}
-                        toggleModal={this.toggleModal}
-                        toggleEditButton={this.toggleEditButton}
-                        toggleDeleteModal={this.toggleDeleteModal} 
-                    /> : null}
+                { editMenueShown ? <EditDelete
+                    toggleEditMenue={toggleEditMenue}
+                    toggleModal={toggleModal}
+                    toggleEditButton={toggleEditButton}
+                    toggleDeleteModal={toggleDeleteModal} 
+                /> : null}
 
-                    <FilmImage
-                        toggleShowFilmBody={this.props.toggleShowFilmBody}
-                        img={this.props.pictureURL}
-                        filmTitle={this.props.name}
-                    />
-
-                </div>
-
-                <FilmInfo
-                    description={this.props.descriptionShort}
-                    name={this.props.name}
-                    year={this.props.year}
+                <FilmImage
+                    toggleShowFilmBody={toggleShowFilmBody}
+                    img={pictureURL}
+                    filmTitle={name}
                 />
 
-            {this.state.modalShown && <Modal 
-                title='EDIT MOVIE' closeModal={this.toggleModal}
-                innerComp={<EditMovieForm
-                    onSubmit={e=>e.preventDefault()}
-                    filmName={this.props.name}
-                    filmId={this.props.id}
-                    filmYear={this.props.year}
-                    filmGenres={this.props.genres}
-                    filmPicturePath={this.props.pictureURL}
-                    filmOverview={this.props.overview}
-                    filmRuntime={this.props.runtime}
-                />}
+            </div>
+
+            <FilmInfo
+                description={descriptionShort}
+                name={name}
+                year={year}
+            />
+
+        {modalShown && <Modal 
+            title='EDIT MOVIE' closeModal={toggleModal}
+            innerComp={<EditMovieForm
+                onSubmit={e=>e.preventDefault()}
+                filmName={name}
+                filmId={id}
+                filmYear={year}
+                filmGenres={genres}
+                filmPicturePath={pictureURL}
+                filmOverview={overview}
+                filmRuntime={runtime}
             />}
-            {this.state.deleteModalShown && <Modal title='DELETE MOVIE' closeModal={this.toggleDeleteModal}/>}
-            </>
-        )
-    }
+        />}
+        {deleteModalShown && <Modal title='DELETE MOVIE' closeModal={toggleDeleteModal}/>}
+        </>
+    )
 };
 
 FilmCard.propTypes = {

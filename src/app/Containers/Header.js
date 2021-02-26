@@ -6,24 +6,19 @@ import Search from './Header Containers/Search.js';
 import FilmBody from './Header Containers/FilmBody.js';
 
 //High level header container.
-class Header extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+const Header = (props) => {
 
-    render() {
-        return (
-            <header>
-                <TopBar showFilmBody={this.props.showFilmBody} toggleShowhowFilmBody={this.props.toggleShowFilmBody} />
-                {this.props.showFilmBody ?
-                <FilmBody film={this.props.film[0]} /> : (
-                    <>
-                    <Search />
-                    </>
-                )}
-            </header>
-        );
-    }
+    return (
+        <header>
+            <TopBar showFilmBody={props.showFilmBody} toggleShowhowFilmBody={props.toggleShowFilmBody} />
+            {props.showFilmBody ?
+            <FilmBody film={props.film[0]} /> : (
+                <>
+                <Search />
+                </>
+            )}
+        </header>
+    );
 };
 
 Header.propTypes = {
