@@ -17,7 +17,11 @@ const SeacrhBar = () => (
       name="search-criteria"
       placeHolder={I18N[process.env.LANG].WHAT_DO_YOU_WANT_TO_WATCH}
     />
-    <Button caption={I18N[process.env.LANG].SEARCH} onClick={onSearch} />
+    <Button
+      alt="search_botton"
+      caption={I18N[process.env.LANG].SEARCH}
+      onClick={onSearch}
+    />
   </div>
 );
 

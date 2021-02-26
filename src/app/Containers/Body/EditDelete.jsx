@@ -11,10 +11,11 @@ const EditDelete = ({
   toggleModal,
 }) => (
   <div className="edit-menue">
-    <Button image={CloseImg} onClick={toggleEditMenue} />
+    <Button image={CloseImg} onClick={toggleEditMenue} alt="close_edit_menue" />
     <ul>
       <li key="01">
         <Button
+          alt="open_edit_modal"
           onClick={() => {
             toggleModal();
             toggleEditMenue();
@@ -25,6 +26,7 @@ const EditDelete = ({
       </li>
       <li key="02">
         <Button
+          alt="open_delete_modal"
           onClick={() => {
             toggleEditMenue();
             toggleDeleteModal();

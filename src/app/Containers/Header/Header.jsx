@@ -5,7 +5,7 @@ import TopBar from './TopBar.jsx';
 import Search from './Search.jsx';
 import FilmBody from './FilmBody.jsx';
 
-import { films } from '../../../core/data/Films.json';
+import DB from '../../../core/data/Films.json';
 
 //High level header container.
 const Header = (props) => {
