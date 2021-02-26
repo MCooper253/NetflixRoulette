@@ -4,6 +4,7 @@
   "description": "self-configured-webpack",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "Will run future test scripts.",
     "start": "webpack serve -open 'Google Chrome'"
   },
