@@ -23,7 +23,7 @@ const FilmList = (props) => {
     
     };
 
-    //reduces the film array ready for rendering
+    //fcuntion that reduces the film array ready for rendering
 
     const filmReducerByDisplayGenre = (films) => {
         return films.filter((input)=>{
@@ -31,8 +31,12 @@ const FilmList = (props) => {
         })
     }
 
+    //creates a array of films to render
+
     const filmsToRender = filmReducerByDisplayGenre(sortFilms(props.sortCatagory));
 
+    //creates an array of JSX components for rendering
+    
     const renderingArray = filmsToRender.map(input => {
         const idCount=input.id
         return (
@@ -55,46 +59,6 @@ const FilmList = (props) => {
     return (
         <section className='filmList'>
             {renderingArray}
-            {/* {filmsToRender.map(input => {
-                const idCount=input.id
-                return (
-                    <article key={input.id} id={idCount} className='filmCard'>
-                        <FilmCard
-                            id={input.id}
-                            pictureURL={input.poster_path}
-                            descriptionShort={input.tagline}
-                            name={input.title}
-                            year={input.release_date}
-                            genres={input.genres}
-                            overview={input.overview}
-                            runtime={input.runtime}
-                            toggleShowFilmBody={props.toggleShowFilmBody}
-                        />
-                    </article>
-                )
-            })} */}
-            {/* {sortFilms(props.sortCatagory).map((input)=>{
-                const idCount=input.id
-                // RETURENS CONDITIONALLY ON STATE
-                if ( input.genres.includes(props.displayGenre) || props.displayGenre === 'all' ) {
-                    return (
-                        //returns the film cards with film info and image.
-                        <article key={input.id} id={idCount} className='filmCard'>
-                            <FilmCard
-                                id={input.id}
-                                pictureURL={input.poster_path}
-                                descriptionShort={input.tagline}
-                                name={input.title}
-                                year={input.release_date}
-                                genres={input.genres}
-                                overview={input.overview}
-                                runtime={input.runtime}
-                                toggleShowFilmBody={props.toggleShowFilmBody}
-                            />
-                        </article>
-                    )
-                };
-            })} */}
         </section>
     )
 }
