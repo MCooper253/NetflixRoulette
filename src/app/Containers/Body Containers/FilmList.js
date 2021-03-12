@@ -1,7 +1,20 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import { store } from '../../Redux/store'
+import { getAllMovies } from '../../Redux/thunk.js'
+
 import FilmCard from './FilmCard.js'
+
+//-------------------Redux Trial--------------------//
+
+store.dispatch(getAllMovies());
+
+console.log(store.getState());
+
+setTimeout(() => {console.log(store.getState())},1000);
+
+//--------------------------------------------------//
 
 //This is a conatiner that maps over film list (accepted as props) and returns all the film cards.
 //In the future the 'film card image' could do with being exported as a different component to tidy this up. 
