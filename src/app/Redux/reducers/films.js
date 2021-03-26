@@ -12,7 +12,8 @@ export const filmsReducer = function(state = initialState, action) {
         const movieToAdd = action.payload;
         const currentState = state.films;
         return {
-            films: [...currentState, movieToAdd]
+            //films: [...currentState, movieToAdd]
+            films: currentState.concat(movieToAdd)
           }
         };
       default:

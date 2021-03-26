@@ -6,16 +6,16 @@ import { addMovie } from './actions';
 
 export const getAllMovies = () => {
     return (something) => {
-        axios.get('http://localhost:4000/movies?limit=5')
+        axios.get('http://localhost:4000/movies')
         .then(res => {
             console.log(res.data.data);
             return res.data.data
         })
         .then(film => {
             console.log(film);
-            film.forEach(element => {
-                something(addMovie(element));
-            });
+            //film.forEach(element => {
+                something(addMovie(film));
+            //});
         })
     }
 }

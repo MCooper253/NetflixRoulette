@@ -10,11 +10,16 @@ import FilmCard from './FilmCard.js'
 
 store.dispatch(getAllMovies());
 
-console.log(store.getState());
+// console.log(store.getState());
 
-setTimeout(() => {console.log(store.getState())},1000);
+setTimeout(() => {`the store state is ${console.log(store.getState())}`,1000});
 
 //--------------------------------------------------//
+
+const mapStateToProps = (state) => {
+    console.log('wagwan, I am getting called');
+    return { films: state.films }
+}
 
 //This is a conatiner that maps over film list (accepted as props) and returns all the film cards.
 //In the future the 'film card image' could do with being exported as a different component to tidy this up. 
@@ -88,4 +93,4 @@ FilmList.propTypes = {
 //export default connect(/*has two funcs inside*/)(FilmList);
 /* connect func also listens to chnages in the store for the specific props specfied*/
 
-export default connect(null, { getAllMovies })(FilmList)
+export default connect(mapStateToProps, { getAllMovies })(FilmList)
