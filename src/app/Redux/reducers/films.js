@@ -9,9 +9,10 @@ const initialState = {
 export const filmsReducer = function(state = initialState, action) {
     switch (action.type) {
       case ADD_MOVIE: {
-        // necessary fileds
+        const movieToAdd = action.payload;
+        const currentState = state.films;
         return {
-            films: [...state.films, action.payload /* previoulsy map what I need for this payload on line 10 */]
+            films: [...currentState, movieToAdd]
           }
         };
       default:

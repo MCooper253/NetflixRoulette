@@ -2,14 +2,20 @@
 // enables with redux
 import axios from 'axios';
 import { addMovie } from './actions';
-import { store } from './store';
+//import { store } from './store';
 
 export const getAllMovies = () => {
-    return () => {
-        axios.get('http://localhost:4000/movies?limit=1')
-        .then(res => res.data.data[0])
+    return (something) => {
+        axios.get('http://localhost:4000/movies?limit=5')
+        .then(res => {
+            console.log(res.data.data);
+            return res.data.data
+        })
         .then(film => {
-            store.dispatch(addMovie(film))
+            console.log(film);
+            film.forEach(element => {
+                something(addMovie(element));
+            });
         })
     }
 }

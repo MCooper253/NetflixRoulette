@@ -6,11 +6,6 @@ import Footer from './Footer.js'
 import ErrorBoundary from '../Error Components/ErrorBoundary.js'
 import HeaderBackgroundImage from '../Images/header-background.jpg'
 
-import { store } from '../Redux/store.js'
-import { ADD_MOVIE } from '../Redux/actionTypes.js'
-import { addMovie } from '../Redux/actions.js'
-import { getAllMovies } from '../Redux/thunk.js'
-
 //Importing saved images will not work dynamically when users start adding their own movies with movie urls.
 //These can be concideraed stock or fallback images.
 import PulpFictionImg from '../Images/Pulp Fiction.png'

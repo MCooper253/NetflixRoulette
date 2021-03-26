@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { connect } from 'react-redux'
 
-import { store } from '../../Redux/store'
+import { store } from '../../Redux/store' //this is bad - dont not import the whole store insie a single component.
 import { getAllMovies } from '../../Redux/thunk.js'
-
 import FilmCard from './FilmCard.js'
 
 //-------------------Redux Trial--------------------//
@@ -76,6 +76,8 @@ const FilmList = (props) => {
     )
 }
 
+
+
 FilmList.propTypes = {
     films: PropTypes.array.isRequired,
     displayGenre: PropTypes.string.isRequired,
@@ -83,4 +85,7 @@ FilmList.propTypes = {
     sortCatagory: PropTypes.any
 }
 
-export default FilmList;
+//export default connect(/*has two funcs inside*/)(FilmList);
+/* connect func also listens to chnages in the store for the specific props specfied*/
+
+export default connect(null, { getAllMovies })(FilmList)
