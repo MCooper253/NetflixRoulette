@@ -8,7 +8,7 @@ import FilmCard from './FilmCard.js'
 
 //-------------------Redux Trial--------------------//
 
-store.dispatch(getAllMovies());
+// store.dispatch(getAllMovies());
 
 // console.log(store.getState());
 
@@ -16,9 +16,8 @@ setTimeout(() => {`the store state is ${console.log(store.getState())}`,1000});
 
 //--------------------------------------------------//
 
-const mapStateToProps = (state) => {
-    console.log('wagwan, I am getting called');
-    return { films: state.films }
+const mapStateToProps = (store) => {
+    return { films: store.films }
 }
 
 //This is a conatiner that maps over film list (accepted as props) and returns all the film cards.

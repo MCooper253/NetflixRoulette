@@ -13,9 +13,7 @@ export const getAllMovies = () => {
         })
         .then(film => {
             console.log(film);
-            //film.forEach(element => {
                 something(addMovie(film));
-            //});
         })
     }
 }
