@@ -13,7 +13,7 @@ export const filmsReducer = function(state = initialState, action) {
     switch (action.type) {
       case ADD_MOVIE: {
         const movieToAdd = action.payload;
-        const currentFilms = state.films;
+        const currentFilms = [];
         return {
           ...state,
           films: currentFilms.concat(movieToAdd)

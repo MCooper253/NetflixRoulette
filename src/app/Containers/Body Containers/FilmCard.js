@@ -102,11 +102,11 @@ const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, over
 FilmCard.propTypes = {
     genres: PropTypes.array.isRequired,
     name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     year: PropTypes.string.isRequired,
     pictureURL: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
-    runtime: PropTypes.string.isRequired,
+    runtime: PropTypes.number.isRequired,
     toggleShowFilmBody: PropTypes.func.isRequired
 }
 
