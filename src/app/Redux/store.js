@@ -10,3 +10,5 @@ export const store = createStore(
     filmsReducer,
     applyMiddleware(thunk)
 );
+
+//USE COMBINE REDUCER!!

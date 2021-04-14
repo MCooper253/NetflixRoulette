@@ -9,20 +9,6 @@ import Modal from '../Modal.js';
 import EditMovieForm from '../../Components/EditMovieForm.js';
 
 const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, overview, runtime, descriptionShort }) => {
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         editButtonShown: false,
-    //         editMenueShown: false,
-    //         modalShown: false,
-    //         deleteModalShown: false,
-    //     }
-
-    //     this.toggleEditButton = this.toggleEditButton.bind(this);
-    //     this.toggleEditMenue = this.toggleEditMenue.bind(this);
-    //     this.toggleModal = this.toggleModal.bind(this);
-    //     this.toggleDeleteModal = this.toggleDeleteModal.bind(this);
-    // }
 
     const [editButtonShown, setEditButtonShown] = useState(false);
     const [editMenueShown, setEditMenueShown] = useState(false);
@@ -47,9 +33,14 @@ const FilmCard = ({ id, toggleShowFilmBody, pictureURL, name, year, genres, over
         setDeleteModalShown(!deleteModalShown);
     }
 
+    const handleMouseLeave = () => {
+        toggleEditButton();
+        editMenueShown && toggleEditMenue();
+    }
+
     return (
         <>
-            <div className='image-container' onMouseEnter={toggleEditButton} onMouseLeave={()=>{toggleEditButton(); editMenueShown && toggleEditMenue();}}>
+            <div className='image-container' onMouseEnter={toggleEditButton} onMouseLeave={handleMouseLeave}>
 
                 { editButtonShown ?
                     <Button 

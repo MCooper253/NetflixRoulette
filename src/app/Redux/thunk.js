@@ -17,19 +17,27 @@ export const getAllMovies = () => {
 
 export const getMovies = (genre, sortCatagory) => {
     console.log('getMoviesByGenre has been called.')
-    return (something) => {
-        let apiURL
+    return (dispatch) => {
+        console.log('begin api call');
 
+        let apiURL
         genre === 'all' ?
         apiURL = `http://localhost:4000/movies?sortOrder=desc&sortBy=${sortCatagory}` :
         apiURL = `http://localhost:4000/movies?filter=${genre}&sortOrder=desc&sortBy=${sortCatagory}`;
 
         axios.get(apiURL)
         .then(res => {
+            console.log('finish api call');
             return res.data.data;
         })
         .then(film => {
-            something(addMovie(film))
+            dispatch(addMovie(film))
         })
+        .catch(/*isError: true, isLoading: false*/)
+        //can get response satus 
     }
 }
+
+//isloading funcitons
+//iserror fucnitons
+//handle empty movie list 

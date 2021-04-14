@@ -1,12 +1,10 @@
-import { ADD_MOVIE, TOGGLE_DISPLAY_GENRE } from '../actionTypes.js'
-
-//re-name to "films.js" or 
+import { ADD_MOVIE, TOGGLE_API_CALL } from '../actionTypes.js'
 
 const initialState = {
     films: [],
-    displayGenre: ['all'] //this does not need to be known to the whole application so does ti need to be in sate.
-
-    //where are the sorting operation taking place, can it be extracetd from client?
+    isLoading: false,
+    isError: false
+    //HOW DOES THIS WANT TO LOOK? - COMBINE REDUCER
 };
 
 export const filmsReducer = function(state = initialState, action) {
@@ -19,16 +17,15 @@ export const filmsReducer = function(state = initialState, action) {
           films: currentFilms.concat(movieToAdd)
         }
       };
-      case TOGGLE_DISPLAY_GENRE: {
-        const displayGenre = action.payload
-        return {
-          ...state,
-          displayGenre: [displayGenre]
-        }
-      };
+      // case TOGGLE_API_CALL: {
+      //   const 
+      // }
       default:
         return state;
     }
   }
 
   // REDUCER SHAPE STATE.
+
+  //perhaps serpreate out a different reducer for isloading?
+
