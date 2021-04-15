@@ -1,2 +1,5 @@
 export const ADD_MOVIE = "ADD_MOVIE";
-export const TOGGLE_API_CALL = "TOGGLE_API_CALL";
+export const TOGGLE_ISLOADING = "TOGGLE_ISLOADING";
+export const TOGGLE_ISERROR = "TOGGLE_ISERROR";
+export const SHOW_FILMBODY = "SHOW_FILMBODY";
+export const CLOSE_FILMBODY = "CLOSE_FILMBODY";

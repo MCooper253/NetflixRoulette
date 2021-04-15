@@ -1,24 +1,12 @@
 // hold async stuff
 // enables with redux
 import axios from 'axios';
-import { addMovie } from './actions';
-
-export const getAllMovies = () => {
-    return (something) => {
-        axios.get('http://localhost:4000/movies')
-        .then(res => {
-            return res.data.data
-        })
-        .then(film => {
-                something(addMovie(film, 'all'));
-        })
-    }
-}
+import { addMovie, toggle_isError, toggle_isLoading } from './actions';
 
 export const getMovies = (genre, sortCatagory) => {
-    console.log('getMoviesByGenre has been called.')
     return (dispatch) => {
-        console.log('begin api call');
+        console.log('begin api call, toggle api has been dispatched.');
+        dispatch(toggle_isLoading());
 
         let apiURL
         genre === 'all' ?
@@ -27,17 +15,16 @@ export const getMovies = (genre, sortCatagory) => {
 
         axios.get(apiURL)
         .then(res => {
-            console.log('finish api call');
+            console.log('finish api call, toggle api has been dispatched');
+            dispatch(toggle_isLoading());
             return res.data.data;
         })
         .then(film => {
-            dispatch(addMovie(film))
+            dispatch(addMovie(film));
         })
-        .catch(/*isError: true, isLoading: false*/)
-        //can get response satus 
+        .catch(() => {
+            dispatch(toggle_isError());
+            dispatch(toggle_isLoading());
+        })
     }
 }
-
-//isloading funcitons
-//iserror fucnitons
-//handle empty movie list 

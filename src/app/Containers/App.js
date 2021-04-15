@@ -78,9 +78,9 @@ const App = () => {
     return (
         <ErrorBoundary>
             <Header
-                showFilmBody={showFilmBody}
-                film={films.filter(film=>film.title == filmBodyToRender)}
-                toggleShowFilmBody={toggleShowFilmBody}
+                // showFilmBody={showFilmBody}
+                // film={films.filter(film=>film.title == filmBodyToRender)}
+                // toggleShowFilmBody={toggleShowFilmBody}
             />
             <Body
                 toggleShowFilmBody={toggleShowFilmBody}

@@ -16,6 +16,12 @@ main {
         }
     }
 
+    h2 {
+        font-weight: 200;
+        font-size: 2rem;
+        text-align: center;
+    }
+
     .navBarWrapper {
 
         border-bottom: solid $grey;
@@ -100,6 +106,10 @@ main {
         justify-content: space-between;
         display: grid;
         grid-template-columns: repeat(auto-fit, 18.5rem);
+
+        h2 {
+            margin: auto;
+        }
     }
 
     .filmCard {

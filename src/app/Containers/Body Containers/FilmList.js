@@ -6,29 +6,28 @@ import { getMovies } from '../../Redux/thunk.js'
 import FilmCard from './FilmCard.js'
 
 const mapStateToProps = (state) => {
-    return {  films: state.films }
-    //this may also want isLoading and isError.
+    return {
+        films: state.films.filmsArray,
+        isLoading: state.apiState.isLoading,
+        isError: state.apiState.isError
+    }
 }
 
-//const mapDispatchToProps = (dispatch, ownProps) => dispatch(getMovies(ownProps.displayGenre, ownProps.sortCatagory))
 
-//keys are actions 
 
 const mapDipatchStateToProps = dispatch => ({
-    getMoviesFunc: (displayGenre, sortCatagory) => {dispatch(getMovies(displayGenre, sortCatagory));console.log('getMoviesFunc has run.')}
+    getMoviesFunc: (displayGenre, sortCatagory) => {dispatch(getMovies(displayGenre, sortCatagory));}
 })
 
 
 const FilmList = (props) => {
 
-    //API call only gets call when a change to sort catagory or 
     useEffect(
         () => props.getMoviesFunc(props.displayGenre, props.sortCatagory),
         [props.sortCatagory, props.displayGenre]
     );
 
     //creates an array of JSX components for rendering
-
     const renderingArray = props.films.map(input => {
         const idCount=input.id
         return (
@@ -42,22 +41,26 @@ const FilmList = (props) => {
                     genres={input.genres}
                     overview={input.overview}
                     runtime={input.runtime}
-                    toggleShowFilmBody={props.toggleShowFilmBody}
+                    _film={input}
                 />
             </article>
         )
     });
 
     return (
-        <section className='filmList'>
-            {renderingArray}
-        </section>
+        <>
+            { !props.isLoading && !props.isError ? <section className='filmList'> { renderingArray } </section> : null }
+            { props.isLoading ? <h2>LOADING</h2> : null }
+            { props.isError && !props.isLoading ? <h2>AN ERROR OCCURED</h2> : null }
+        </>
     )
 }
 
 
 
 FilmList.propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+    isError: PropTypes.bool.isRequired,
     films: PropTypes.array.isRequired,
     displayGenre: PropTypes.string.isRequired,
     toggleShowFilmBody: PropTypes.func.isRequired,

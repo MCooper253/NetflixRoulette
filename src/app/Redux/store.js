@@ -1,13 +1,13 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
-import { filmsReducer }from "./reducers/films";
+import { rootReducer }from "./reducers/combinedReducer";
 
 //func calls that middleware thunk or saga.
 
 //spilt reduces into seversal reducers and use combine reducers
 
 export const store = createStore(
-    filmsReducer,
+    rootReducer,
     applyMiddleware(thunk)
 );
 

@@ -1,15 +1,25 @@
-import { ADD_MOVIE } from './actionTypes';
-import { START_API_CALL, END_API_CALL } from './actionTypes';
+import { ADD_MOVIE, CLOSE_FILMBODY, SHOW_FILMBODY, TOGGLE_ISERROR, TOGGLE_ISLOADING } from './actionTypes';
 
 export const addMovie = content => ({
     type: ADD_MOVIE,
     payload: content
 });
 
-export const startApiCall = () => ({
-    type: START_API_CALL
-});
+export const toggle_isLoading = () => ({
+    type: TOGGLE_ISLOADING
+})
 
-export const endApiCall = () => ({
-    type: END_API_CALL
-});
+export const toggle_isError = () => ({
+    type: TOGGLE_ISERROR
+})
+
+export const showFilmBody = (content) => ({
+    type: SHOW_FILMBODY,
+    payload: {
+        film: content
+    }
+})
+
+export const closeFilmBody = () => ({
+    type: CLOSE_FILMBODY
+})

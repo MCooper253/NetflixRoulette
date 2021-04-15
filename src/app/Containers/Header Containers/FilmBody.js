@@ -8,8 +8,8 @@ const FilmBody = (props) => {
 
     return (
         <section className='film_body'>
-        <FilmBodyImage filmImage={props.film.poster_path} />
-        <FilmBodyInfo film={props.film} />
+        <FilmBodyImage filmImage={props.film.film.poster_path} />
+        <FilmBodyInfo film={props.film.film} />
         </section>
     );
 };
