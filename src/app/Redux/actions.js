@@ -1,4 +1,4 @@
-import { ADD_MOVIE, CLOSE_FILMBODY, SHOW_FILMBODY, TOGGLE_ISERROR, TOGGLE_ISLOADING } from './actionTypes';
+import { ADD_MOVIE, CLOSE_FILMBODY, SHOW_FILMBODY, SET_ISERROR_TRUE, SET_ISERROR_FALSE, TOGGLE_ISLOADING } from './actionTypes';
 
 export const addMovie = content => ({
     type: ADD_MOVIE,
@@ -9,8 +9,12 @@ export const toggle_isLoading = () => ({
     type: TOGGLE_ISLOADING
 })
 
-export const toggle_isError = () => ({
-    type: TOGGLE_ISERROR
+export const setIsErrorTrue = () => ({
+    type: SET_ISERROR_TRUE
+})
+
+export const setIsErrorFalse = () => ({
+    type: SET_ISERROR_FALSE
 })
 
 export const showFilmBody = (content) => ({

@@ -1,4 +1,4 @@
-import { TOGGLE_ISLOADING, TOGGLE_ISERROR } from '../actionTypes.js'
+import { TOGGLE_ISLOADING, SET_ISERROR_TRUE, SET_ISERROR_FALSE } from '../actionTypes.js'
 
 const initialState = {
     isLoading: false,
@@ -14,11 +14,16 @@ export const loadingReducer = function(state = initialState, action) {
               isLoading: newLoadingStatus,
           }
       };
-      case TOGGLE_ISERROR: {
-        const newErrorStatus = !state.isError;
+      case SET_ISERROR_TRUE: {
         return {
             ...state,
-            isError: newErrorStatus
+            isError: true
+        }
+      };
+      case SET_ISERROR_FALSE: {
+        return {
+            ...state,
+            isError: false
         }
       };
       default:
