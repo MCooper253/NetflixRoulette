@@ -10,6 +10,10 @@ header {
     background-size: 100%;
     font-family: 'Montserrat', sans-serif;
 
+    & > * {
+        max-width: 1800px;
+    }
+
     nav {
 
         img {

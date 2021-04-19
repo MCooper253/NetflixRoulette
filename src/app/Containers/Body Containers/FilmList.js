@@ -19,6 +19,8 @@ const mapDipatchStateToProps = dispatch => ({
     getMoviesFunc: (displayGenre, sortCatagory) => {dispatch(getMovies(displayGenre, sortCatagory));}
 })
 
+//screen and viewport interaction - for more laoding??
+
 
 const FilmList = (props) => {
 
