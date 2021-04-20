@@ -1,4 +1,4 @@
-import { ADD_MOVIE, CLOSE_FILMBODY, SHOW_FILMBODY, SET_ISERROR_TRUE, SET_ISERROR_FALSE, TOGGLE_ISLOADING } from './actionTypes';
+import { ADD_MOVIE, CLOSE_FILMBODY, SHOW_FILMBODY, SET_ISERROR_TRUE, SET_ISERROR_FALSE, TOGGLE_ISLOADING, SET_NUMBER_OF_FILMS } from './actionTypes';
 
 export const addMovie = content => ({
     type: ADD_MOVIE,
@@ -26,4 +26,11 @@ export const showFilmBody = (content) => ({
 
 export const closeFilmBody = () => ({
     type: CLOSE_FILMBODY
+})
+
+export const setNumberOfFilms = (content) => ({
+    type: SET_NUMBER_OF_FILMS,
+    payload: {
+        numberOfResults: content
+    }
 })

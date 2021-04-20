@@ -1,7 +1,8 @@
-import { ADD_MOVIE } from '../actionTypes.js'
+import { ADD_MOVIE, SET_NUMBER_OF_FILMS } from '../actionTypes.js'
 
 const initialState = {
-    filmsArray: []
+    filmsArray: [],
+    numberOfFilms: 0
 };
 
 export const filmsReducer = function(state = initialState, action) {
@@ -12,6 +13,12 @@ export const filmsReducer = function(state = initialState, action) {
         return {
           ...state,
           filmsArray: currentFilms.concat(movieToAdd)
+        }
+      };
+      case SET_NUMBER_OF_FILMS: {
+        return {
+          ...state,
+          numberOfFilms: action.payload.numberOfResults
         }
       };
       default:

@@ -1,11 +1,8 @@
-// hold async stuff
-// enables with redux
 import axios from 'axios';
-import { addMovie, setIsErrorTrue, setIsErrorFalse, toggle_isLoading } from './actions';
+import { addMovie, setIsErrorTrue, setIsErrorFalse, toggle_isLoading, setNumberOfFilms } from './actions';
 
 export const getMovies = (genre, sortCatagory) => {
     return (dispatch) => {
-        console.log('begin api call, toggle api has been dispatched.');
         dispatch(toggle_isLoading());
         dispatch(setIsErrorFalse());
 
@@ -16,8 +13,8 @@ export const getMovies = (genre, sortCatagory) => {
 
         axios.get(apiURL)
         .then(res => {
-            console.log('finish api call, toggle api has been dispatched');
             dispatch(toggle_isLoading());
+            dispatch(setNumberOfFilms(res.data.totalAmount));
             return res.data.data;
         })
         .then(film => {
