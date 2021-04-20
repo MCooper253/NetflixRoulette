@@ -10,10 +10,17 @@ const mapDispatchStateToProps = dispatch => ({
 
 const FilmImage = (props) => {
 
+    const handleOnClick = () => {
+        props.showFilmBodyFunc(props.film);
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+    }
+
     console.log(props.img);
 
     return (
-        <img src={ props.img } onClick={ () => props.showFilmBodyFunc(props.film) } title={props.filmTitle} className='filcard-image' />
+        <img src={ props.img } onClick={ handleOnClick } title={props.filmTitle} className='filcard-image' />
     )
 };
 
