@@ -1,4 +1,4 @@
-import { ADD_MOVIE, SET_NUMBER_OF_FILMS } from '../actionTypes.js'
+import { ADD_MOVIE, SET_NUMBER_OF_FILMS} from '../actionTypes.js'
 
 const initialState = {
     filmsArray: [],

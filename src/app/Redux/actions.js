@@ -1,4 +1,4 @@
-import { ADD_MOVIE, CLOSE_FILMBODY, SHOW_FILMBODY, SET_ISERROR_TRUE, SET_ISERROR_FALSE, TOGGLE_ISLOADING, SET_NUMBER_OF_FILMS } from './actionTypes';
+import { ADD_MOVIE, CLOSE_FILMBODY, SHOW_FILMBODY, SET_ISERROR_TRUE, SET_ISERROR_FALSE, TOGGLE_ISLOADING, SET_NUMBER_OF_FILMS, TOGGLE_SUCCESS_POST_MODAL } from './actionTypes';
 
 export const addMovie = content => ({
     type: ADD_MOVIE,
@@ -33,4 +33,8 @@ export const setNumberOfFilms = (content) => ({
     payload: {
         numberOfResults: content
     }
+})
+
+export const togglePostFilmModal = () => ({
+    type: TOGGLE_SUCCESS_POST_MODAL
 })

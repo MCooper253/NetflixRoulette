@@ -15,9 +15,7 @@ const FilmImage = (props) => {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
-    }
-
-    console.log(props.img);
+    };
 
     return (
         <img src={ props.img } onClick={ handleOnClick } title={props.filmTitle} className='filcard-image' />

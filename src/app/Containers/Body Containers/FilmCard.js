@@ -110,9 +110,7 @@ FilmCard.propTypes = {
     year: PropTypes.string.isRequired,
     pictureURL: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
-    runtime: PropTypes.number.isRequired,
     _film: PropTypes.object.isRequired,
-    toggleShowFilmBody: PropTypes.func.isRequired
 }
 
 export default FilmCard;

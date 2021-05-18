@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { addMovie, setIsErrorTrue, setIsErrorFalse, toggle_isLoading, setNumberOfFilms } from './actions';
+import { addMovie, setIsErrorTrue, setIsErrorFalse, toggle_isLoading, setNumberOfFilms, togglePostFilmModal } from './actions';
 
 export const getMovies = (genre, sortCatagory) => {
     return (dispatch) => {
@@ -23,6 +23,25 @@ export const getMovies = (genre, sortCatagory) => {
         .catch(() => {
             dispatch(setIsErrorTrue());
             dispatch(toggle_isLoading());
+        })
+    }
+}
+
+export const postMovie = (body) => {
+    console.log('postMovie thunk has run')
+    return (dispatch) => {
+
+        console.dir(body)
+        const apiURL = 'http://localhost:4000/movies';
+        
+        axios.post(apiURL, body)
+        .then(res => {
+            
+        })
+        .catch(res => {
+            dispatch(togglePostFilmModal());
+            console.dir(res);
+            console.log('somthing-went-wrong!');
         })
     }
 }

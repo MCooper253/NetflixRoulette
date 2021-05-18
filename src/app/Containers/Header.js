@@ -18,13 +18,9 @@ const Header = (props) => {
     return (
         <header>
             <TopBar film={props.film} />
-            {props.film ? <FilmBody film={props.film}/> : <Search /> }
+            {props.film ? <FilmBody film={props.film} /> : <Search /> }
         </header>
     );
 };
-
-Header.propTypes = {
-    film: PropTypes.object.isRequired
-}
 
 export default connect(mapStateToProps)(Header);
