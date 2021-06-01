@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react'
 import ReactDOM from 'react-dom';
 import FocusTrap from '../../../node_modules/focus-trap-react/dist/focus-trap-react.js';
 import PropTypes from 'prop-types';
@@ -9,6 +10,17 @@ import Logo from '../Components/Logo.js';
 import Footer from '../Containers/Footer.js'
 
 const Modal = (props) => {
+
+    useEffect(
+        () => {
+          document.querySelector('#root').classList.add('modal-active');
+          
+          return () => {
+            document.querySelector('#root').classList.remove('modal-active');
+          };
+        },
+        []
+      );
 
     return ReactDOM.createPortal(
         <div id='modal-container'>

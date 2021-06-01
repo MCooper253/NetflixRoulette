@@ -1,25 +1,31 @@
-import { TOGGLE_SUCCESS_POST_MODAL, TOGGLE_POST_ISLOADING, TOGGLE_POST_ISERROR } from '../actionTypes.js'
+import { TOGGLE_SUCCESS_POST_MODAL, POST_ISLOADING_TRUE, POST_ISLOADING_FALSE, TOGGLE_POST_ISERROR } from '../actionTypes.js'
 
 const initialState = {
   showSuccessModal: false,
-  isLaoding: false,
+  isLoading: false,
   isError: false,
 };
 
 export const postFilmReducer = function(state = initialState, action) {
     switch (action.type) {
       case TOGGLE_SUCCESS_POST_MODAL: {
-        const movieToAdd = action.payload;
-        const currentFilms = [];
         return {
           ...state,
-          filmsArray: !state.showSuccessModal
+          showSuccessModal: !state.showSuccessModal
         }
       };
-      case TOGGLE_POST_ISLOADING: {
+      case POST_ISLOADING_TRUE: {
+        console.log('true gets hit');
         return {
           ...state,
-          isLaoding: !state.isLaoding
+          isLoading: true
+        }
+      }
+      case POST_ISLOADING_FALSE: {
+        console.log('false gets hit');
+        return {
+          ...state,
+          isLoading: false
         }
       }
       case TOGGLE_POST_ISERROR: {

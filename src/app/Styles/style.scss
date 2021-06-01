@@ -12,6 +12,11 @@ body {
     position: relative;
     min-height: 100vh;
     background-color: $black;
+
+    &.modal-active {
+        position: fixed;
+        width: 100vw;
+    }
 }
 
 button:focus {
@@ -22,3 +27,4 @@ button:focus {
 @import 'body';
 @import 'footer';
 @import 'modal';
+@import 'loading-spinner';

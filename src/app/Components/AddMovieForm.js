@@ -113,10 +113,8 @@ const AddMovieForm = (props) => {
         formEntires.genres = selectedGenres.map(input => {
             return input.charAt(0).toUpperCase() + input.slice(1);
         })
-        console.dir(formEntires)
         props.onSubmit();
         props.postMovieFunc(formEntires);
-        console.log('handle submit on addmovieform has run')
     }
 
 

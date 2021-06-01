@@ -5,13 +5,11 @@ import { connect } from 'react-redux'
 import { getMovies } from '../../Redux/thunk.js'
 import FilmCard from './FilmCard.js'
 
-const mapStateToProps = (state) => {
-    return {
+const mapStateToProps = (state) => ({
         films: state.films.filmsArray,
         isLoading: state.apiState.isLoading,
         isError: state.apiState.isError
-    }
-}
+    });
 
 
 

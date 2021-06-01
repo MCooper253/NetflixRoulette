@@ -20,12 +20,14 @@
         margin-left: 80px;
         margin-top: 27.2px;
     }
+    
     b {
         font-weight: 800;
     }
 
     .modal {
 
+        min-width: 450px;
         width: min-content;
         margin: 6rem auto 10rem auto;
         padding: 1rem;
@@ -90,6 +92,7 @@
         }
 
         h1 {
+            text-align: center;
             color: $white;
             font-weight: 200;
             font-size: 2rem;
@@ -176,6 +179,11 @@
             border-width: thin;
             background: none;
             cursor: pointer;
+            transition: 0.2s
+        }
+
+        input[type='button']:hover {
+            background-color: $pink;
         }
 
     }

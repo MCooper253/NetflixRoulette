@@ -1,14 +1,28 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
 
 import Button from '../../Components/Button.js';
 import Modal from '../Modal.js';
 import AddMovieForm from '../../Components/AddMovieForm.js'
 import CongratsMessage from '../../Components/CongratsMessage.js'
+import LoadingSpinner from '../../Components/LoadingSpinner.js'
+import PostFilmErrorModalBody from '../../Components/PostFilmErrorModalBody.js' 
+import { togglePostFilmModal, togglePostFilmIsError } from '../../Redux/actions.js'
 
-const AddMovieModalContainer = () => {
+const mapStateToProps = (state) => ({
+        showPostSuccessModal: state.postFilm.showSuccessModal,
+        postSuccessIsLoading: state.postFilm.isLoading,
+        postSuccessIsError: state.postFilm.isError
+    });
+
+const mapDispatchStateToProps = dispatch => ({
+    closePostSuccessModal: () => {dispatch(togglePostFilmModal())},
+    closePostErrorModal: () => {dispatch(togglePostFilmIsError())}
+});
+
+const AddMovieModalContainer = (props) => {
 
     const [displayAddFilmModal, setDisplayAddFilmModal] = useState(false);
-    const [displayConfirmModal, setDisplayConfirmModal] = useState(false);
 
     const showAddFilmModal = () => {
         setDisplayAddFilmModal(true);
@@ -18,39 +32,46 @@ const AddMovieModalContainer = () => {
         setDisplayAddFilmModal(false);
     }
 
-    const showConfirmModal = () => {
-        setDisplayConfirmModal(true);
-    }
-
-    const closeConfirmModal = () => {
-        setDisplayConfirmModal(false);
-    }
-
-    const onAddMovieSubmit = () => {
-        closeAddFilmModal();
-        showConfirmModal();
-    }
-
     return (
         <>
         <Button caption='+ ADD MOVIE' onClick={showAddFilmModal} />
-        {displayAddFilmModal ? (<Modal
-            closeModal={closeAddFilmModal}
-            title='ADD MOVIE'
-            innerComp={<AddMovieForm
-                onSubmit={onAddMovieSubmit}
-            />}
-        />) : null}
-        {displayConfirmModal ? (
+        {displayAddFilmModal ? (
             <Modal
-                closeModal={closeConfirmModal}
+                closeModal={closeAddFilmModal}
+                title='ADD MOVIE'
+                innerComp={<AddMovieForm
+                    onSubmit={closeAddFilmModal}
+                />}
+            />
+        ) : null}
+        {props.showPostSuccessModal ? (
+            <Modal
+                closeModal={props.closePostSuccessModal} 
                 title='CONGRATULATIONS!'
                 innerComp={
                     <CongratsMessage />
                 }
-            />) : null}
+            />
+        ) : null}
+        {props.postSuccessIsLoading ? (
+            <Modal
+                title='LOADING'
+                innerComp={
+                    <LoadingSpinner />
+                }
+            />
+        ) : null}
+        {props.postSuccessIsError ? (
+            <Modal
+                closeModal={props.closePostErrorModal} 
+                title='Error'
+                innerComp={
+                    <PostFilmErrorModalBody />
+                }
+            />
+        ) : null}
         </>
     )
 };
 
-export default AddMovieModalContainer;
+export default connect(mapStateToProps, mapDispatchStateToProps)(AddMovieModalContainer);
