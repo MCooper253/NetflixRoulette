@@ -17,7 +17,9 @@ const Header = (props) => {
     return (
         <header>
             <TopBar film={props.film} />
-            {props.film ? <FilmBody film={props.film} /> : <Search /> }
+            <section class='header-contents'>
+                {props.film ? <FilmBody film={props.film} /> : <Search /> }
+            </section>
         </header>
     );
 };

@@ -41,9 +41,11 @@ const Body = (props) => {
 
     return (
         <main id='main'>
-            <NavBar setDisplayGenre={setDisplayGenre} selectedGenre={genreToRender} handleOnSelect={handleOnSelect}/>
-            <MovieCounter counter={numberOfGenre} selectedGenre={genreToRender} />
-            <FilmList films={props.films} displayGenre={genreToRender} toggleShowFilmBody={props.toggleShowFilmBody} sortCatagory={sortBy}/>
+            <div class='content'>
+                <NavBar setDisplayGenre={setDisplayGenre} selectedGenre={genreToRender} handleOnSelect={handleOnSelect}/>
+                <MovieCounter counter={numberOfGenre} selectedGenre={genreToRender} />
+                <FilmList films={props.films} displayGenre={genreToRender} toggleShowFilmBody={props.toggleShowFilmBody} sortCatagory={sortBy}/>
+            </div>
         </main>
     )
 }

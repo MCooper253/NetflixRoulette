@@ -10,8 +10,9 @@ header {
     background-size: 100%;
     font-family: 'Montserrat', sans-serif;
 
-    & > * {
+    .header-contents {
         max-width: 1800px;
+        margin: auto;
     }
 
     nav {
