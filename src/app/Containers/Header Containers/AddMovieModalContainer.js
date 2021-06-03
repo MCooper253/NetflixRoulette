@@ -44,32 +44,11 @@ const AddMovieModalContainer = (props) => {
                 />}
             />
         ) : null}
-        {props.showPostSuccessModal ? (
-            <Modal
-                closeModal={props.closePostSuccessModal} 
-                title='CONGRATULATIONS!'
-                innerComp={
-                    <CongratsMessage />
-                }
-            />
-        ) : null}
-        {props.postSuccessIsLoading ? (
-            <Modal
-                title='LOADING'
-                innerComp={
-                    <LoadingSpinner />
-                }
-            />
-        ) : null}
-        {props.postSuccessIsError ? (
-            <Modal
-                closeModal={props.closePostErrorModal} 
-                title='Error'
-                innerComp={
-                    <PostFilmErrorModalBody />
-                }
-            />
-        ) : null}
+
+        {props.showPostSuccessModal && <Modal closeModal={props.closePostSuccessModal} title='CONGRATULATIONS!' innerComp={<CongratsMessage/>} /> }
+        {props.postSuccessIsLoading && <Modal title='LOADING' innerComp={<LoadingSpinner />} /> }
+        {props.postSuccessIsError && <Modal closeModal={props.closePostErrorModal} title='Error' innerComp={<PostFilmErrorModalBody />} />}
+
         </>
     )
 };

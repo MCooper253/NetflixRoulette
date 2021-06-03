@@ -4,17 +4,26 @@ import { connect } from 'react-redux'
 
 import { getMovies } from '../../Redux/thunk.js'
 import FilmCard from './FilmCard.js'
+import Modal from '../Modal.js'
+import LoadingSpinner from '../../Components/LoadingSpinner.js'
+import { toggleDeleteSuccessFilmModal, toggleDeleteFilmIsError } from '../../Redux/actions.js'
 
 const mapStateToProps = (state) => ({
         films: state.films.filmsArray,
         isLoading: state.apiState.isLoading,
-        isError: state.apiState.isError
+        isError: state.apiState.isError,
+
+        deleteSuccessModalShown: state.deleteFilm.showSuccessModal,
+        deleteIsLoading: state.deleteFilm.isLoading,
+        deleteIsError: state.deleteFilm.isError,
     });
 
 
 
 const mapDipatchStateToProps = dispatch => ({
-    getMoviesFunc: (displayGenre, sortCatagory) => {dispatch(getMovies(displayGenre, sortCatagory));}
+    getMoviesFunc: (displayGenre, sortCatagory) => {dispatch(getMovies(displayGenre, sortCatagory));},
+    toggleDeleteFilmModalFunc: () => {dispatch(toggleDeleteSuccessFilmModal());},
+    toggleDeleteIsErrorModalFunc: () => {dispatch(toggleDeleteFilmIsError());}
 })
 
 //screen and viewport interaction - for more laoding??
@@ -26,6 +35,13 @@ const FilmList = (props) => {
         () => props.getMoviesFunc(props.displayGenre, props.sortCatagory),
         [props.sortCatagory, props.displayGenre]
     );
+
+    const handleCloseDeleteModal = () => {
+    
+        props.toggleDeleteFilmModalFunc();
+        props.getMoviesFunc(props.displayGenre, props.sortCatagory);
+
+    }
 
     //creates an array of JSX components for rendering
     const renderingArray = props.films.map(input => {
@@ -52,6 +68,10 @@ const FilmList = (props) => {
             { !props.isLoading && !props.isError ? <section className='filmList'> { renderingArray } </section> : null }
             { props.isLoading ? <h2>LOADING</h2> : null }
             { props.isError && !props.isLoading ? <h2>AN ERROR OCCURED</h2> : null }
+
+            { props.deleteSuccessModalShown && <Modal title='DELETE MOVIE' closeModal={handleCloseDeleteModal}/> }
+            { props.deleteIsLoading && <Modal title='Laoding' innerComp={<LoadingSpinner/>} /> }
+            { props.deleteIsError && <Modal title='There has bene an error.' closeModal={props.toggleDeleteIsErrorModalFunc} /> }
         </>
     )
 }

@@ -15,14 +15,12 @@ export const postFilmReducer = function(state = initialState, action) {
         }
       };
       case POST_ISLOADING_TRUE: {
-        console.log('true gets hit');
         return {
           ...state,
           isLoading: true
         }
       }
       case POST_ISLOADING_FALSE: {
-        console.log('false gets hit');
         return {
           ...state,
           isLoading: false

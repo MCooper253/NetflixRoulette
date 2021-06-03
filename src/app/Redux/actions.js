@@ -9,7 +9,11 @@ import {
     TOGGLE_SUCCESS_POST_MODAL,
     TOGGLE_POST_ISERROR,
     POST_ISLOADING_TRUE,
-    POST_ISLOADING_FALSE
+    POST_ISLOADING_FALSE,
+    TOGGLE_SUCCESS_DELETE_MODAL,
+    TOGGLE_DELETE_ISERROR,
+    DELETE_ISLOADING_TRUE,
+    DELETE_ISLOADING_FALSE
 } from './actionTypes';
 
 export const addMovie = content => ({
@@ -61,4 +65,20 @@ export const postFilmIsLoadingSetFalse = () => ({
 
 export const togglePostFilmIsError = () => ({
     type: TOGGLE_POST_ISERROR
+});
+
+export const toggleDeleteSuccessFilmModal = () => ({
+    type: TOGGLE_SUCCESS_DELETE_MODAL
+});
+
+export const deleteFilmIsLoadingSetTrue = () => ({
+    type: DELETE_ISLOADING_TRUE
+});
+
+export const deleteFilmIsLoadingSetFalse = () => ({
+    type: DELETE_ISLOADING_FALSE
+});
+
+export const toggleDeleteFilmIsError = () => ({
+    type: TOGGLE_DELETE_ISERROR
 });

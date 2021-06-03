@@ -1,5 +1,19 @@
 import axios from 'axios';
-import { addMovie, setIsErrorTrue, setIsErrorFalse, toggle_isLoading, setNumberOfFilms, postFilmIsLoadingSetFalse, postFilmIsLoadingSetTrue, togglePostFilmIsError, togglePostFilmModal } from './actions';
+import {
+    addMovie,
+    setIsErrorTrue,
+    setIsErrorFalse,
+    toggle_isLoading,
+    setNumberOfFilms,
+    postFilmIsLoadingSetFalse,
+    postFilmIsLoadingSetTrue,
+    togglePostFilmIsError,
+    togglePostFilmModal,
+    deleteFilmIsLoadingSetFalse,
+    deleteFilmIsLoadingSetTrue,
+    toggleDeleteFilmIsError,
+    toggleDeleteSuccessFilmModal
+} from './actions';
 
 export const getMovies = (genre, sortCatagory) => {
     return (dispatch) => {
@@ -10,7 +24,7 @@ export const getMovies = (genre, sortCatagory) => {
         genre === 'all' ?
         apiURL = `http://localhost:4000/movies?sortOrder=desc&sortBy=${sortCatagory}` :
         apiURL = `http://localhost:4000/movies?filter=${genre}&sortOrder=desc&sortBy=${sortCatagory}`;
-
+        console.dir('GETMOVIESHASRUN');
         axios.get(apiURL)
         .then(res => {
             dispatch(toggle_isLoading());
@@ -28,7 +42,6 @@ export const getMovies = (genre, sortCatagory) => {
 }
 
 export const postMovie = (body) => {
-    console.log('postMovie thunk has run')
     return (dispatch) => {
 
         const apiURL = 'http://localhost:4000/movies';
@@ -39,14 +52,33 @@ export const postMovie = (body) => {
         .then(res => {
             dispatch(postFilmIsLoadingSetFalse());
             dispatch(togglePostFilmModal());
-            console.log(res)
-            console.log('then block run')
         })
         .catch(res => {
             dispatch(postFilmIsLoadingSetFalse());
             dispatch(togglePostFilmIsError());
-            console.log(res)
-            console.log('catch block run');
+        })
+    }
+}
+
+export const deleteMovie = (id) => {
+    console.log('deleteMovie thunk has run')
+    return (dispatch) => {
+
+        const apiURL = `http://localhost:4000/movies/${id}`;
+        console.log(apiURL);
+
+        dispatch(deleteFilmIsLoadingSetTrue())
+
+        axios.delete(apiURL)
+        .then(res => {
+            dispatch(deleteFilmIsLoadingSetFalse());
+            dispatch(toggleDeleteSuccessFilmModal());
+            console.log('delete then block run');
+        })
+        .catch(res => {
+            dispatch(deleteFilmIsLoadingSetFalse());
+            dispatch(toggleDeleteFilmIsError());
+            console.log('delete catch block run');
         })
     }
 }
