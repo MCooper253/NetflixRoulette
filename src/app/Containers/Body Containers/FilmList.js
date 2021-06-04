@@ -6,7 +6,8 @@ import { getMovies } from '../../Redux/thunk.js'
 import FilmCard from './FilmCard.js'
 import Modal from '../Modal.js'
 import LoadingSpinner from '../../Components/LoadingSpinner.js'
-import { toggleDeleteSuccessFilmModal, toggleDeleteFilmIsError } from '../../Redux/actions.js'
+import CongratsMessage from '../../Components/CongratsMessage.js'
+import { toggleDeleteSuccessFilmModal, toggleDeleteFilmIsError, togglePostFilmIsError, togglePostFilmModal } from '../../Redux/actions.js'
 
 const mapStateToProps = (state) => ({
         films: state.films.filmsArray,
@@ -16,14 +17,22 @@ const mapStateToProps = (state) => ({
         deleteSuccessModalShown: state.deleteFilm.showSuccessModal,
         deleteIsLoading: state.deleteFilm.isLoading,
         deleteIsError: state.deleteFilm.isError,
+
+        showPostSuccessModal: state.postFilm.showSuccessModal,
+        postSuccessIsLoading: state.postFilm.isLoading,
+        postSuccessIsError: state.postFilm.isError
     });
 
 
 
 const mapDipatchStateToProps = dispatch => ({
     getMoviesFunc: (displayGenre, sortCatagory) => {dispatch(getMovies(displayGenre, sortCatagory));},
+
     toggleDeleteFilmModalFunc: () => {dispatch(toggleDeleteSuccessFilmModal());},
-    toggleDeleteIsErrorModalFunc: () => {dispatch(toggleDeleteFilmIsError());}
+    toggleDeleteIsErrorModalFunc: () => {dispatch(toggleDeleteFilmIsError());},
+
+    closePostSuccessModal: () => {dispatch(togglePostFilmModal())},
+    closePostErrorModal: () => {dispatch(togglePostFilmIsError())}
 })
 
 //screen and viewport interaction - for more laoding??
@@ -37,10 +46,13 @@ const FilmList = (props) => {
     );
 
     const handleCloseDeleteModal = () => {
-    
         props.toggleDeleteFilmModalFunc();
         props.getMoviesFunc(props.displayGenre, props.sortCatagory);
+    }
 
+    const handleClosePostModal = () => {
+        props.closePostSuccessModal();
+        props.getMoviesFunc(props.displayGenre, props.sortCatagory);
     }
 
     //creates an array of JSX components for rendering
@@ -69,9 +81,13 @@ const FilmList = (props) => {
             { props.isLoading ? <h2>LOADING</h2> : null }
             { props.isError && !props.isLoading ? <h2>AN ERROR OCCURED</h2> : null }
 
-            { props.deleteSuccessModalShown && <Modal title='DELETE MOVIE' closeModal={handleCloseDeleteModal}/> }
+            { props.deleteSuccessModalShown && <Modal title='DELETE MOVIE' closeModal={handleCloseDeleteModal} innerComp={<p>This Movie has been removed from the database successfully.</p>}/> }
             { props.deleteIsLoading && <Modal title='Laoding' innerComp={<LoadingSpinner/>} /> }
             { props.deleteIsError && <Modal title='There has bene an error.' closeModal={props.toggleDeleteIsErrorModalFunc} /> }
+
+            {props.showPostSuccessModal && <Modal closeModal={handleClosePostModal} title='CONGRATULATIONS!' innerComp={<CongratsMessage/>} /> }
+            {props.postSuccessIsLoading && <Modal title='LOADING' innerComp={<LoadingSpinner />} /> }
+            {props.postSuccessIsError && <Modal closeModal={props.closePostErrorModal} title='Error' innerComp={<PostFilmErrorModalBody />} />}
         </>
     )
 }

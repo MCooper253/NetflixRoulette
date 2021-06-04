@@ -10,14 +10,14 @@ import PostFilmErrorModalBody from '../../Components/PostFilmErrorModalBody.js'
 import { togglePostFilmModal, togglePostFilmIsError } from '../../Redux/actions.js'
 
 const mapStateToProps = (state) => ({
-        showPostSuccessModal: state.postFilm.showSuccessModal,
-        postSuccessIsLoading: state.postFilm.isLoading,
-        postSuccessIsError: state.postFilm.isError
+        // showPostSuccessModal: state.postFilm.showSuccessModal,
+        // postSuccessIsLoading: state.postFilm.isLoading,
+        // postSuccessIsError: state.postFilm.isError
     });
 
 const mapDispatchStateToProps = dispatch => ({
-    closePostSuccessModal: () => {dispatch(togglePostFilmModal())},
-    closePostErrorModal: () => {dispatch(togglePostFilmIsError())}
+    // closePostSuccessModal: () => {dispatch(togglePostFilmModal())},
+    // closePostErrorModal: () => {dispatch(togglePostFilmIsError())}
 });
 
 const AddMovieModalContainer = (props) => {
@@ -44,11 +44,6 @@ const AddMovieModalContainer = (props) => {
                 />}
             />
         ) : null}
-
-        {props.showPostSuccessModal && <Modal closeModal={props.closePostSuccessModal} title='CONGRATULATIONS!' innerComp={<CongratsMessage/>} /> }
-        {props.postSuccessIsLoading && <Modal title='LOADING' innerComp={<LoadingSpinner />} /> }
-        {props.postSuccessIsError && <Modal closeModal={props.closePostErrorModal} title='Error' innerComp={<PostFilmErrorModalBody />} />}
-
         </>
     )
 };
