@@ -12,7 +12,11 @@ import {
     deleteFilmIsLoadingSetFalse,
     deleteFilmIsLoadingSetTrue,
     toggleDeleteFilmIsError,
-    toggleDeleteSuccessFilmModal
+    toggleDeleteSuccessFilmModal,
+    editFilmIsLoadingSetTrue,
+    editFilmIsLoadingSetFalse,
+    toggleEditSuccessModal,
+    toggleEditFilmIsError
 } from './actions';
 
 export const getMovies = (genre, sortCatagory) => {
@@ -79,6 +83,25 @@ export const deleteMovie = (id) => {
             dispatch(deleteFilmIsLoadingSetFalse());
             dispatch(toggleDeleteFilmIsError());
             console.log('delete catch block run');
+        })
+    }
+}
+
+export const editMovie = (body) => {
+    return (dispatch) => {
+
+        const apiURL = 'http://localhost:4000/movies';
+
+        dispatch(editFilmIsLoadingSetTrue())
+
+        axios.put(apiURL, body)
+        .then(res => {
+            dispatch(editFilmIsLoadingSetFalse());
+            dispatch(toggleEditSuccessModal());
+        })
+        .catch(res => {
+            dispatch(editFilmIsLoadingSetFalse());
+            dispatch(toggleEditFilmIsError());
         })
     }
 }

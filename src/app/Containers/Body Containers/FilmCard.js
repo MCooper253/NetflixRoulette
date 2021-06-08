@@ -10,12 +10,6 @@ import Modal from '../Modal.js';
 import EditMovieForm from '../../Components/EditMovieForm.js';
 import { deleteMovie } from '../../Redux/thunk';
 
-// const mapSateToProps = (state) => ({
-//     deleteSuccessModalShown: state.deleteFilm.showSuccessModal,
-//     deleteIsLoading: state.deleteFilm.isLoading,
-//     deleteIsError: state.deleteFilm.isError
-// })
-
 const mapDipatchStateToProps = dispatch => ({
     toggleDeleteFilmFunc: (id) => {dispatch(deleteMovie(id))}
 })
@@ -87,7 +81,7 @@ const FilmCard = (props) => {
             {modalShown && <Modal 
                 title='EDIT MOVIE' closeModal={toggleModal}
                 innerComp={<EditMovieForm
-                    onSubmit={e=>e.preventDefault()}
+                    onSubmit={toggleModal}
                     filmName={props.name}
                     filmId={props.id}
                     filmYear={props.year}
@@ -95,6 +89,7 @@ const FilmCard = (props) => {
                     filmPicturePath={props.pictureURL}
                     filmOverview={props.overview}
                     filmRuntime={props.runtime}
+                    _film={props._film}
                 />}
             />}
             </>

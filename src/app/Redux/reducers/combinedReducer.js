@@ -5,6 +5,7 @@ import { filmsReducer } from './filmsReducer';
 import { filmBodyReducer } from './filmBodyReducer';
 import { postFilmReducer } from './postFilmReducer';
 import { deleteFilmReducer } from './deleteFilmReducer';
+import { editFilmReducer } from './editFilmReducer';
 
 
 export const rootReducer = combineReducers({
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
     apiState: loadingReducer,
     filmBody: filmBodyReducer,
     postFilm: postFilmReducer,
-    deleteFilm: deleteFilmReducer
+    deleteFilm: deleteFilmReducer,
+    editFilm: editFilmReducer
 });

@@ -125,7 +125,7 @@ const AddMovieForm = (props) => {
             <label>RELEASE DATE</label><br />
             <input name='release_date' type='text' placeholder='Select date' /><br />
             <label>MOVIE POSTER URL</label><br />
-            <input name='poster_path' type='text' placeholder='Movie URL here' /><br />
+            <input name='poster_path' type='text' placeholder='Poster URL here' /><br />
             <label>GENRE</label><br />
             <div className='custom-select'>
                 <Button onClick={toggleDropdown} className='genres-select-button' caption='Select genres' />
