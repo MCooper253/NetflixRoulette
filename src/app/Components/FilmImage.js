@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import ReactImageFallback from "react-image-fallback";
 
 import { showFilmBody } from '../Redux/actions.js';
+import placeholder from '../Images/film-poster-placeholder.png'
 
 const mapDispatchStateToProps = dispatch => ({
     showFilmBodyFunc: (film) => {dispatch(showFilmBody(film));}
@@ -18,7 +20,7 @@ const FilmImage = (props) => {
     };
 
     return (
-        <img src={ props.img } onClick={ handleOnClick } title={props.filmTitle} className='filcard-image' />
+        <ReactImageFallback src={ props.img } fallbackImage={ placeholder } onClick={ handleOnClick } title={props.filmTitle} className='filcard-image' />
     )
 };
 

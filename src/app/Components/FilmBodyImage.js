@@ -1,13 +1,13 @@
 import React from "react";
+import ReactImageFallback from "react-image-fallback";
 
-import PointBreakImg from '../Images/Point Break.png'
-import PulpFictionImg from '../Images/Pulp Fiction.png'
+import placeholder from '../Images/film-poster-placeholder.png';
 
 //Logo is as simple as you may imagine. A re-usable compononet.
 const FilmBodyImage = (props) => {
 
     return (
-        <img src={props.filmImage} />
+        <ReactImageFallback src={ props.filmImage } fallbackImage={ placeholder } />
     );
 };
 
