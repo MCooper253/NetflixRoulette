@@ -6,8 +6,10 @@ const FilmInfo = (props) => {
 
     return(
         <div className='filmInfo'>
-            <h4>{props.name}</h4>
-            <button>{props.year}</button>
+            <div className='row'>
+                <h4>{props.name}</h4>
+                <button>{props.year}</button>
+            </div>
             <p>{props.description}</p>
         </div>
     )

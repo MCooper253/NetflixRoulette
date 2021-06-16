@@ -7,7 +7,7 @@ main {
     font-weight: 400;
     color: $white;
     background-color: $black;
-    padding: 0 0 4rem 0;
+    padding: 0 0 6rem 0;
     margin: 0 5rem;
     justify-content: center;
     display: flex;
@@ -16,6 +16,32 @@ main {
     .content {
         width: 100%;
         max-width: 1800px;
+
+        #load_more_container {
+            display: flex;
+            justify-content: center;
+        }
+
+        #load_more {
+            margin-right: 2rem;
+            width: 10rem;
+            border: solid #F65261;
+            border-width: thin;
+            background: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 0.2rem;
+            padding: 16px;
+            color: white;
+            font-family: 'Montserrat';
+            font-size: 16px;
+            font-weight: 400;
+            margin: auto;
+
+            &:hover {
+                background-color: #F65261;
+            }
+        }
     }
 
     p {
@@ -129,14 +155,15 @@ main {
         margin: 0 auto;
     }
 
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .filmInfo {
-        position: relative;
         color: #cecece;
         button {
-            position: absolute;
             color: #cecece;
-            top: 0px;
-            right: 0px;
             background-color: rgb(0,10,0,0);
             border: solid $grey;
             border-width: 0.13rem;
@@ -144,7 +171,9 @@ main {
             padding: 0.1rem 0.8rem;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
-            cursor: pointer;
+            white-space: nowrap;
+            height: fit-content;
+            margin: auto 0;
         }
 
         button:focus {
@@ -154,6 +183,7 @@ main {
         h4 {
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
+            margin-right: 0.5rem;
             font-weight: 400;
         }
 

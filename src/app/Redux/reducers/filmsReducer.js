@@ -8,8 +8,8 @@ const initialState = {
 export const filmsReducer = function(state = initialState, action) {
     switch (action.type) {
       case ADD_MOVIE: {
-        const movieToAdd = action.payload;
-        const currentFilms = [];
+        const movieToAdd = action.payload.movies;
+        const currentFilms = action.payload.isPagnation === 0 ? [] : state.filmsArray;
         return {
           ...state,
           filmsArray: currentFilms.concat(movieToAdd)

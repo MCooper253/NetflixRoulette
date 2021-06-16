@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { getMovies } from '../../Redux/thunk.js'
 import FilmCard from './FilmCard.js'
@@ -30,7 +31,7 @@ const mapStateToProps = (state) => ({
 
 
 const mapDipatchStateToProps = dispatch => ({
-    getMoviesFunc: (displayGenre, sortCatagory) => {dispatch(getMovies(displayGenre, sortCatagory));},
+    getMoviesFunc: (displayGenre, sortCatagory, offset) => {dispatch(getMovies(displayGenre, sortCatagory, offset));},
 
     toggleDeleteFilmModalFunc: () => {dispatch(toggleDeleteSuccessFilmModal());},
     toggleDeleteIsErrorModalFunc: () => {dispatch(toggleDeleteFilmIsError());},
@@ -67,6 +68,10 @@ const FilmList = (props) => {
         props.getMoviesFunc(props.displayGenre, props.sortCatagory);
     }
 
+    const handleLoadMore = () => {
+        props.getMoviesFunc(props.displayGenre, props.sortCatagory, props.films.length);
+    }
+
     //creates an array of JSX components for rendering
     const renderingArray = props.films.map(input => {
         const idCount=input.id
@@ -89,7 +94,7 @@ const FilmList = (props) => {
 
     return (
         <>
-            { !props.isLoading && !props.isError ? <section className='filmList'> { renderingArray } </section> : null }
+            { !props.isLoading && !props.isError ? <> <section className='filmList'> { renderingArray } </section>  <div id='load_more_container' ><button id='load_more' onClick={handleLoadMore}>Load More</button></div> </> : null }
             { props.isLoading ? <h2>LOADING</h2> : null }
             { props.isError && !props.isLoading ? <h2>AN ERROR OCCURED</h2> : null }
 

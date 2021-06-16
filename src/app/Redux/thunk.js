@@ -19,15 +19,15 @@ import {
     toggleEditFilmIsError
 } from './actions';
 
-export const getMovies = (genre, sortCatagory) => {
+export const getMovies = (genre, sortCatagory, pagnation = 0) => {
     return (dispatch) => {
         dispatch(toggle_isLoading());
         dispatch(setIsErrorFalse());
 
         let apiURL
         genre === 'all' ?
-        apiURL = `http://localhost:4000/movies?sortOrder=desc&sortBy=${sortCatagory}` :
-        apiURL = `http://localhost:4000/movies?filter=${genre}&sortOrder=desc&sortBy=${sortCatagory}`;
+        apiURL = `http://localhost:4000/movies?sortOrder=desc&sortBy=${sortCatagory}&offset=${pagnation}` :
+        apiURL = `http://localhost:4000/movies?filter=${genre}&sortOrder=desc&sortBy=${sortCatagory}&offset=${pagnation}`;
         console.dir('GETMOVIESHASRUN');
         axios.get(apiURL)
         .then(res => {
@@ -35,8 +35,11 @@ export const getMovies = (genre, sortCatagory) => {
             dispatch(setNumberOfFilms(res.data.totalAmount));
             return res.data.data;
         })
-        .then(film => {
-            dispatch(addMovie(film));
+        .then(films => {
+            dispatch(addMovie({
+                movies: films,
+                isPagnation: pagnation
+            }));
         })
         .catch(() => {
             dispatch(setIsErrorTrue());
