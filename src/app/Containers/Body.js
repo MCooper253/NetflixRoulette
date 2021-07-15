@@ -10,7 +10,7 @@ import MovieCounter from '../Components/MoiveCounter.js'
 const Body = (props) => {
 
     const [genreToRender, setGenreToRender] = useState('all');
-    const [sortBy, setSortBy] = useState(null);
+    const [sortBy, setSortBy] = useState('release_date');
 
      const setDisplayGenre = (e) => {
         const genre = e.target.attributes[0].nodeValue;
