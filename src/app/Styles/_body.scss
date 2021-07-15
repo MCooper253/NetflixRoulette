@@ -7,7 +7,42 @@ main {
     font-weight: 400;
     color: $white;
     background-color: $black;
-    padding: 0 5rem 4rem 5rem;
+    padding: 0 0 6rem 0;
+    margin: 0 5rem;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+
+    .content {
+        width: 100%;
+        max-width: 1800px;
+
+        #load_more_container {
+            display: flex;
+            justify-content: center;
+        }
+
+        #load_more {
+            margin-right: 2rem;
+            width: 10rem;
+            border: solid #F65261;
+            border-width: thin;
+            background: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 0.2rem;
+            padding: 16px;
+            color: white;
+            font-family: 'Montserrat';
+            font-size: 16px;
+            font-weight: 400;
+            margin: auto;
+
+            &:hover {
+                background-color: #F65261;
+            }
+        }
+    }
 
     p {
         margin: 1.5rem 0;
@@ -16,12 +51,18 @@ main {
         }
     }
 
+    h2 {
+        font-weight: 200;
+        font-size: 2rem;
+        text-align: center;
+    }
+
     .navBarWrapper {
 
         border-bottom: solid $grey;
         border-width: 3.5px;
         box-shadow: 0px 1px black;
-        height: 49.873px;
+        height: fit-content;
 
         ul {
             list-style-type: none;
@@ -67,9 +108,10 @@ main {
             li {
                 border-bottom: solid $grey;
                 border-width: 3.5px;
-                padding: 1rem 0rem;
+                padding: 1rem;
                 margin: 0 1rem;
-                float: left;
+                display: inline-block;
+                margin-bottom: -3.5px;
             }
 
             .active {
@@ -93,28 +135,35 @@ main {
     }
     
     img {
-        height: 26rem
+        height: 26rem;
+        max-width: 280px
     }
 
     .filmList {
         justify-content: space-between;
         display: grid;
         grid-template-columns: repeat(auto-fit, 18.5rem);
+
+        h2 {
+            margin: auto;
+        }
     }
 
     .filmCard {
         width: min-content;
         cursor: pointer;
+        margin: 0 auto;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
     }
 
     .filmInfo {
-        position: relative;
         color: #cecece;
         button {
-            position: absolute;
             color: #cecece;
-            top: 0px;
-            right: 0px;
             background-color: rgb(0,10,0,0);
             border: solid $grey;
             border-width: 0.13rem;
@@ -122,7 +171,9 @@ main {
             padding: 0.1rem 0.8rem;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
-            cursor: pointer;
+            white-space: nowrap;
+            height: fit-content;
+            margin: auto 0;
         }
 
         button:focus {
@@ -132,6 +183,7 @@ main {
         h4 {
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
+            margin-right: 0.5rem;
             font-weight: 400;
         }
 

@@ -10,12 +10,18 @@ header {
     background-size: 100%;
     font-family: 'Montserrat', sans-serif;
 
+    .header-contents {
+        max-width: 1800px;
+        margin: auto;
+    }
+
     nav {
 
         img {
             float: right;
             display: block;
             height: 2rem;
+            cursor: pointer;
         }
         button {
             font-family: 'Montserrat', sans-serif;
@@ -109,7 +115,7 @@ header {
             font-weight: 200;
             margin: 0.8rem 0;
             span {
-                margin-left: 3rem
+                margin-left: 3rem;
             }
         }
 
@@ -123,7 +129,7 @@ header {
             width: 4rem;
             height: 4rem;
             margin-left: 2.5rem;
-
+            min-width: 64px;
             display:inline-flex;
             justify-content: center;
             align-items: center;

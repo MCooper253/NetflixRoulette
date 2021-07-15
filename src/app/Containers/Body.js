@@ -10,7 +10,7 @@ import MovieCounter from '../Components/MoiveCounter.js'
 const Body = (props) => {
 
     const [genreToRender, setGenreToRender] = useState('all');
-    const [sortBy, setSortBy] = useState(null);
+    const [sortBy, setSortBy] = useState('release_date');
 
      const setDisplayGenre = (e) => {
         const genre = e.target.attributes[0].nodeValue;
@@ -41,9 +41,11 @@ const Body = (props) => {
 
     return (
         <main id='main'>
-            <NavBar setDisplayGenre={setDisplayGenre} selectedGenre={genreToRender} handleOnSelect={handleOnSelect}/>
-            <MovieCounter counter={numberOfGenre} selectedGenre={genreToRender} />
-            <FilmList films={props.films} displayGenre={genreToRender} toggleShowFilmBody={props.toggleShowFilmBody} sortCatagory={sortBy}/>
+            <div className='content'>
+                <NavBar setDisplayGenre={setDisplayGenre} selectedGenre={genreToRender} handleOnSelect={handleOnSelect}/>
+                <MovieCounter counter={numberOfGenre} selectedGenre={genreToRender} />
+                <FilmList films={props.films} displayGenre={genreToRender} toggleShowFilmBody={props.toggleShowFilmBody} sortCatagory={sortBy}/>
+            </div>
         </main>
     )
 }

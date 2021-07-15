@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Button from '../Components/Button.js';
 
+import Button from '../Components/Button.js';
 import ModalDropdown from '../Components/ModalDropdown.js';
+import { editMovie } from '../Redux/thunk.js';
+
+const mapDipatchStateToProps = dispatch => ({
+    editMovieFunc: (film) => {dispatch(editMovie(film));}
+})
 
 const EditMovieForm = (props) => {
 
@@ -82,16 +88,36 @@ const EditMovieForm = (props) => {
         updateDisplayedGenres(selectedGenres);
     })
 
+    const handleFormSubmission = e => {
+
+        e.preventDefault()
+
+        const formEntires = props._film;
+        document.querySelectorAll('form#edit_movie_form input[name]').forEach(input => {
+            formEntires[input.name] = input.value
+        })
+        formEntires.genres = selectedGenres.map(input => {
+            return input.charAt(0).toUpperCase() + input.slice(1);
+        })
+        formEntires.runtime = parseInt(formEntires.runtime, 10)
+        Object.keys(formEntires).forEach(input => {
+            if (formEntires[input] === "") {formEntires[input] = 'default' }
+        })
+        props.editMovieFunc(formEntires);
+
+        props.onSubmit()
+    }
+
     return (
-        <form onSubmit={props.onSubmit}>
+        <form onSubmit={handleFormSubmission} id='edit_movie_form'>
             <label>MOVIE ID</label><br />
             <p>{props.filmId}</p><br />
             <label>TITLE</label><br />
-            <input type='text' placeholder='Title' defaultValue={props.filmName}/><br />
+            <input type='text' placeholder='Title' name='title' defaultValue={props.filmName}/><br />
             <label>RELEASE DATE</label><br />
-            <input type='text' placeholder='Select date' defaultValue={props.filmYear}/><br />
-            <label>MOVIR URL</label><br />
-            <input type='text' placeholder='Movie URL here' defaultValue={props.filmPicturePath} /><br />
+            <input type='text' placeholder='Select date' name='release_date' defaultValue={props.filmYear}/><br />
+            <label>MOVIE POSTER URL</label><br />
+            <input type='text' placeholder='Poster URL here' name='poster_path' defaultValue={props.filmPicturePath} /><br />
             <label>GENRE</label><br />
             <div className='custom-select'>
                 <Button onClick={toggleDropdown} className='genres-select-button' caption='Select genres' />
@@ -104,9 +130,9 @@ const EditMovieForm = (props) => {
                 />}
             </div>
             <label>OVERVIEW</label><br />
-            <input type='text' placeholder='Overview here' defaultValue={props.filmOverview}/><br />
+            <input type='text' placeholder='Overview here' name='overview' defaultValue={props.filmOverview}/><br />
             <label>RUNTIME</label><br />
-            <input type='text' placeholder='Runtime here' defaultValue={props.filmRuntime}/><br />
+            <input type='text' placeholder='Runtime here' name='runtime' defaultValue={props.filmRuntime}/><br />
             <input type='submit' value='CONFIRM' /> 
             <input type='button' value='RESET' />
         </form>
@@ -114,14 +140,14 @@ const EditMovieForm = (props) => {
 }
 
 EditMovieForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-    filmId: PropTypes.string.isRequired,
-    filmName: PropTypes.string.isRequired,
-    filmYear: PropTypes.string.isRequired,
-    filmGenres: PropTypes.array.isRequired,
-    filmPicturePath: PropTypes.string.isRequired,
-    filmOverview: PropTypes.string.isRequired,
-    filmRuntime: PropTypes.string.isRequired
+    onSubmit: PropTypes.func,
+    filmId: PropTypes.number.isRequired,
+    filmName: PropTypes.string,
+    filmYear: PropTypes.string,
+    filmGenres: PropTypes.array,
+    filmPicturePath: PropTypes.string,
+    filmOverview: PropTypes.string,
+    filmRuntime: PropTypes.string
 }
 
-export default EditMovieForm;
+export default connect(null, mapDipatchStateToProps)(EditMovieForm);

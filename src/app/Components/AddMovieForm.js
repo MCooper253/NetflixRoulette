@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Components/Button.js'
+import { connect } from 'react-redux'
 
+import { postMovie } from '../Redux/thunk.js'
+import Button from '../Components/Button.js'
 import ModalDropdown from '../Components/ModalDropdown.js'
 
-const AddMovieForm = (props) => {
-    // constructor(props) {
-    //     super(props)
+const mapDipatchStateToProps = dispatch => ({
+    postMovieFunc: ({ title, release_date, poster_path, genres, overview, runtime }) => {
+        const filmToPost = {
+            "title": title,
+            "tagline": "Here's to the fools who dream too.",
+            "vote_average": 7.9,
+            "vote_count": 6782,
+            "release_date": release_date,
+            "poster_path": poster_path,
+            "overview": overview,
+            "budget": 30000000,
+            "revenue": 445435700,
+            "runtime": parseInt(runtime, 10),
+            "genres": genres
+            };
+        dispatch(postMovie(filmToPost));
+        }
+})
 
-    //     this.toggleDropdown = this.toggleDropdown.bind(this);
-    //     this.toggleGenreState = this.toggleGenreState.bind(this);
-    //     this.updateDisplayedGenres = this.updateDisplayedGenres.bind(this);
-    // }
+const AddMovieForm = (props) => {
 
     const [selectOptionsShown, setSelectOptionsShown] = useState(false);
     const [selectedGenres, setSelectedGenres] = useState([]);
@@ -88,15 +102,30 @@ const AddMovieForm = (props) => {
         updateDisplayedGenres(selectedGenres);
     })
 
+    const handleFormSubmission = e => {
+
+        e.preventDefault();
+
+        const formEntires = {};
+        document.querySelectorAll('form#post_movie_form input').forEach(input => {
+            formEntires[input.name] = input.value
+        })
+        formEntires.genres = selectedGenres.map(input => {
+            return input.charAt(0).toUpperCase() + input.slice(1);
+        })
+        props.onSubmit();
+        props.postMovieFunc(formEntires);
+    }
+
 
     return (
-        <form onSubmit={props.onSubmit}>
+        <form id="post_movie_form" onSubmit={handleFormSubmission}>
             <label>TITLE</label><br />
-            <input type='text' placeholder='Film title here' /><br />
+            <input name='title' type='text' placeholder='Film title here' /><br />
             <label>RELEASE DATE</label><br />
-            <input type='text' placeholder='Select date' /><br />
-            <label>MOVIR URL</label><br />
-            <input type='text' placeholder='Movie URL here' /><br />
+            <input name='release_date' type='text' placeholder='Select date' /><br />
+            <label>MOVIE POSTER URL</label><br />
+            <input name='poster_path' type='text' placeholder='Poster URL here' /><br />
             <label>GENRE</label><br />
             <div className='custom-select'>
                 <Button onClick={toggleDropdown} className='genres-select-button' caption='Select genres' />
@@ -109,11 +138,11 @@ const AddMovieForm = (props) => {
                 />}
             </div>
             <label>OVERVIEW</label><br />
-            <input type='text' placeholder='Overview here' /><br />
+            <input name='overview' type='text' placeholder='Overview here' /><br />
             <label>RUNTIME</label><br />
-            <input type='text' placeholder='Runtime here' /><br />
-            <input type='submit' value='CONFIRM' /> 
-            <input type='button' value='RESET' />
+            <input name='runtime' type='text' placeholder='Runtime here' /><br />
+            <input name='submit' type='submit' value='CONFIRM' /> 
+            <input name='reset' type='button' value='RESET' />
         </form>
     )
 }
@@ -122,4 +151,4 @@ AddMovieForm.propTypes = {
     onSubmit: PropTypes.func.isRequired
 }
 
-export default AddMovieForm;
+export default connect(null, mapDipatchStateToProps)(AddMovieForm);
