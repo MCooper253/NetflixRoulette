@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ModalContainer from './AddMovieModalContainer.js'
-import Logo from '../../Components/Logo.js';
+import Logo from '../../Components/Logo/index';
 import Search from '../../Images/search.png';
 import { closeFilmBody } from '../../Redux/actions.js'
 

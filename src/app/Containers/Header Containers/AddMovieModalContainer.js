@@ -1,26 +1,10 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux'
 
-import Button from '../../Components/Button.js';
+import Button from '../../Components/Button/index.js';
 import Modal from '../Modal.js';
 import AddMovieForm from '../../Components/AddMovieForm.js'
-import CongratsMessage from '../../Components/CongratsMessage.js'
-import LoadingSpinner from '../../Components/LoadingSpinner.js'
-import PostFilmErrorModalBody from '../../Components/PostFilmErrorModalBody.js' 
-import { togglePostFilmModal, togglePostFilmIsError } from '../../Redux/actions.js'
 
-const mapStateToProps = (state) => ({
-        // showPostSuccessModal: state.postFilm.showSuccessModal,
-        // postSuccessIsLoading: state.postFilm.isLoading,
-        // postSuccessIsError: state.postFilm.isError
-    });
-
-const mapDispatchStateToProps = dispatch => ({
-    // closePostSuccessModal: () => {dispatch(togglePostFilmModal())},
-    // closePostErrorModal: () => {dispatch(togglePostFilmIsError())}
-});
-
-const AddMovieModalContainer = (props) => {
+const AddMovieModalContainer = () => {
 
     const [displayAddFilmModal, setDisplayAddFilmModal] = useState(false);
 
@@ -34,18 +18,18 @@ const AddMovieModalContainer = (props) => {
 
     return (
         <>
-        <Button caption='+ ADD MOVIE' onClick={showAddFilmModal} />
-        {displayAddFilmModal ? (
-            <Modal
-                closeModal={closeAddFilmModal}
-                title='ADD MOVIE'
-                innerComp={<AddMovieForm
-                    onSubmit={closeAddFilmModal}
-                />}
-            />
-        ) : null}
+            <Button caption='+ ADD MOVIE' onClick={showAddFilmModal} />
+            {displayAddFilmModal ? (
+                <Modal
+                    closeModal={closeAddFilmModal}
+                    title='ADD MOVIE'
+                    innerComp={<AddMovieForm
+                        onSubmit={closeAddFilmModal}
+                    />}
+                />
+            ) : null}
         </>
     )
 };
 
-export default connect(mapStateToProps, mapDispatchStateToProps)(AddMovieModalContainer);
+export default AddMovieModalContainer;

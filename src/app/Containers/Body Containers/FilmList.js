@@ -94,7 +94,16 @@ const FilmList = (props) => {
 
     return (
         <>
-            { !props.isLoading && !props.isError ? <> <section className='filmList'> { renderingArray } </section>  <div id='load_more_container' ><button id='load_more' onClick={handleLoadMore}>Load More</button></div> </> : null }
+            { !props.isLoading && !props.isError ? 
+                <>
+                    <section className='filmList'> { renderingArray } </section> 
+                    <div id='load_more_container'>
+                        <button id='load_more' onClick={handleLoadMore}>Load More</button>
+                    </div>
+                </>
+                : null
+            }
+
             { props.isLoading ? <h2>LOADING</h2> : null }
             { props.isError && !props.isLoading ? <h2>AN ERROR OCCURED</h2> : null }
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import FilmInfo from '../../Components/FilmInfo.js';
-import Button from '../../Components/Button.js';
+import Button from '../../Components/Button/index.js';
 import FilmImage from '../../Components/FilmImage.js';
 import EditDelete from '../../Components/EditDelete.js';
 import Modal from '../Modal.js';

@@ -84,10 +84,15 @@ main {
                 -webkit-appearance: none;
                 appearance: none;
                 background-color:rgba(0,0,0,0);
-                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%238C98F2'><polygon points='0,0 100,0 50,50'/></svg>");
+                background-image: url('../Images/sort-arrow.png');
                 background-repeat: no-repeat;
-                background-position: right 0.7rem top 0.35rem, 0 0;
-                background-size: 0.65rem auto;
+                background-position: right 0.5rem top 0rem, 0 0;
+                background-size: 0.9rem auto;
+            }
+
+            option {
+                color: black;
+                background-color: #5454540a;
             }
     
             select:focus {
@@ -103,6 +108,7 @@ main {
                 border-color: $grey;
                 border-bottom: none;
                 float: right;
+                cursor: default;
             }
     
             li {
