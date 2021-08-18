@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Button from '../Components/Button.js';
-import ModalDropdown from '../Components/ModalDropdown.js';
+import Button from './Button/index.js';
+import ModalDropdown from '../Components/ModalDropdown/ModalDropdown';
 import { editMovie } from '../Redux/thunk.js';
 
 const mapDipatchStateToProps = dispatch => ({
@@ -19,9 +19,18 @@ const EditMovieForm = (props) => {
     const[crimeSelected, setCrimeSelected] = useState(props.filmGenres.includes('crimer') ? true : false);
     const[documentarySelected, setDocumentarySelected] = useState(props.filmGenres.includes('documentary') ? true : false);
     
-    const toggleDropdown = () => {
-        setSelectOptionsShown(!selectOptionsShown);
+    const toggleDropdown = (e) => {
+        e.preventDefault()
+        setSelectOptionsShown(true);
+    }
 
+    const handleReset = () => {
+        document.getElementById('edit_movie_form')[0].value = null;
+        document.getElementById('edit_movie_form')[1].value = null;
+        document.getElementById('edit_movie_form')[2].value = null;
+        document.getElementById('edit_movie_form')[4].value = null;
+        document.getElementById('edit_movie_form')[5].value = null;
+        setSelectOptionsShown(false);
     }
 
     const toggleGenreState = (e) => {
@@ -74,7 +83,7 @@ const EditMovieForm = (props) => {
             genreList.forEach(element => {
                 let genre = element.split('');
                 genre[0] = genre[0].toUpperCase();
-                arrayToDisplay.push(genre.join(''))
+                arrayToDisplay.push(genre.join(''));
             })
 
             document.getElementsByClassName('genres-select-button')[0].innerHTML = arrayToDisplay.join(', ');
@@ -121,20 +130,14 @@ const EditMovieForm = (props) => {
             <label>GENRE</label><br />
             <div className='custom-select'>
                 <Button onClick={toggleDropdown} className='genres-select-button' caption='Select genres' />
-                {selectOptionsShown && <ModalDropdown
-                    toggleGenreState={toggleGenreState}
-                    horrorState={horrorSelected}
-                    crimeState={crimeSelected}
-                    actionState={actionSelected}
-                    documentaryState={documentarySelected}
-                />}
+                {selectOptionsShown && <p className='form_error'>Cannot edit genres once movie item is created.</p>}
             </div>
             <label>OVERVIEW</label><br />
             <input type='text' placeholder='Overview here' name='overview' defaultValue={props.filmOverview}/><br />
             <label>RUNTIME</label><br />
             <input type='text' placeholder='Runtime here' name='runtime' defaultValue={props.filmRuntime}/><br />
             <input type='submit' value='CONFIRM' /> 
-            <input type='button' value='RESET' />
+            <input type='button' onClick={handleReset} value='RESET' />
         </form>
     )
 }
