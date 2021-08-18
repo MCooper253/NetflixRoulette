@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import Button from '../../Components/Button.js';
+import Button from '../../Components/Button/index.js';
 import TextInput from '../../Components/TextInput.js'
 import { getMovies } from '../../Redux/thunk.js'
 

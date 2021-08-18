@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import FocusTrap from '../../../node_modules/focus-trap-react/dist/focus-trap-react.js';
 import PropTypes from 'prop-types';
 
-import Button from '../Components/Button.js';
+import Button from '../Components/Button/index.js';
 import Close from '../Images/close.png';
-import Logo from '../Components/Logo.js';
+import Logo from '../Components/Logo/index.js';
 import Footer from '../Containers/Footer.js'
 
 const Modal = (props) => {
@@ -26,7 +26,7 @@ const Modal = (props) => {
         <div id='modal-container'>
             <Logo />
             <FocusTrap>
-                <aside className='modal'>
+                <aside className='modal' >
                     <Button
                         onClick={props.closeModal}
                         image={Close}
@@ -40,10 +40,6 @@ const Modal = (props) => {
         document.body
     );
 };
-
-// Modal.defaultProps = {
-//     innerComp: <p>The is movie has been deleted successfully.</p>
-// }
 
 Modal.propTypes = {
     closeModal: PropTypes.func,

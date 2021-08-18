@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 
 import { postMovie } from '../Redux/thunk.js'
-import Button from '../Components/Button.js'
-import ModalDropdown from '../Components/ModalDropdown.js'
+import Button from './Button/index.js'
+import ModalDropdown from './ModalDropDown/ModalDropdown.js'
 
 const mapDipatchStateToProps = dispatch => ({
     postMovieFunc: ({ title, release_date, poster_path, genres, overview, runtime }) => {
@@ -41,7 +41,7 @@ const AddMovieForm = (props) => {
 
     const toggleGenreState = (e) => {
         const genre = e.target.title;
-        const checkboxBackground = document.querySelectorAll(`li[title="${genre}"] img`)[0]; //selects the chekbox image
+        //const checkboxBackground = document.querySelectorAll(`li[title="${genre}"] img`)[0]; //selects the chekbox image
 
         //toggles the genre in the input feild in the UI.
         switch (genre) {

@@ -28,7 +28,6 @@ export const getMovies = (genre, sortCatagory, pagnation = 0) => {
         genre === 'all' ?
         apiURL = `http://localhost:4000/movies?sortOrder=desc&sortBy=${sortCatagory}&offset=${pagnation}` :
         apiURL = `http://localhost:4000/movies?filter=${genre}&sortOrder=desc&sortBy=${sortCatagory}&offset=${pagnation}`;
-        console.dir('GETMOVIESHASRUN');
         axios.get(apiURL)
         .then(res => {
             dispatch(toggle_isLoading());
@@ -68,11 +67,10 @@ export const postMovie = (body) => {
 }
 
 export const deleteMovie = (id) => {
-    console.log('deleteMovie thunk has run')
+    
     return (dispatch) => {
 
         const apiURL = `http://localhost:4000/movies/${id}`;
-        console.log(apiURL);
 
         dispatch(deleteFilmIsLoadingSetTrue())
 
@@ -80,12 +78,10 @@ export const deleteMovie = (id) => {
         .then(res => {
             dispatch(deleteFilmIsLoadingSetFalse());
             dispatch(toggleDeleteSuccessFilmModal());
-            console.log('delete then block run');
         })
         .catch(res => {
             dispatch(deleteFilmIsLoadingSetFalse());
             dispatch(toggleDeleteFilmIsError());
-            console.log('delete catch block run');
         })
     }
 }
